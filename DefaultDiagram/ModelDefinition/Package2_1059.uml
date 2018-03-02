@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="e86c7611-8cd8-44db-9072-e6614b1f0f8d"
+  name="Admin"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="36f57401-e96a-4b76-b905-1230caba50a4"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DHePa.Web.Areas.Admin"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="d1e99f9c-f1e3-4f8c-8201-b84442955cf2"
+        LastKnownName="Controllers"
+        LastKnownLocation="Package3_1059.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a3e75556-5e96-4c69-8025-93c0ec828d2b"
+        name="AdminAreaRegistration"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="f8bbe32f-fe25-47a4-a6af-af2222ebc978"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Web%2Fbin%2FHePa.Web.dll Namespace%3DHePa.Web.Areas.Admin Type%3DAdminAreaRegistration"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="efce7072-377f-48b5-b316-54ca2edb35dd"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c32f3365-80ba-4f74-9e00-4423c47cfafb">
+                <propertyInstance
+                  Id="b75a6008-b9af-4333-89de-00ca633d2650"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="86a68990-956a-42a7-a7c6-ea343876379c">
+                <propertyInstance
+                  Id="6b0a48a4-5480-40a4-a073-d246761b4c31"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="601ef9f3-ba37-4337-92f7-035d84a2595d">
+                <propertyInstance
+                  Id="87ef4f4e-accc-4778-a427-10a845fbf9bd"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3183cc2d-46c4-4674-9203-14edaea53b53">
+                <propertyInstance
+                  Id="6f95047b-48e0-478f-9d25-363c38f785a7"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="33ec8a9a-ff69-47d3-b9ce-85b1080fb0a4">
+                <propertyInstance
+                  Id="67f6f84d-5209-412d-8b6e-b9e4108cb2f2"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="32722faa-20c1-44ca-960c-7531f96e449f"
+            isSubstitutable="false">
+            <classMoniker
+              Id="4d78bf36-e35b-4916-a0cc-275c0dd26da9"
+              LastKnownName="AreaRegistration"
+              LastKnownLocation="Package7_1059.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="2d151c79-99e5-4bc5-bec3-22e2c76f3a35"
+            name="AreaName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="f74cf6e6-0bc8-4ecf-8be8-e5d01e5bc4b6"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Web%2Fbin%2FHePa.Web.dll Namespace%3DHePa.Web.Areas.Admin Type%3DAdminAreaRegistration Member%3DAreaName"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b1b85d47-023d-46be-a0c1-ec9d5cf9c33d"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4098460d-2673-4621-8af5-e0f6b2f74a7d">
+                    <propertyInstance
+                      Id="38f3a44c-b7cd-47f9-871b-62115ffc9fc1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66ec6b0f-9eb4-49de-99a0-40996e046dd7">
+                    <propertyInstance
+                      Id="032f516d-b9c5-46ac-a288-82a94a27af60"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="78ae4ef2-1751-4bd7-a2f9-8bf99370a8ba">
+                    <propertyInstance
+                      Id="95ffbf45-a34c-4146-911c-7181571457dc"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2f80611c-d8f2-4ccc-b1d3-8a542cd32208">
+                    <propertyInstance
+                      Id="92f7e61b-c833-41c8-9349-8295684a432a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fd7f99a2-5ae6-46de-baa1-7e08baebd7a3">
+                    <propertyInstance
+                      Id="6bbf5e9a-0a1d-4df8-8133-30a5b1e44637"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dd861bcd-5087-4d43-8b13-06225c0e936b">
+                    <propertyInstance
+                      Id="4c498b76-53a6-4cb0-8a37-384c91773782"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5259d6ea-a0cc-42dc-9ba6-8dd20eb9d2b9">
+                    <propertyInstance
+                      Id="d9f4698c-58fb-4336-8086-1a8eababc3c4"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="DefaultDiagram.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="d2bb3c69-4d7e-4adb-b788-6e8b3b06f73b"
+            name="RegisterArea"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="d2459a8a-0f4c-420c-9303-e3bf0d5673ce"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Web%2Fbin%2FHePa.Web.dll Namespace%3DHePa.Web.Areas.Admin Type%3DAdminAreaRegistration Member%3D(Name%3DRegisterArea OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2Fpackages%2FMicrosoft.AspNet.Mvc.5.2.2%2Flib%2Fnet45%2FSystem.Web.Mvc.dll Namespace%3DSystem.Web.Mvc Type%3DAreaRegistrationContext)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="fc50ee87-ead9-4fcd-bbe6-f16f10f1500e"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="51f2b02b-84fc-4499-aea4-7c3681edfe9c">
+                    <propertyInstance
+                      Id="9681b351-3208-442f-a4bd-de93714b480c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c6b89dc9-38ad-4489-9c20-ad0c2dd3bcd8">
+                    <propertyInstance
+                      Id="8a7c8d60-1baf-456c-8be5-db272073f368"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="76d45efd-fa2b-4a6e-bb9b-30ea48bab27d">
+                    <propertyInstance
+                      Id="9c8c26f6-65ff-47cb-badc-ae1c08c4c7bb"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="43fce49e-c5d3-4469-b66c-1b5a6c454548">
+                    <propertyInstance
+                      Id="8bb47525-b348-44a9-ae3a-34d638f4e1c5"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d50cebc6-3123-41ac-a3af-195a32c8915c">
+                    <propertyInstance
+                      Id="c026d9fd-7f83-4ea4-9e33-e74ad054ceb8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="474e1954-0dcf-49e5-9b29-b2bba4a0e786">
+                    <propertyInstance
+                      Id="b3c998aa-cb19-427a-9f4a-5bb9e3385877"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="87f04793-8fd9-4ed6-b18d-f8e5385c48dd"
+                  name="context"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="331b31ab-372c-4857-9327-5b0b3864fb56"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Web%2Fbin%2FHePa.Web.dll Namespace%3DHePa.Web.Areas.Admin Type%3DAdminAreaRegistration Member%3D(Name%3DRegisterArea OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2Fpackages%2FMicrosoft.AspNet.Mvc.5.2.2%2Flib%2Fnet45%2FSystem.Web.Mvc.dll Namespace%3DSystem.Web.Mvc Type%3DAreaRegistrationContext)]) ParameterIdentifier%3Dcontext"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="381fce8a-e691-47a3-9349-1f9fcb4b48f6"
+                      LastKnownName="AreaRegistrationContext"
+                      LastKnownLocation="Package7_1059.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="393a04bb-312f-42fa-a6f9-68c73b0f1eb3"
+            name="AdminAreaRegistration"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e55c4ecb-5799-480e-8f3b-60530da6ad05"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Web%2Fbin%2FHePa.Web.dll Namespace%3DHePa.Web.Areas.Admin Type%3DAdminAreaRegistration Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2c8e2314-06f3-4422-8fb5-1ffdd7519170"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="62240d6e-ee6c-4e70-bf69-d12130322dfc">
+                    <propertyInstance
+                      Id="0ecbdb32-ed4c-4476-a184-53a205918994"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="74d439ed-ed51-4d8b-aced-3b2c26af9017">
+                    <propertyInstance
+                      Id="2d02df63-34dc-463e-95cb-805bcfb1771a"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f669f041-dce2-40de-b261-9ced6fa12055">
+                    <propertyInstance
+                      Id="fcdbf3f3-aa6a-4fbe-aa9a-5ea333055c60"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9ecea6fa-4c5c-4f55-ad65-1534119c7bf3">
+                    <propertyInstance
+                      Id="8c1d818a-e8d4-4cd0-9e10-a9912d82dadd"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c52d8de2-fe22-4e86-86e2-f7193e321353">
+                    <propertyInstance
+                      Id="5195c931-743c-45bf-ba7f-9eecee7e9658"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="43c15567-672e-445e-87a3-1bdd2f04bf0c">
+                    <propertyInstance
+                      Id="0a53e034-e6ff-4a1b-a1a3-035d509780fb"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="82593a30-e89f-42f4-b7a6-8de0631ff7d9"
+        LastKnownName="ViewModels"
+        LastKnownLocation="Package12_1059.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

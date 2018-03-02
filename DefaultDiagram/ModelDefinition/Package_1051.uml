@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="b06c6607-d12a-45ba-858f-764bf9096c11"
+  name="HePa"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="ff1be9e0-66ed-48db-b11f-417acd9d559a"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DHePa"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="67264eea-8497-481f-8d3f-8a03ecac395b"
+        LastKnownName="Core"
+        LastKnownLocation="Package1_1051.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="78da529a-28b9-45eb-a36c-8d5761e92b12"
+        LastKnownName="Data"
+        LastKnownLocation="Package11_1051.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="69262681-6d36-40f3-aff2-da74a579b080"
+        LastKnownName="Resource"
+        LastKnownLocation="Package26_1051.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="9b49c763-86ad-430b-8b80-63e8c715d490"
+        LastKnownName="Web"
+        LastKnownLocation="Package_1059.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="70e1f45e-7c2b-4ab2-9c48-f07198ef2eaf"
+        LastKnownName="Service"
+        LastKnownLocation="Package4_1059.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

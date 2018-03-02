@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="df9dfa3f-04f4-442b-89fc-e768752864db"
+  name="Ninject"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="e905079d-a4f4-469d-9d9c-ca785d6d0a4b"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DNinject"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="98576531-52e0-4d4a-a121-a40065dcaf44"
+        name="IKernel"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="3d02a377-21a9-457f-be38-b9a0e4e68a95"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2Fpackages%2FNinject.3.2.0.0%2Flib%2Fnet45-full%2FNinject.dll Namespace%3DNinject Type%3DIKernel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="a27207f3-e727-44be-b328-62c3f8adca32"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e473d9a6-d2ef-4673-a417-ba04e38124c5">
+                <propertyInstance
+                  Id="c7c05ece-d199-4649-aab2-c03343b28a55"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="35a6eb7b-9288-41d5-b265-b9841937d0e3">
+                <propertyInstance
+                  Id="eceeb160-17e6-483d-bfea-74151d6c9ff1"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b8fa80c2-67a5-49fd-917f-1cb6c070c381">
+                <propertyInstance
+                  Id="fe77474e-052b-48f5-938c-92516b4b7950"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="263f9f02-2d21-461a-b52f-a6a8a88ec348">
+                <propertyInstance
+                  Id="ab77f810-0d52-47cd-bbfd-c3b053e56c2f"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="b4f0298c-8def-42eb-a844-043a75ecbea8"
+        LastKnownName="Web"
+        LastKnownLocation="Package21_1059.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

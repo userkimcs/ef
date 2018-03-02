@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="78da529a-28b9-45eb-a36c-8d5761e92b12"
+  name="Data"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="fbd70350-2963-461c-94a6-6552fa051d2f"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DHePa.Data"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="170c2012-a07e-4c79-83f2-cea350538a7c"
+        LastKnownName="Context"
+        LastKnownLocation="Package12_1051.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="525bb95d-b5d1-4bc7-a70b-72e493a997e8"
+        LastKnownName="Contracts"
+        LastKnownLocation="Package16_1051.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="3c20e35c-1c33-48fa-8ada-ef4df323ceaa"
+        LastKnownName="Mapping"
+        LastKnownLocation="Package20_1051.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="0a8ba924-f49b-4985-9841-c7481aede973"
+        LastKnownName="Migrations"
+        LastKnownLocation="Package23_1051.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="ebfd939b-6eb7-4efa-bb5a-82886c52c9ce"
+        LastKnownName="Repositories"
+        LastKnownLocation="Package25_1051.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

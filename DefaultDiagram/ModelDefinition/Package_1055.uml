@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="9a52ed8a-02b2-4394-9f78-403241722d66"
+  name="Messages"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="3d029a93-3035-4528-9663-a713ce6549ae"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DHePa.Core.Messages"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <enumeration
+        Id="c054b1e9-65c8-4b72-9d2f-a20fae4911d8"
+        name="ChangeAccountInfoMessage"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="4d3aae19-876c-43db-8d63-846040f614a0"
+            handle="viewcode://./CodeSchema_Enum?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Core%2Fbin%2FDebug%2FHePa.Core.dll Namespace%3DHePa.Core.Messages Type%3DChangeAccountInfoMessage"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="0aa14dc5-c6e8-47b2-b2f9-19f9ec895f37"
+            name="enum"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a57bcd03-cd5e-4db7-b030-95dc598af111">
+                <propertyInstance
+                  Id="34ee019e-7a79-402e-8cac-d2a2613f97d6"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1ca38c39-3675-47bf-a255-932d0ced19dd">
+                <propertyInstance
+                  Id="49071cd7-06c4-468e-8176-bfe8c29e7b56"
+                  name="BaseType"
+                  value="int" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0aa8f192-7784-4605-a0f9-83f2b1cb55fc">
+                <propertyInstance
+                  Id="db160a89-ee38-4ca2-897f-a5975738112f"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="06f0eb18-a8f8-4bf8-9960-c1dae6757201"
+            name="FAILURE">
+            <referencesInternal>
+              <reference
+                Id="02264edf-1336-488c-b022-b266da1592cb"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Core%2Fbin%2FDebug%2FHePa.Core.dll Namespace%3DHePa.Core.Messages Type%3DChangeAccountInfoMessage Member%3DFAILURE"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+          <enumerationLiteral
+            Id="f5470c97-4404-4bd5-952e-a8f604759f7e"
+            name="SUCCESSSFULL">
+            <referencesInternal>
+              <reference
+                Id="97b7e8da-0700-4d1f-aa60-33b00531c5b8"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Core%2Fbin%2FDebug%2FHePa.Core.dll Namespace%3DHePa.Core.Messages Type%3DChangeAccountInfoMessage Member%3DSUCCESSSFULL"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="3afd752e-7c95-44e8-926a-ca666b54f28f"
+        name="ClassRegistrationMessage"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="50b677c6-e618-4aec-a045-b2a9227e82c7"
+            handle="viewcode://./CodeSchema_Enum?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Core%2Fbin%2FDebug%2FHePa.Core.dll Namespace%3DHePa.Core.Messages Type%3DClassRegistrationMessage"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="c3f7a35f-eabd-42b3-b74f-fc406ab19ac4"
+            name="enum"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="598e37e0-e5c8-4e1f-81f5-b94898692876">
+                <propertyInstance
+                  Id="0e850cdc-3983-4d41-9590-5b4f4c2c00c1"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="760b113a-d6e3-4987-bf21-8320cdc1b86f">
+                <propertyInstance
+                  Id="2d01cbc3-ebd6-4ce7-a521-a9ced5dfaf25"
+                  name="BaseType"
+                  value="int" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9f82f281-4858-46f8-b8fa-4443a446978c">
+                <propertyInstance
+                  Id="24b3e793-7252-4e64-b421-b0dd1266ee5d"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="1cf6fb82-29a2-41b1-b546-d2870a15503b"
+            name="FAILURE">
+            <referencesInternal>
+              <reference
+                Id="4c2dfb01-ef65-4d01-882b-049140ae59b1"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Core%2Fbin%2FDebug%2FHePa.Core.dll Namespace%3DHePa.Core.Messages Type%3DClassRegistrationMessage Member%3DFAILURE"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+          <enumerationLiteral
+            Id="580480f3-588d-4e80-b89a-d69fcb97608e"
+            name="SUCCESSSFULL">
+            <referencesInternal>
+              <reference
+                Id="3f9678ec-7f41-459b-9da7-7b1b842c7efe"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Core%2Fbin%2FDebug%2FHePa.Core.dll Namespace%3DHePa.Core.Messages Type%3DClassRegistrationMessage Member%3DSUCCESSSFULL"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="a117d5bd-50e3-4ef0-a817-4820c991f7cb"
+        name="CreateUserMessage"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="ece81531-9c34-4f89-a70d-81aa64ca4005"
+            handle="viewcode://./CodeSchema_Enum?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Core%2Fbin%2FDebug%2FHePa.Core.dll Namespace%3DHePa.Core.Messages Type%3DCreateUserMessage"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="b34446aa-2415-4553-b315-f21ce2b66216"
+            name="enum"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="86f49f3a-781c-4cf9-a942-f903210e8b43">
+                <propertyInstance
+                  Id="1e7d9740-a64b-4332-a1a0-c717077183df"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7c77487f-53fe-462c-98ac-a816628ae906">
+                <propertyInstance
+                  Id="230c68f0-a9fc-4718-9a91-1e462769b102"
+                  name="BaseType"
+                  value="int" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f4b29b4e-2504-4d5e-bee1-fd4ad47e5393">
+                <propertyInstance
+                  Id="197dcaae-9379-4abb-8cef-4887bd4fce62"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="777ac467-5d85-4b0a-8a5f-f60a79bc0167"
+            name="EXIST_EMAIL">
+            <referencesInternal>
+              <reference
+                Id="43e46409-587e-4b0a-a59c-92b859a4c884"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Core%2Fbin%2FDebug%2FHePa.Core.dll Namespace%3DHePa.Core.Messages Type%3DCreateUserMessage Member%3DEXIST_EMAIL"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+          <enumerationLiteral
+            Id="273a60cd-b18f-4197-a3de-7b5384c59fdb"
+            name="SUCCESSFUL_REGISTER">
+            <referencesInternal>
+              <reference
+                Id="f54dc454-9470-4696-bf86-612da080ca87"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Core%2Fbin%2FDebug%2FHePa.Core.dll Namespace%3DHePa.Core.Messages Type%3DCreateUserMessage Member%3DSUCCESSFUL_REGISTER"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="56d25f0d-33d6-4610-96c3-39341c5e3bd3"
+        name="UserLoginMessage"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="e0c72d55-05b4-46c2-9c61-768a33dabfe5"
+            handle="viewcode://./CodeSchema_Enum?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Core%2Fbin%2FDebug%2FHePa.Core.dll Namespace%3DHePa.Core.Messages Type%3DUserLoginMessage"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="36af2db6-0c7c-4ef0-9e06-eb82693a7c7b"
+            name="enum"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b53a6192-9157-4b1f-9917-2c48d5fca153">
+                <propertyInstance
+                  Id="ea4c6699-279c-477c-bfa1-0c1dfdf3cf46"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ff63a482-74fe-4e50-9520-77c467543774">
+                <propertyInstance
+                  Id="b5f3dd51-219b-402d-9103-2a0f876a68ad"
+                  name="BaseType"
+                  value="int" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1d27ccee-a130-408d-a756-888c952651fe">
+                <propertyInstance
+                  Id="c424a2a9-c13c-48ff-b190-6964019140f4"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="e6531c8e-8e07-4112-bb15-89d4ad59d721"
+            name="LOGIN_FAILURE">
+            <referencesInternal>
+              <reference
+                Id="0e0c9ec4-da95-41e3-a417-7ee9f543ded3"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Core%2Fbin%2FDebug%2FHePa.Core.dll Namespace%3DHePa.Core.Messages Type%3DUserLoginMessage Member%3DLOGIN_FAILURE"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+          <enumerationLiteral
+            Id="e0dd68bb-b3ba-4f78-a535-2086e4a6b7d2"
+            name="LOGIN_SUCCESSFULL">
+            <referencesInternal>
+              <reference
+                Id="374471cb-34ff-4daf-93d7-a460a3ac8658"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Core%2Fbin%2FDebug%2FHePa.Core.dll Namespace%3DHePa.Core.Messages Type%3DUserLoginMessage Member%3DLOGIN_SUCCESSFULL"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

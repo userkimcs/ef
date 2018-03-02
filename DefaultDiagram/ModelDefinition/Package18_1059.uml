@@ -1,0 +1,662 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="fc4c4ab3-4fc5-4b66-ba02-395d464e433e"
+  name="ViewModels"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="97e81abd-3116-4e52-be04-b5178ac5072b"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DHePa.Web.Areas.Learn.ViewModels"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="1400b210-5c60-4bb2-821a-a5347355cf6d"
+        name="LearnWordViewModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="2b422816-a1c7-4b06-b518-16dfbaf946d1"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Web%2Fbin%2FHePa.Web.dll Namespace%3DHePa.Web.Areas.Learn.ViewModels Type%3DLearnWordViewModel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="25721416-0726-4c39-92a7-513ab8a4dec8"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="358934c1-403b-4dea-8a08-a2735c328394">
+                <propertyInstance
+                  Id="c459f021-38e3-4447-8a2f-0e9f6d4ee9b7"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bf4ef0b5-fe5d-4004-9f35-bec4f68bd212">
+                <propertyInstance
+                  Id="76d95b64-8318-4512-87fd-7d044f87ea0c"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="14be6334-f6a7-47ea-bfab-07df96ecb561">
+                <propertyInstance
+                  Id="86e382ed-21f8-429a-ac03-bcc7a6afa013"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="aaf7ee30-79ba-4803-8e1f-709fdb25d461">
+                <propertyInstance
+                  Id="e4721950-de7d-4016-aa8c-4b6be23d9732"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ba7c548e-00a2-4707-af42-2e1a69e747fc">
+                <propertyInstance
+                  Id="917d215e-ce3c-41bd-ac1c-c863502dc32e"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="0b219804-618e-4a2e-8ef8-6d98900f41a7"
+            isDerived="false"
+            sourceEndRoleName="LearnWordViewModel"
+            targetEndRoleName="Word"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="71b3c22a-37c5-4828-a399-72092811e6a6"
+              LastKnownName="Word"
+              LastKnownLocation="Package22_1051.uml" />
+            <description>Property Word references type Word.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b8f5f321-e97d-45f8-ba86-ffb73d79da6b"
+                  name="LearnWordViewModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="16895496-930a-4143-a1fc-5db172fba720"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="ca78ca4d-b64a-4de3-8da8-15ac0fa4223f"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2ecc998a-ecf7-43f2-8d40-703c779b2433"
+                  name="Word"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="06c8f433-36f2-49b9-93d4-44e1343342bb"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="1418cf2a-b2ed-46eb-8f51-304c871bd9ea"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a1d11978-a193-465f-b75e-14abd518c0c5"
+            isDerived="false"
+            sourceEndRoleName="LearnWordViewModel"
+            targetEndRoleName="Comments"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="514cfe42-b65b-4ba2-9b09-d8d04789950c"
+              LastKnownName="List&lt;WordComment‎&gt;"
+              LastKnownLocation="Package7_1051.uml" />
+            <description>Property Comments references type List&lt;WordComment‎&gt;.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0cff2f09-6cd3-4ab3-b49f-d77e8413b88b"
+                  name="LearnWordViewModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="0c298f53-7240-48e5-bcef-06c527cf4963"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="1a1e1b17-798b-4250-968a-e25ab2b23ced"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="236da6ee-7735-4215-82df-f251b8b6d9b6"
+                  name="Comments"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="a7dec82c-f58c-4eab-9248-bc36f5077851"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="ddb03d76-6eba-4332-a824-6fd8d60dc76d"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="d4f31380-4d54-41d8-972f-80ee0824a1fa"
+            isDerived="false"
+            sourceEndRoleName="LearnWordViewModel"
+            targetEndRoleName="Accounts"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="3e8429e7-5425-466b-ba1c-46d1f30def13"
+              LastKnownName="List&lt;Account‎&gt;"
+              LastKnownLocation="Package7_1051.uml" />
+            <description>Property Accounts references type List&lt;Account‎&gt;.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c1bf7bb4-c92b-4089-b327-87788adf5a02"
+                  name="LearnWordViewModel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="a3afd6bb-a816-44b1-8ddc-187e263f9508"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="82edd627-162f-4a96-8cc1-b3d051cd7d3d"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="02de26f0-4ed6-44bc-bb89-241ba5298080"
+                  name="Accounts"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="274dc58c-3693-4e3b-8df7-70d90b3bd5f3"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="bf692c08-6cdb-44a1-89fb-17552bcfa46a"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="839d988b-d7ae-4028-ad19-9e5e76763b20"
+            name="Word"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="c35f9e20-23f8-441f-a5d8-4be0734d0188"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Web%2Fbin%2FHePa.Web.dll Namespace%3DHePa.Web.Areas.Learn.ViewModels Type%3DLearnWordViewModel Member%3DWord"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="0ad7f838-3bb7-4c32-8929-cda126342e94"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="76f4199f-1670-479a-a6dd-08fcfb81803b">
+                    <propertyInstance
+                      Id="d7d181f4-3982-4ad8-a91f-e4c536b4f5c4"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6e80f2a9-6836-4d35-bc1b-ba23c1bbc64e">
+                    <propertyInstance
+                      Id="3b2533f8-ef92-41dd-bcd3-3efd583a6124"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2e6c1168-fdf7-420c-8497-c6533aacf69c">
+                    <propertyInstance
+                      Id="4cfa37f8-8c8e-42e0-b2f4-5d833d3cf598"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="01ea7cb1-f5ba-4e0a-87df-91790aafedb2">
+                    <propertyInstance
+                      Id="5ea225e0-7854-4274-bb2b-522a868a6735"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6e218bbf-1dd0-43bc-9daa-116a330e27e4">
+                    <propertyInstance
+                      Id="66266bd1-9375-4c58-a0b2-c9d93842a690"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="55455ae5-3824-4eed-adf5-99ad89e25e9c">
+                    <propertyInstance
+                      Id="d75cb8e6-328f-4def-9a2a-7305bb6d729d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="07a0a8ef-f8e5-45b2-a176-05519038b882">
+                    <propertyInstance
+                      Id="75f1022c-87d0-42f7-aed2-2f644566599f"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="71b3c22a-37c5-4828-a399-72092811e6a6"
+                LastKnownName="Word"
+                LastKnownLocation="Package22_1051.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="38fe6f03-e180-406c-b3b7-14b684878604"
+            name="Comments"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="9751d203-df57-4b73-bd15-b61d1bf8a86f"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Web%2Fbin%2FHePa.Web.dll Namespace%3DHePa.Web.Areas.Learn.ViewModels Type%3DLearnWordViewModel Member%3DComments"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="77cf7922-0903-4140-ac65-9ea3532b9d24"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7158b394-0855-42c3-9024-d742972b4380">
+                    <propertyInstance
+                      Id="f9bafcb5-25c3-424a-9e72-69f7c63d98a2"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ee55f424-43d4-42a8-9ada-977ff3867e7b">
+                    <propertyInstance
+                      Id="d810861c-f938-4858-920f-d069d771fc65"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aa67659e-91c0-45f9-ba37-bf394ac788a6">
+                    <propertyInstance
+                      Id="22e67686-209b-4042-a8f4-63be566417cd"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6cacdf79-bb09-4459-bb80-0829355d6bb9">
+                    <propertyInstance
+                      Id="5000a33e-8c18-45a3-ad1c-7046b319c86f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d06ab09a-bded-4fcf-a265-7aa9a7a51436">
+                    <propertyInstance
+                      Id="e7d5a687-41e2-4b01-ac26-eecebb19fb38"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="60d82283-9159-445f-99b6-58e3389bb963">
+                    <propertyInstance
+                      Id="9e315e2f-6eef-442e-a2bd-5e59a4f88e64"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="32a13a17-ad48-42a5-a7fe-b01a57f8565b">
+                    <propertyInstance
+                      Id="01042206-e948-4a2b-b86c-782176176a0e"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="514cfe42-b65b-4ba2-9b09-d8d04789950c"
+                LastKnownName="List&lt;WordComment‎&gt;"
+                LastKnownLocation="Package7_1051.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="473966d3-e85e-497b-b7b6-c48679713923"
+            name="Accounts"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="9082511f-9929-4d4e-97de-1047d2fb69c9"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Web%2Fbin%2FHePa.Web.dll Namespace%3DHePa.Web.Areas.Learn.ViewModels Type%3DLearnWordViewModel Member%3DAccounts"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="be8719c4-9d4d-4e46-ab9e-3c1da4ee68e0"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="49969f04-3ce2-4b0b-b18d-1f6c28ff468b">
+                    <propertyInstance
+                      Id="84aef640-064a-423c-9318-1e6852d908e3"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4ccec729-05a5-433b-a98e-91a9ad455a3c">
+                    <propertyInstance
+                      Id="c99bd61e-07e0-49a2-9e93-b5df13e9bfb7"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3989926f-e855-4412-98bb-8dad9fdceb73">
+                    <propertyInstance
+                      Id="7f1333ee-ee61-41e1-8072-fad6400808a9"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="20af54f3-430f-464d-a92b-c1c809d48b6f">
+                    <propertyInstance
+                      Id="b9a357e5-7549-4d9f-b4d5-c022328ad248"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e420b97b-f431-41c2-8f58-33252fb75985">
+                    <propertyInstance
+                      Id="9033bb62-d7ee-4dd7-9fab-92e3f572f548"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="01540d2f-595d-431d-8bc5-1920b34a7b87">
+                    <propertyInstance
+                      Id="d91b1b1e-628f-46aa-b755-8ec919d3e9f3"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dccfdd11-88b6-441f-a0cb-7106962b35be">
+                    <propertyInstance
+                      Id="702f4e5d-942a-4097-92b6-1ad67330d7b2"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="3e8429e7-5425-466b-ba1c-46d1f30def13"
+                LastKnownName="List&lt;Account‎&gt;"
+                LastKnownLocation="Package7_1051.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="53902429-d72f-4f52-afc3-a344f88c09b9"
+            name="Comment"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="88e8d614-c906-4cd2-877c-58dd174bfe70"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Web%2Fbin%2FHePa.Web.dll Namespace%3DHePa.Web.Areas.Learn.ViewModels Type%3DLearnWordViewModel Member%3DComment"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="74a19b91-0d6e-40d4-a27a-1a202c737fe3"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9a0385a9-03df-4385-919b-5e702a941cbb">
+                    <propertyInstance
+                      Id="ff2521ff-6f96-45b2-9bec-26d18a5be7a5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c9c692ec-34ac-451f-b080-5a7f91788552">
+                    <propertyInstance
+                      Id="305206f5-dce9-4fb5-b186-c177b0bc9d54"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0b9fb221-a9d4-4768-9d1d-bd9211db4d30">
+                    <propertyInstance
+                      Id="b219163c-2105-46e1-baa1-105d270d0ae1"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="78b04f7f-0fea-4081-84d3-9fd4157db625">
+                    <propertyInstance
+                      Id="f6b6b829-2fbd-4552-8e1f-9cc6d3c93253"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="120d727e-c255-433f-afbe-5ebbc4a5e47b">
+                    <propertyInstance
+                      Id="09e98b3b-ed30-4a49-859c-75ec9030b734"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e4275dd3-f5d6-42b0-b796-20ae5374510b">
+                    <propertyInstance
+                      Id="d6c24e0a-b840-491b-93af-a3365b3d2e14"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="27dc69d3-54f1-4848-a83b-71e56338adc6">
+                    <propertyInstance
+                      Id="a2fb65ad-49b9-46db-9f04-54a05db579a4"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="DefaultDiagram.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="3aa2f7ab-880b-4a75-9324-5547f056ed5e"
+            name="LearnWordViewModel"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="1f3040ff-03d8-41e9-9575-bbb448a68465"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FD:%2FASP%2FHePa%2FHePa.Web%2Fbin%2FHePa.Web.dll Namespace%3DHePa.Web.Areas.Learn.ViewModels Type%3DLearnWordViewModel Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2be95b91-aafc-4b61-8274-9c2d74325792"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7bba9e78-dc62-43b7-bba1-6c940c140b54">
+                    <propertyInstance
+                      Id="58177c50-b4f0-4c50-9b68-abdaa2dbab7a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="520ac94d-b3da-407a-813c-158143b0454d">
+                    <propertyInstance
+                      Id="8d9f1e59-7b12-4e9a-b766-bd860d454b59"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a315ef44-ab56-42f0-826c-d426923ee143">
+                    <propertyInstance
+                      Id="3cbe3c4f-ce79-4dac-aeee-5dd7f688df92"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0d3b8bbe-c8f6-45d7-a8c9-d556065cbe36">
+                    <propertyInstance
+                      Id="49283e5e-d0a2-465b-8086-817b86a4e052"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="69bcf382-430b-4663-bff1-8b8bf416fe43">
+                    <propertyInstance
+                      Id="514a9eb9-a855-4d2c-9f9c-d2c34ebeedc5"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="472bb23b-5868-43d5-944c-58d86a38b82f">
+                    <propertyInstance
+                      Id="c67153ba-a2e4-4079-ae6b-3e8b00669530"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

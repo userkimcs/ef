@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="b2c73c82-4d75-422b-b293-ba196a3fbc36"
+  name="Areas"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="f19367b1-367b-47e3-9cb5-c8eab5c6ed89"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DHePa.Web.Areas"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="e86c7611-8cd8-44db-9072-e6614b1f0f8d"
+        LastKnownName="Admin"
+        LastKnownLocation="Package2_1059.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="fee15c10-0e65-488f-8235-7a77f64461a7"
+        LastKnownName="Learn"
+        LastKnownLocation="Package15_1059.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

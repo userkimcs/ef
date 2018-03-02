@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="70e1f45e-7c2b-4ab2-9c48-f07198ef2eaf"
+  name="Service"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="78bbe6c5-f480-4e17-b2d5-f6b49b2e796a"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DHePa.Service"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="681791e4-7b5e-441d-b8ff-70bfd46331aa"
+        LastKnownName="Contracts"
+        LastKnownLocation="Package5_1059.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="bc44b7b8-2dd8-434a-a46d-16d636760d64"
+        LastKnownName="Services"
+        LastKnownLocation="Package11_1059.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
