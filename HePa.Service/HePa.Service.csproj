@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{910CB324-EEF6-4551-AE8A-4B0BC0E9F657}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HePa.Service</RootNamespace>
+    <AssemblyName>HePa.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\ApplicationSignInManager.cs" />
+    <Compile Include="Services\ApplicationUserManager.cs" />
+    <Compile Include="Services\ClassService.cs" />
+    <Compile Include="Services\CommentService.cs" />
+    <Compile Include="Services\CouponCodes\CouponCodeManager.cs" />
+    <Compile Include="Services\CouponCodes\ICouponCodeManager.cs" />
+    <Compile Include="Services\CourseService.cs" />
+    <Compile Include="Services\CurrencyServices\CurrencyUserManager.cs" />
+    <Compile Include="Services\CurrencyServices\ICurrencyUserManager.cs" />
+    <Compile Include="Services\DatabaseService.cs" />
+    <Compile Include="Services\ExampleSentanceService.cs" />
+    <Compile Include="Services\ExperienceServices\ExperienceService.cs" />
+    <Compile Include="Services\ExperienceServices\IExperienceService.cs" />
+    <Compile Include="Services\ExperienceServices\IRankService.cs" />
+    <Compile Include="Services\ExperienceServices\RankService.cs" />
+    <Compile Include="Services\Feedbacks\FeedbackService.cs" />
+    <Compile Include="Services\Feedbacks\IFeedbackService.cs" />
+    <Compile Include="Services\HepaPassportServices\HepaPassportService.cs" />
+    <Compile Include="Services\HepaPassportServices\IHepaPassportService.cs" />
+    <Compile Include="Services\Histories\LearnWordResultService.cs" />
+    <Compile Include="Services\Histories\ILearnWordResultService.cs" />
+    <Compile Include="Services\IApplicationSignInManager.cs" />
+    <Compile Include="Services\IApplicationUserManager.cs" />
+    <Compile Include="Services\IClassService.cs" />
+    <Compile Include="Services\ICommentService.cs" />
+    <Compile Include="Services\ICourseService.cs" />
+    <Compile Include="Services\IEmailServce.cs" />
+    <Compile Include="Services\IExampleSentanceService.cs" />
+    <Compile Include="Services\ILocationService.cs" />
+    <Compile Include="Services\ILoginService.cs" />
+    <Compile Include="Services\IOrderAdminManager.cs" />
+    <Compile Include="Services\IOrderService.cs" />
+    <Compile Include="Services\IWordService.cs" />
+    <Compile Include="Services\Lectures\ILearnWordService.cs" />
+    <Compile Include="Services\Lectures\LearnWordService.cs" />
+    <Compile Include="Services\LocationService.cs" />
+    <Compile Include="Services\LookUp\GrammarEditService.cs" />
+    <Compile Include="Services\LookUp\GrammarLookUpService.cs" />
+    <Compile Include="Services\LookUp\IGrammarEditService.cs" />
+    <Compile Include="Services\LookUp\IGrammarLookUpService.cs" />
+    <Compile Include="Services\OrderAdminManager.cs" />
+    <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PromotionEvents\IPromotionEventManager.cs" />
+    <Compile Include="Services\PromotionEvents\PromotionEventManager.cs" />
+    <Compile Include="Services\Users\IUserService.cs" />
+    <Compile Include="Services\Users\UserService.cs" />
+    <Compile Include="Services\WordService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HePa.Core\HePa.Core.csproj">
+      <Project>{9fd83699-96c1-4eaa-a59b-b85e24cf527c}</Project>
+      <Name>HePa.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HePa.Data\HePa.Data.csproj">
+      <Project>{6aa7bcf1-b8f1-488b-a2c8-dd060224a85f}</Project>
+      <Name>HePa.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HePa.Resource\HePa.Resource.csproj">
+      <Project>{ada59d27-3cbb-4d6f-a3ad-262788a80305}</Project>
+      <Name>HePa.Resource</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IdentityMessages\" />
+    <Folder Include="Services\Course\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
