@@ -1,0 +1,36 @@
+﻿<!-- Modals for suggest buy Hepa passport -->
+<style type="text/css">
+    .bullet {
+        margin-bottom: 6px!important;
+        white-space: nowrap;
+    }
+</style>
+<div id="suggestBuy" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Bạn có biết!?</h4>
+            </div>
+            <div class="modal-body">
+                <p>Là người dùng <strong>miễn phí</strong>, bạn được học <strong class="text-red">2 từ một ngày</strong>, không đã chút nào!</p>
+                <p><a href="@Url.Action("Order", "Order", new { area = ""})">Mua thẻ Hepa</a> để được <strong>nhiều quyền lợi hơn:</strong></p>
+                <div class="row">
+                    <ul class="col-xs-6">
+                        <li><p class="bullet">Đặt mục tiêu học tập thoả thích</p></li>
+                        <li><p class="bullet">Thực hành thoải mái ngay từ vừa học</p></li>
+                        <li><p class="bullet">Theo dõi tình hình học tập</p></li>
+                        <li><p class="bullet">Thi đua với những Hepan khác</p></li>
+                    </ul>
+                    <div class="col-xs-6">
+                        <img class="img-responsive" alt="Mua thẻ Hepa passport ngay hôm nay" src="~/dist/img/simple-page/box-card-hepa.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="@Url.Action("Order", "Order", new { area = ""})" class="btn btn-default" data-dismiss="modal">Trở thành công dân Hepa</a>
+                <button type="button" class="btn btn-gray" data-dismiss="modal" id="btn-save">Để sau</button>
+            </div>
+        </div>
+    </div>
+</div>

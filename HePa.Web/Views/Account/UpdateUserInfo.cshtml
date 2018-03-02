@@ -1,0 +1,209 @@
+﻿@model HePa.Web.ViewModels.AccountViewModels.UserInfoViewModel
+@using HePa.Core.Extensions;
+@{
+    ViewBag.Title = "UpdateUserInfo";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+@Styles.Render("~/dist/css-edit-user");
+
+<div class="col-sm-8 col-sm-offset-2">
+    <div class="boxed">
+        <div class=" inner-content">
+            @using (Html.BeginForm("UpdateUserInfo",
+                        "Account",
+                        FormMethod.Post,
+                        new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+
+                <div class="form-horizontal">
+                    <h4>Cập nhật thông tin cá nhân</h4>
+                    @Html.AlertBox(AlertBoxType.SUCCESS, ViewBag.SuccessfulMessage as String)
+
+                    @Html.AlertBox(AlertBoxType.DANGER, ViewBag.EditUserError as String)
+                    <hr />
+                    @Html.ValidationSummary(true)
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Họ và Tên</label>
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Ngày sinh</label>
+                        <div class="col-sm-3">
+                            <select id="sel_years" class="form-control select_styled ">
+                                <option style="display:none" value="0">Năm</option>
+                            </select>
+                        </div>
+                        <div class="visible-xs-block"> <br /> <br /> </div>
+                        <div class="col-sm-3">
+                            <select id="sel_months" class="form-control select_styled ">
+                                <option style="display:none" value="0">Tháng</option>
+                            </select>
+                        </div>
+                        <div class="visible-xs-block"> <br /> <br /> </div>
+                        <div class="col-sm-3">
+                            <select id="sel_days" class="form-control select_styled ">
+                                <option style="display:none" value="0">Ngày</option>
+                            </select>
+                        </div>
+                        @Html.EditorFor(model => model.BirthDay, new { htmlAttributes = new { @class = "hide" } })
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Nghề nghiệp</label>
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.Job)
+                            @Html.ValidationMessageFor(model => model.Job)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Địa chỉ</label>
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.Place)
+                            @Html.ValidationMessageFor(model => model.Place)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Tên hiển thị</label>
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.DisplayName)
+                            @Html.ValidationMessageFor(model => model.DisplayName)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Số điện thoại</label>
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.PhoneNumber)
+                            @Html.ValidationMessageFor(model => model.PhoneNumber)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Avatar</label>
+                        <div class="col-md-9">
+                            <input type="file" name="file" />
+                            @Html.ValidationMessageFor(model => model.Avatar)
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <div class="col-md-offset-1 col-md-10">
+                            <a href='@Url.Action("Index", "Account")' class="btn"><i class="fa fa-arrow-left"></i></a>
+                            <input type="submit" value="Cập nhật" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+@section AddScript {
+    <script>
+        $().ready(function () {
+            //$("#Birthday").datepicker({
+            //    changeMonth: true,
+            //    changeYear: true,
+            //    minDate: "-60Y",
+            //    maxDate: "-8Y",
+            //});
+
+            /*-------------------*/
+            /*      BIRTHDAY     */
+            /*-------------------*/
+            var sel_years = $("#sel_years");
+            var sel_months = $("#sel_months");
+            var sel_days = $("#sel_days");
+            //Init Year
+            var now = new Date().getFullYear();
+            var arrYear = [];
+            for (i = now - 60; i < now - 10; i++) {
+                arrYear.push('<option value="' + i + '"> ' + i + '</option>');
+            }
+            sel_years.append(arrYear);
+
+            //Init months
+            arrMonth = ['<option value="1">1</option>', '<option value="2">2</option>', '<option value="3">3</option>', '<option value="4">4</option>', '<option value="5">5</option>'
+                , '<option value="6">6</option>', '<option value="7">7</option>', '<option value="8">8</option>', '<option value="9">9</option>', '<option value="10">10</option>', '<option value="11">11</option>', '<option value="12">12</option>'];
+            sel_months.append(arrMonth);
+            //Init days
+            arrDay = [];
+            for (i = 1; i < 32; i++) {
+                arrDay.push('<option id= "day_' + i + '" value="' + i + '"> ' + i + '</option>');
+            }
+            sel_days.append(arrDay);
+
+            $("#sel_years, #sel_months, #sel_days").on('change', function () {
+                var month = parseInt(sel_months.val(), 10);
+                var year = sel_years.val();
+                var day = parseInt(sel_days.val());
+
+                switch (month) {
+                    //Months have 30 days
+                    case 4:
+                    case 6:
+                    case 9:
+                    case 11:
+                        $("#day_29").show();
+                        $("#day_30").show();
+                        $("#day_31").hide();
+                        if (day > 30) {
+                            sel_days.val(30);
+                        }
+                        break;
+                        //Months have 31 days
+                    case 1:
+                    case 3:
+                    case 5:
+                    case 7:
+                    case 8:
+                    case 10:
+                    case 12:
+                        $("#day_29").show();
+                        $("#day_30").show();
+                        $("#day_31").show();
+                        break;
+                    case 2:
+                        if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
+                            $("#day_29").show();
+                            $("#day_30").hide();
+                            $("#day_31").hide();
+                            if (day > 29) {
+                                sel_days.val(29);
+                            }
+                        } else {
+                            $("#day_29").hide();
+                            $("#day_30").hide();
+                            $("#day_31").hide();
+                            if (day > 28) {
+                                sel_days.val(28);
+                            }
+                        }
+                }
+
+                if (sel_years.val() != 0 && sel_months.val() != 0 && sel_days.val() != 0) {
+                    $("#Birthday").val($("#sel_days").val() + "/" + month + "/" + year);
+                }
+
+            });
+
+            if ($('#Birthday').val()) {
+                var arr = $('#Birthday').val().split("/");
+                sel_years.val(arr[2]);
+                sel_months.val(arr[1]);
+                sel_days.val(arr[0]);
+            }
+        });
+    </script>
+}

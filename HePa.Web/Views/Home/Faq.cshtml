@@ -1,0 +1,235 @@
+﻿@model HePa.Web.ViewModels.HomeViewModels.FaqViewModel
+@using HePa.Core.Extensions;
+@{
+    ViewBag.Title = "Câu hỏi trợ giúp khi học tiếng Anh thông minh online";
+    ViewBag.NavTitle = "Hỏi và đáp";
+    ViewBag.MetaDesc = "Các câu hỏi trợ giúp khi học tiếng Anh trực tuyến thông minh ở thị trấn Hepatown.";
+    ViewBag.MetaKeyword = "trợ giúp học tiếng anh, trợ giúp tiếng anh, tro giup ngoai ngu";
+    ViewBag.OgImage = "https://hepatown.com/dist/img/simple-page/tro-giup-hepa.jpg";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+@section AddToHead {
+    <style>
+        .toggle-link {
+            padding: 15px 0 10px 30px;
+        }
+
+        #OptionVal {
+            border-color: #e5e5e5;
+            height: 43px;
+        }
+
+            #OptionVal:focus {
+                border-color: #66afe9;
+            }
+    </style>
+}
+<ol class="breadcrumb">
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="@Url.Action("Index", "Home")" itemprop="url">
+            <span itemprop="title">Hepatown</span>
+        </a>
+    </li>
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="@Url.Action("Faq", "Home")" itemprop="url">
+            <span itemprop="title">Hỏi và đáp</span>
+        </a>
+    </li>
+</ol>
+<div class="row image-top">
+    <div class="col-md-12">
+        <div class="content">
+            <div class="boxed">
+                    <!-- START intro image -->
+                    <img class="help-img img-responsive" src="~/dist/img/simple-page/tro-giup-hepa.jpg" alt="Trợ giúp Hepa help" />
+                    <!-- E N D intro image -->
+                    <div class="simple-content">
+                        @if (ViewBag.SendEmailSuccessfully != null && ViewBag.SendEmailFalse == null)
+                        {
+                            @Html.AlertBox(AlertBoxType.SUCCESS, ViewBag.SendEmailSuccessfully as String)
+                            <h6><a href='@Url.Action("Index", "Home")'><i class="fa fa-arrow-circle-left"></i> về trang chủ</a></h6>
+                        }
+                        else if (ViewBag.SendEmailSuccessfully == null && ViewBag.SendEmailFalse != null)
+                        {
+                            string ErrorMsg = ViewBag.SendEmailFalse + "<br>Chi tiết lỗi: " + ViewBag.SendEmailFalseDetail;
+                            @Html.AlertBox(AlertBoxType.DANGER, ErrorMsg)
+                            <h6><a href='@Url.Action("Index", "Home")'><i class="fa fa-arrow-circle-left"></i> về trang chủ</a></h6>
+                        }
+                        else
+                        {
+                <!-- START intro -->
+                            <hr />
+                            string msg =
+                      "<p><i class='fa fa-info-circle fa-lg'></i> " +
+                      "Dưới đây là những câu hỏi thường gặp có thể liên quan đến vấn đề của bạn. Bạn hãy xem qua.</p>";
+                    @Html.AlertBox(AlertBoxType.INFO, msg)
+                <!-- E N D intro -->
+                <!-- START toggle 1 -->
+                            <div class="toggle">
+                                <div class="toggle-header">
+                                    <a class="toggle-link" data-toggle="collapse" href="#toggle1">
+                                        <span class="question">H:</span>
+                                        <h5>Hepatown.com là gì?</h5>
+                                        <i></i>
+                                    </a>
+                                </div>
+                                @* default expand: add "in" class *@
+                                <div id="toggle1" class="toggle-body collapse in">
+                                    <div class="inner">
+                                        <p>Hepatown (thị trấn Hepa) là cộng đồng tiếng Anh trực tuyến, nơi bạn có thể đến học ngoại ngữ và chuyên môn (song ngữ). <span class="semi-bold"><a href="@Url.Action("About", "Home")">Tìm hiểu thêm.</a></span></p>
+                                        <p><a href="@Url.Action("Index","Home")">Đăng ký ngay</a> một tài khoản, <a href="@Url.Action("Order","Order")">mua thẻ hộ chiếu Hepa Passport</a> để trở thành công dân thị trấn và hưởng một nền giáo dục chất lượng cao.</p>
+                                    </div>
+                                </div>
+                            </div>
+                <!-- E N D toggle 1 -->
+                <!-- START toggle 2 -->
+                            <div class="toggle">
+                                <div class="toggle-header">
+                                    @* default expand: add "collapsed" class *@
+                                    <a class="toggle-link collapsed" data-toggle="collapse" href="#toggle2">
+                                        <span class="question">H:</span>
+                                        <h5>GalaxyGate là gì?</h5>
+                                        <i></i>
+                                    </a>
+                                </div>
+                                <div id="toggle2" class="toggle-body collapse">
+                                    <div class="inner">
+                                        <p>
+                                            Galaxy Gate là chương trình học tiếng Anh thông minh với phương pháp học <span class="semi-bold">“Natural Learning”</span> độc quyền.
+                                            Chương trình này gồm có 3 phần riêng biệt: <span class="semi-bold">Từ vựng, ngữ pháp & phát âm (giọng Mỹ)</span> chia thành
+                                            các cấp độ từ cơ bản đến nâng cao. Mỗi phần có một phương pháp học đặc biệt giúp người học
+                                            tiếp thu được kiến thức phần đó tốt nhất. Phù hợp với người có ít thời gian học tiếng Anh
+                                            nhưng có nhu cầu hoặc đam mê đối với môn học này.
+                                        </p>
+                                        <p>
+                                            Galaxy Gate tập trung cải thiện cả 4 kỹ năng NGHE, NÓI, ĐỌC, VIẾT của người học, giúp khả năng Anh ngữ của bạn tăng vọt trong vòng 3 tháng.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                <!-- E N D toggle 2 -->
+                <!-- START toggle 3 -->
+                            <div class="toggle">
+                                <div class="toggle-header">
+                                    @* default expand: add "collapsed" class *@
+                                    <a class="toggle-link collapsed" data-toggle="collapse" href="#toggle3">
+                                        <span class="question">H:</span>
+                                        <h5>Thẻ hộ chiếu Hepa Passport là gì?</h5>
+                                        <i></i>
+                                    </a>
+                                </div>
+                                <div id="toggle3" class="toggle-body collapse">
+                                    <div class="inner">
+                                        <p>Để học ngoại ngữ ở trị trấn Hepa, bạn cần có hộ chiếu gia nhập thị trấn được cấp bởi thị trưởng Lexus. Bạn có thể mua hộ chiếu tại <strong><a href='@Url.Action("Order", "Order")'>đây</a></strong>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                <!-- E N D toggle 3 -->
+                <!-- START toggle 4 -->
+                            <div class="toggle">
+                                <div class="toggle-header">
+                                    @* default expand: add "collapsed" class *@
+                                    <a class="toggle-link collapsed" data-toggle="collapse" href="#toggle4">
+                                        <span class="question">H:</span>
+                                        <h5>Bạn quên mật khẩu?</h5>
+                                        <i></i>
+                                    </a>
+                                </div>
+                                <div id="toggle4" class="toggle-body collapse">
+                                    <div class="inner">
+                                        <p>
+                                            Để lấy lại mật khẩu bạn truy cập vào <strong><a href='@Url.Action("ForgotPassword","Account")'>đây</a></strong>, nhập <i class="semi-bold">địa chỉ email của bạn</i> và <i class="semi-bold">mã xác nhận</i> mà bạn nghe/thấy được.
+                                            Sau đó <i class="semi-bold">truy cập vào email của bạn</i>, kiểm tra hộp thư và <i class="semi-bold">nhận mật khẩu mới</i>. Trợ lý Hera của thị trưởng sẽ gửi cho bạn một hướng dẫn cụ thể trong email.
+                                            <br />
+                                            <i class="semi-bold">Đôi khi thư có thể được gửi vào <i>hộp thư rác (spam, junk, bulk)</i>, hãy kiểm tra chúng.</i>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                <!-- E N D toggle 4 -->
+                            <hr class="margin-40" />
+                            <h4>Chúng tôi muốn lắng nghe từ bạn</h4>
+                            <p>Để lại thông tin và thắc mắc, tư vấn viên của Hepa sẽ liên lạc với bạn trong thời gian sớm nhất.</p>
+                            <p itemscope itemtype="http://schema.org/LocalBusiness">
+                                <span itemprop="name">Cần trợ giúp nhanh? Gọi ngay </span>
+                                <span itemprop="telephone" content="+84909808862" class="semi-bold">
+                                    <i class="fa fa-phone-square"></i> <a href="tel:+84909808862">0909 808 862</a> &minus; <a href="tel:+84981820085">0981 820 085</a>
+                                </span>
+                            </p>
+                            using (Html.BeginForm("SendFaq", "Home", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                @* If user login in -> update default textbox variable *@
+                                string name = @User.DisplayName(),
+                            email = @User.Email(),
+                            phone = @User.PhoneNumber();
+                                if (!@String.IsNullOrEmpty(@User.Name()))
+                                    name = User.Name();
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="name">Họ và tên *</label>
+                                                @Html.EditorFor(model => model.Contact.FullName, new { htmlAttributes = new { @class = "form-control", @id = "name", @Value = name } })
+                                                @Html.ValidationMessageFor(model => model.Contact.FullName, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                @Html.EditorFor(model => model.Contact.Email, new { htmlAttributes = new { @class = "form-control", @id = "email", @Value = email } })
+                                                @Html.ValidationMessageFor(model => model.Contact.Email, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="tel">Điện thoại</label>
+                                                @Html.EditorFor(model => model.Contact.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @id = "tel", @Value = phone } })
+                                                @Html.ValidationMessageFor(model => model.Contact.PhoneNumber, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.OptionVal, "Bạn muốn trợ giúp về *")
+                                                @Html.DropDownListFor(model => model.OptionVal, Model.OptionType, "Chọn", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.OptionVal, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for="Message">Nội dung *</label>
+                                                @Html.TextAreaFor(model => model.Message, new { @class = "form-control", @rows = 5 })
+                                                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <p class="small"><em><span class="bold">*</span> là những thông tin cần phải điền.</em></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <input type="submit" value="Gửi" class="btn btn-default" />
+                                            </div>
+                                        </div>
+                                    </div>
+                            }
+                        }
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+@section AddScript {
+    <script src="@Scripts.Url("~/dist/jqueryval")" async></script>
+    <script src="@Scripts.Url("~/dist/jquery.validate.unobtrusive")" async></script>
+}

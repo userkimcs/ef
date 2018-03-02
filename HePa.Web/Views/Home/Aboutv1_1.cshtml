@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Giới thiệu trung tâm ngoại ngữ Hepatown";
+    ViewBag.NavTitle = "Giới thiệu Hepa";
+    ViewBag.MetaDesc = "Hepatown là thị trấn trực tuyến - nơi mà cộng đồng cư dân ở đây có chung sở thích học tiếng Anh & những chương trình phát triển nghề nghiệp.";
+    ViewBag.MetaKeyword = "học tiếng anh, học nghề nghiệp, thị trấn hepa";
+    Layout = "~/Views/Shared/_HomePageLayout_v1.1.cshtml";
+}
+@section AddToHead {
+    <link href="~/dist/hp/css/about-v1.1.css" rel="stylesheet" />
+}
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="@Url.Action("Index", "Home")" itemprop="url">
+                <span itemprop="title">Hepatown</span>
+            </a>
+        </li>
+        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="@Url.Action("About", "Home")" itemprop="url">
+                <span itemprop="title">Giới thiệu Hepa</span>
+            </a>
+        </li>
+    </ol>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="content">
+                <div class="simple-content boxed">
+                    <!-- START What's Hepa section -->
+                    <section class="whats-hepa">
+                        <p><a href="/">Hepatown.com</a> –  là hệ thống Anh ngữ kiểu mới kết hợp giữa phương pháp học trực tiếp và trực tuyến để tạo ra mô hình học ngoại ngữ hiện đại phù hợp với người đi làm/chuẩn bị đi làm.</p>
+                        <h3 class="text-center ba-ly-do">
+                            03 lý do để bạn nhập học ngay<br />
+                            <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                        </h3>
+                        <h4>1. Mô hình học tập tiện lợi  <img src="~/dist/img/home-page/tien-loi.png" /></h4>
+                        <p><i class="text-blue">Thời lượng học trên lớp</i> được <i class="text-blue">tối ưu đến 75%</i> so với truyền thống. Chúng tôi tìm ra phương pháp <i class="text-blue">cắt giảm 80% thông tin phụ</i> để <i class="text-blue">tập trung</i> vào <i class="text-blue">20% thông tin quan trọng nhất</i>. Điều này giúp bạn ghi nhớ tốt hơn, tập trung vào những điểm quan trọng nhất, đây là cách học của <i class="text-blue">1% những người Do Thái giàu có & thành công</i>.</p>
+                        <p>100% thời gian trên lớp là thực hành. Bạn có thể ôn tập lý thuyết thông qua videos - nền tảng trực tuyến đầu tiên tại Việt Nam do Hepa thiết kế giúp bạn nhẹ nhàng ôn tập và mở rộng thêm kiến thức tại nhà <i class="text-blue">trong vòng 3 phút</i>! Đây là cách học xây dựng trên phương pháp <strong class="text-red">Blended Learning</strong> nổi tiếng được Hepa <i class="text-blue">thiết kế lại phù hợp với thói quen học tập của người Việt Nam</i>.</p>
+
+                        <h4>2. Tiết kiệm <img src="~/dist/img/home-page/tiet-kiem.png" /></h4>
+                        <p>Mô hình học tập duy nhất của Hepa giúp bạn <i class="text-blue">tiết kiệm 75% chi phí</i> học tập nhờ <i class="text-blue">cắt giảm thời lượng học tại lớp</i>. Ngoài ra, chúng tôi cố gắng <i class="text-blue">tiết kiệm thêm 15% chi phí</i> địa điểm nhờ cơ chế lựa chọn địa điểm <i class="text-blue">&ldquo;không phô trương&rdquo;</i> của mình. Tất nhiên bạn vẫn sẽ được học <i class="text-blue">phòng máy lạnh</i> với <i class="text-blue">cơ sở vật chất hiện đại nhất</i>.</p>
+                        <p>Cùng một số tiền đầu tư, anh chị đi trước chỉ được học 1 khóa học trong 6 tháng & không thể ứng dụng! Giờ đây, với số tiền & khoảng thời gian đó, bạn đã có thể đầu tư 10 khóa học, nghe-nói CHUẨN giọng Mỹ, đặc biệt nhất là bạn có thể kiếm lại được số tiền đó trước khi tốt nghiệp tại Hepa!!!</p>
+
+                        <h4>3. 100% thực hành <img src="~/dist/img/home-page/thuc-hanh-ngay.png" /></h4>
+                        <p>Điều này dường như là lời cam kết mà các trung tâm học ngoại ngữ “mong muốn” thực hiện được. Còn ở lớp học của Hepa, bạn sẽ thấy các giảng viên “không dạy”, họ đang hướng dẫn. Họ cung cấp cho bạn các tài nguyên, họ đặt câu hỏi, họ dẫn dắt bạn đến với câu trả lời. Chúng tôi hiểu rằng, cung cấp kiến thức như truyền thống không còn hữu ích nữa, chúng tôi phải giúp bạn hình thành nên kỹ năng. Chính kỹ năng mới giúp bạn được tăng lương, thăng tiến trong công việc, thành công trong cuộc sống.</p>
+                        <p>100% thời gian trên lớp là thực hành. Bạn có thể ôn tập lý thuyết thông qua videos, nền tảng trực tuyến đầu tiên tại Việt Nam do Hepa thiết kế giúp bạn tự ôn tập và mở rộng thêm kiến thức tại nhà. </p>
+                        <p>6 lớp kỹ năng miễn phí cho học viên Hepa sẽ giúp bạn có ngay được việc làm ngay khi chưa tốt nghiệp, lập ra được kế hoạch phát triển nghề nghiệp ổn định của mình.</p>
+
+                        <a class="start-now" href="@Url.Action("LoTrinhHoc", "Home", new { area = "" })"><p class="btn btn-warning btn-large">BẮT ĐẦU KHÁM PHÁ</p></a>
+
+                        <h5 class="text-center">Khởi đầu sự nghiệp với HEPA ENGLISH ngay hôm nay!</h5>
+                        <p>
+                            <img class="img-responsive center" src="~/dist/img/icon/others/gia-tri-icon.png" />
+                        </p>
+                    </section>
+                    <!-- E N D What's Hepa section -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

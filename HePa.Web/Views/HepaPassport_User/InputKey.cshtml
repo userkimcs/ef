@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "InputKey";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+
+<h2>InputKey</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="col-sm-8">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Nhập mã của bạn vào đây" id="txt_keyValue">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn" id="btn_keyValue">
+        </div>
+    </div>
+}

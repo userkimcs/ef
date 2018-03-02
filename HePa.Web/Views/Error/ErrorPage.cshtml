@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "ErrorPage";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+
+<h1>@TempData["StatusCode"]</h1>
+
+<h2>@TempData["ErrorMessage"]</h2>
+<h1>Lỗi rồi sao... :(</h1>

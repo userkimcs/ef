@@ -1,0 +1,52 @@
+﻿@model IEnumerable<HePa.Core.Entities.Class>
+
+@{
+    ViewBag.Title = "Gợi ý";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Recommend</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalLike)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalLearn)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalLike)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalLearn)
+        </td>
+        <td>
+            @Html.ActionLink("Đăng ký", "Details", "MyClass", new { @id = item.Id}, null);
+        </td>
+    </tr>
+}
+
+</table>

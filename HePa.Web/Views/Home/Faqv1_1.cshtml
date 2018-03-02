@@ -1,0 +1,272 @@
+﻿@model HePa.Web.ViewModels.HomeViewModels.FaqViewModel
+@using HePa.Core.Extensions;
+@{
+    ViewBag.Title = "Câu hỏi trợ giúp khi học tiếng Anh thông minh online";
+    ViewBag.NavTitle = "Hỏi và đáp";
+    ViewBag.MetaDesc = "Các câu hỏi trợ giúp khi học tiếng Anh trực tuyến thông minh ở thị trấn Hepatown.";
+    ViewBag.MetaKeyword = "trợ giúp học tiếng anh, trợ giúp tiếng anh, tro giup ngoai ngu";
+    ViewBag.OgImage = "https://hepatown.com/dist/img/simple-page/tro-giup-hepa.jpg";
+    Layout = "~/Views/Shared/_HomePageLayout_v1.1.cshtml";
+}
+@section AddToHead {
+    <style>
+        .toggle-link {
+            padding: 15px 0 10px 30px;
+        }
+
+        #OptionVal {
+            border-color: #e5e5e5;
+            height: 43px;
+        }
+
+            #OptionVal:focus {
+                border-color: #66afe9;
+            }
+
+        li {
+            line-height: 19px;
+            padding-left: 25px;
+        }
+
+        .simple-content li:before {
+            content: "●";
+            margin-right: 7px;
+            color: #e86841;
+        }
+    </style>
+}
+<ol class="breadcrumb">
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="@Url.Action("Index", "Home")" itemprop="url">
+            <span itemprop="title">Hepatown</span>
+        </a>
+    </li>
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="@Url.Action("Faq", "Home")" itemprop="url">
+            <span itemprop="title">Hỏi và đáp</span>
+        </a>
+    </li>
+</ol>
+<div class="row image-top">
+    <div class="col-md-12">
+        <div class="content">
+            <div class="boxed">
+                <!-- START intro image -->
+                <img class="help-img img-responsive" src="~/dist/img/simple-page/tro-giup-hepa.jpg" alt="Trợ giúp Hepa help" />
+                <!-- E N D intro image -->
+                <div class="simple-content">
+                    @if (ViewBag.SendEmailSuccessfully != null && ViewBag.SendEmailFalse == null)
+                    {
+                        @Html.AlertBox(AlertBoxType.SUCCESS, ViewBag.SendEmailSuccessfully as String)
+                        <h6><a href='@Url.Action("Index", "Home")'><i class="fa fa-arrow-circle-left"></i> về trang chủ</a></h6>
+                    }
+                    else if (ViewBag.SendEmailSuccessfully == null && ViewBag.SendEmailFalse != null)
+                    {
+                        string ErrorMsg = ViewBag.SendEmailFalse + "<br>Chi tiết lỗi: " + ViewBag.SendEmailFalseDetail;
+                        @Html.AlertBox(AlertBoxType.DANGER, ErrorMsg)
+                        <h6><a href='@Url.Action("Index", "Home")'><i class="fa fa-arrow-circle-left"></i> về trang chủ</a></h6>
+                    }
+                    else
+                    {
+                <!-- START intro -->
+                        <hr />
+                        string msg =
+                      "<p><i class='fa fa-info-circle fa-lg'></i> " +
+                      "Dưới đây là những câu hỏi thường gặp có thể liên quan đến vấn đề của bạn. Bạn hãy xem qua.</p>";
+                    @Html.AlertBox(AlertBoxType.INFO, msg)
+                <!-- E N D intro -->
+                <!-- START toggle 1 -->
+                        <div class="toggle">
+                            <div class="toggle-header">
+                                <a class="toggle-link" data-toggle="collapse" href="#toggle1">
+                                    <span class="question">H:</span>
+                                    <h5>Hepatown.com là gì?</h5>
+                                    <i></i>
+                                </a>
+                            </div>
+                            @* default expand: add "in" class *@
+                            <div id="toggle1" class="toggle-body collapse in">
+                                <div class="inner">
+                                    <p>Hepatown.com –  là hệ thống Anh ngữ kiểu mới kết hợp giữa phương pháp học trực tiếp và trực tuyến để tạo ra mô hình học ngoại ngữ hiện đại nhất miền Nam dành cho người chuẩn bị đi làm. Những đặc điểm quan trọng của trung tâm anh ngữ Hepa là:</p>
+                                    <p>
+                                        <img src="~/dist/img/icon/others/gia-tri-icon.png" />
+                                    </p>
+                                    <ul>
+                                        <text>Hepatown.com cung cấp 2 loại chương trình:</text>
+                                        <li>Chương trình ngoại ngữ chuyên giọng Mỹ.</li>
+                                        <li>Chương trình 7 lớp học kỹ năng hỗ trợ cho công việc.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                <!-- E N D toggle 1 -->
+                <!-- START toggle 2 -->
+                        <div class="toggle">
+                            <div class="toggle-header">
+                                @* default expand: add "collapsed" class *@
+                                <a class="toggle-link collapsed" data-toggle="collapse" href="#toggle2">
+                                    <span class="question">H:</span>
+                                    <h5>Chương trình ngoại ngữ chuyên giọng Mỹ gồm những chương trình gì?</h5>
+                                    <i></i>
+                                </a>
+                            </div>
+                            <div id="toggle2" class="toggle-body collapse">
+                                <div class="inner">
+                                    <p>
+                                        Hepa hiện đang cung cấp lớp học <a href="//phatam.hepatown.com">#Phát âm cơ bản giọng Mỹ</a>.
+                                        Đây là nền tảng để học các chương trình cao hơn như tiếng Anh giao tiếp
+                                        hoặc tiếng Anh học thuật (luyện thi). Nắm vững lớp <a href="//phatam.hepatown.com">#Phát âm cơ bản giọng Mỹ</a>
+                                        giúp bạn nâng cao kết quả học tập các chương trình ngoại ngữ khác lên đến 50%.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                <!-- E N D toggle 2 -->
+                <!-- START toggle 3 -->
+                        <div class="toggle">
+                            <div class="toggle-header">
+                                @* default expand: add "collapsed" class *@
+                                <a class="toggle-link collapsed" data-toggle="collapse" href="#toggle3">
+                                    <span class="question">H:</span>
+                                    <h5>Ngoài giờ học offline, học viên sẽ học gì online?</h5>
+                                    <i></i>
+                                </a>
+                            </div>
+                            <div id="toggle3" class="toggle-body collapse">
+                                <div class="inner">
+                                    <ul>
+                                        <li>Học viên sẽ tự học lý thuyết ở nhà online. Thời gian học lý thuyết khoảng 5 phút. Hepa cung cấp các bài học qua video một cách ngắn gọn, dễ hiểu, xem lại mọi lúc mọi nơi.</li>
+                                        <li>Ngoài ra Hepa còn cung cấp <span class="text-blue">#Thẻ học từ vựng online</span> để bạn có thể bổ sung thêm vốn từ vựng thiết yếu thông qua phương pháp học L.R.I.P độc quyền của Hepa.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                <!-- E N D toggle 3 -->
+                <!-- START toggle 4 -->
+                        <div class="toggle">
+                            <div class="toggle-header">
+                                @* default expand: add "collapsed" class *@
+                                <a class="toggle-link collapsed" data-toggle="collapse" href="#toggle4">
+                                    <span class="question">H:</span>
+                                    <h5>Mức học phí cho chương trình học là bao nhiêu?</h5>
+                                    <i></i>
+                                </a>
+                            </div>
+                            <div id="toggle4" class="toggle-body collapse">
+                                <div class="inner">
+                                    <ul>
+                                        <li>Mức học phí là 1.000.000/tháng tại giờ cao điểm cho lớp học <a href="//phatam.hepatown.com">#Phát âm cơ bản giọng Mỹ</a>. Bạn có thể xem thêm ưu đãi học phí & học bổng tại đây.</li>
+                                        <li>Mức học phí cho phần học từ vựng online theo phương pháp L.R.I.P là 280.000 /trọn đời.</li>
+                                        <li>Lớp học 7 kỹ năng đặc biệt là hoàn toàn miễn phí và chỉ phục vụ cho học viên của Hepa. Nắm vững bộ kỹ năng này chắc chắn đảm bảo 100% bạn sẽ có việc làm ngay khi còn đang ngồi trên ghế nhà trường!</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                <!-- E N D toggle 4 -->
+                <!-- START toggle 5 -->
+                        <div class="toggle">
+                            <div class="toggle-header">
+                                @* default expand: add "collapsed" class *@
+                                <a class="toggle-link collapsed" data-toggle="collapse" href="#toggle5">
+                                    <span class="question">H:</span>
+                                    <h5>Tại sao phải học giọng Mỹ mà không phải giọng Anh?</h5>
+                                    <i></i>
+                                </a>
+                            </div>
+                            <div id="toggle5" class="toggle-body collapse">
+                                <div class="inner">
+                                    <ul>
+                                        <li>Chương trình phổ thông cũng như hầu hết trung tâm anh ngữ dạy bạn giọng Anh kể cả Việt Mỹ. Trong khi bạn hàng ngày xem phim của Hollywood (Mỹ), nghe nhạc Mỹ, sử dụng iphone, đi giày Adidas/ Nike, xài bột giặt Omo của Mỹ, uống Coca/Pepsi của Mỹ và các tập đoàn khổng lồ này đang có hoặc sẽ di dời nhà máy, công ty đến Việt Nam. Cơ hội làm việc trong các công ty đa quốc gia này lớn hơn bao giờ hết trong thời kỳ mở cửa TPP, WTO,… Để cạnh tranh về việc làm chất lượng cao, về thăng tiến, về lương, về kiến thức ngoại ngữ giọng Mỹ là công cụ mạnh mẽ nhất mà bạn cần sở hữu để đón đầu sự thay đổi.</li>
+                                        <li>Hepatown.com là một trong số rất ít đơn vị tiên phong hoạt động trong lĩnh vực tiếng Anh giọng Mỹ. Chúng tôi mang đến cho bạn những sự thật phủ phàng cùng những giải pháp thực tiễn để việc học ngoại ngữ của bạn trở thành một khoản đầu tư hiệu quả nhất trong năm 2016.</li>
+                                    </ul>
+                                    <h5>Còn chần chừ gì nữa. Hãy <a href="//phatam.hepatown.com">đăng ký</a> học thử một tuần miễn phí ngay hôm nay!</h5>
+                                </div>
+                            </div>
+                        </div>
+                <!-- E N D toggle 5 -->
+                        <hr class="margin-40" />
+                        <h4>Chúng tôi muốn lắng nghe từ bạn</h4>
+                        <p>Để lại thông tin và thắc mắc, tư vấn viên của Hepa sẽ liên lạc với bạn trong thời gian sớm nhất.</p>
+                        <p itemscope itemtype="http://schema.org/LocalBusiness">
+                            <span itemprop="name">Cần trợ giúp nhanh? Gọi ngay </span>
+                            <span itemprop="telephone" content="+84909808862" class="semi-bold">
+                                <i class="fa fa-phone-square"></i> <a href="tel:+84909808862">0909 808 862</a> &minus; <a href="tel:+84981820085">0981 820 085</a>
+                            </span>
+                        </p>
+                        using (Html.BeginForm("SendFaq", "Home", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @* If user login in -> update default textbox variable *@
+                            string name = @User.DisplayName(),
+                            email = @User.Email(),
+                            phone = @User.PhoneNumber();
+                            if (!@String.IsNullOrEmpty(@User.Name()))
+                                name = User.Name();
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="name">Họ và tên *</label>
+                                            @Html.EditorFor(model => model.Contact.FullName, new { htmlAttributes = new { @class = "form-control", @id = "name", @Value = name } })
+                                            @Html.ValidationMessageFor(model => model.Contact.FullName, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            @Html.EditorFor(model => model.Contact.Email, new { htmlAttributes = new { @class = "form-control", @id = "email", @Value = email } })
+                                            @Html.ValidationMessageFor(model => model.Contact.Email, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="tel">Điện thoại</label>
+                                            @Html.EditorFor(model => model.Contact.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @id = "tel", @Value = phone } })
+                                            @Html.ValidationMessageFor(model => model.Contact.PhoneNumber, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.OptionVal, "Bạn muốn trợ giúp về *")
+                                            @Html.DropDownListFor(model => model.OptionVal, Model.OptionType, "Chọn", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.OptionVal, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="Message">Nội dung *</label>
+                                            @Html.TextAreaFor(model => model.Message, new { @class = "form-control", @rows = 5 })
+                                            @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <p class="small"><em><span class="bold">*</span> là những thông tin cần phải điền.</em></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <input type="submit" value="Gửi" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section AddScript {
+    <script src="@Scripts.Url("~/dist/jqueryval")" async></script>
+    <script src="@Scripts.Url("~/dist/jquery.validate.unobtrusive")" async></script>
+}

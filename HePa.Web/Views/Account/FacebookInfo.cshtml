@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "FacebookInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>FacebookInfo</h2>
+
+@{
+    dynamic data = ViewBag.Info;
+    string firstname = data.first_name;
+    string lastname = data.last_name;
+    <span>firstname</span> <br/> <span>lastname</span>
+}

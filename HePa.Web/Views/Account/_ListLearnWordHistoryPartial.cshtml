@@ -1,0 +1,25 @@
+﻿@model IList<HePa.Core.Entities.LearnWordHistory>
+<h4>@ViewData["UserIndexPageTitle"]</h4>
+<hr />
+@if (Model == null)
+{
+    <strong>Empty</strong>
+}
+else
+{
+    <table>
+        <tr>
+            <td>Từ</td>
+            <td>Ngày</td>
+            <td>Điểm</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.aWord</td>
+                <td>@item.LearningDate</td>
+                <td>@item.ArchivedScore</td>
+            </tr>
+        }
+    </table>
+}

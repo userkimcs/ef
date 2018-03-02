@@ -1,0 +1,185 @@
+﻿@using Microsoft.AspNet.Identity;
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="vi" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="vi" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="vi" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="vi" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="vi" class="no-js">
+<!--<![endif]-->
+<head>
+    @* Add same head components from PartialView _MetaHead.cshtml *@
+    @Html.Partial("_MetaHead")
+    <script src="@Scripts.Url("~/dist/jquery-js")"></script>
+    <script src="@Scripts.Url("~/dist/js-site")"></script>
+    <!-- Style libs -->
+    @Styles.Render("~/dist/bootstrap-css")
+    @Styles.Render("~/dist/font-awesome-css")
+    @Styles.Render("~/dist/css-all")
+    @Styles.Render("~/dist/css-simple")
+    @* Add section AddToHead to custom add style in Partial Page *@
+    @RenderSection("AddToHead", false)
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+        <img alt="loading" src="~/dist/img/site-img/load.gif" width="0" height="0" />
+    </div>
+    <!-- START master nav -->
+    <header class="navbar navbar-static-top bs-docs-nav">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- Application title -->
+            <a href='@Url.Action("Index", "Home", new { area = "" })' class="navbar-brand">
+                <img alt="Brand" width="85" src="~/dist/img/logo/Hepa_logo_140x50_beta.png">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <!-- Right menu -->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href='@Url.Action("Order", "Order", new { area = "" })'>Mua thẻ</a></li>
+                <li><a href='@Url.Action("faq", "Home", new { area = "" })'>Trợ giúp</a></li>
+                <!-- User Control -->
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="/dist/img/site-img/default-avatar.png" class="user-image" alt="User Image" />
+                            <span class="">Công cụ</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="/dist/img/site-img/default-avatar.png" class="img-circle" alt="User Image" />
+                                <p>
+                                    @User.Identity.Name
+                                    <small><a href="/active">Kích hoạt tài khoản</a></small>
+                                </p>
+                            </li>
+                            <!-- Menu Body -->
+                            <li class="user-body">
+                                <div class="col-xs-6 text-center">
+                                    <a href="@Url.Action("ChangePassword", "Account", new { area = "" })">Đổi mật khẩu</a>
+                                </div>
+                                <div class="col-xs-6 text-center">
+                                    <a href='@Url.Action("LogOff", "Account", new { area = "" })'>Đăng xuất</a>
+                                </div>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                @*<div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>*@
+                            </li>
+                        </ul>
+                    </li>                }
+                else
+                {
+                    <li>
+                        <a href='@Url.Action("Index", "Home", new { area = "" })'>Đăng nhập</a>
+                    </li>
+                }
+            </ul>
+            <!-- Page title -->
+            <ul class="nav navbar-nav title">
+                <li><a><h1>@ViewBag.NavTitle</h1></a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- E N D master nav -->
+    <!-- START body content -->
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <!-- E N D body content -->
+    <!-- START footer -->
+    <footer>
+        <div class="footer no-radius">
+            <!-- container-->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- START footer separate line -->
+                    <div class="footer-separate"></div>
+                    <!-- E N D footer separate line -->
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="summary-hepa widget-container widget_nav_menu">
+                            <h3 class="widget-title logo"><a href="@Url.Action("Index", "Home", new { area = "" })"><img height="36" src="~/dist/img/logo/Hepa_logo_140x50.png" /></a></h3>
+                            <ul>
+                                <li>&nbsp;</li>
+                                <li>Bản quyền &copy; 2015 Hepa Inc. Bảo lưu mọi quyền.</li>
+                                <li>Hepatown® là thương hiệu của Hepa, Inc.</li>
+                                <li>Giấy phép HĐ: 0313416750</li>
+                                <li>Made in Saigon, Vietnam with <i class="text-maroon fa fa-heart"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="start-hepa widget-container widget_nav_menu">
+                            <h3 class="widget-title"><span>Bắt đầu với Hepa</span></h3>
+                            <ul>
+                                <li><a href="@Url.Action("About", "Home", new { area = "" })"><span>Giới thiệu</span></a></li>
+                                <li><a href="@Url.Action("Faq", "Home", new { area = "" })"><span>Trợ giúp</span></a></li>
+                                <li><a href="@Url.Action("Tos", "Home", new { area = "" })"><span>Điều khoản</span></a></li>
+                                <li><a href="@Url.Action("Team", "Home", new { area = "" })"><span>Về chúng tôi</span></a></li>
+                                <li itemscope itemtype="http://schema.org/LocalBusiness">
+                                    <span itemprop="name" class="hide">Contact Hepatown</span>
+                                    <span itemprop="telephone" content="+84909808862" class="semi-bold">
+                                        <i class="fa fa-phone-square"></i> <a href="tel:+84909808862">0909 808 862</a> &minus; <a href="tel:+84981820085">0981 820 085</a>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-5">
+                        <!-- START Facebook Page plugin -->
+                        <div class="fb-page" data-href="https://www.facebook.com/HepaTown" data-width="420" data-height="214" data-show-posts="false">
+                            <div class="fb-xfbml-parse-ignore">
+                                <blockquote cite="https://www.facebook.com/HepaTown">
+                                    <a href="https://www.facebook.com/HepaTown">Hepatown</a>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <!-- E N D Facebook Page plugin -->
+                    </div>
+                </div>
+                <!--/ row -->
+            </div>
+            <!--/ container-->
+        </div>
+    </footer>
+    @* check feedback after @RenderBody() *@
+    @if (@ViewBag.Feedback != 0 || @ViewBag.Feedback == null)
+    {
+        @Html.Partial("_Feedback");
+    }
+    <!-- E N D footer -->
+    <!-- Script libs -->
+    @RenderSection("AddScript", false)
+    <script src="@Scripts.Url("~/dist/modernizr-js")" async></script>
+    <script src="@Scripts.Url("~/dist/bootstrap-js")"></script>
+    <!-- START Facebook Javascript SDK -->
+    <div id="fb-root"></div>
+    <script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=570146336422477";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- E N D Facebook Javascript SDK -->
+    @Html.Partial("_GoogleAnalytics")
+</body>
+</html>

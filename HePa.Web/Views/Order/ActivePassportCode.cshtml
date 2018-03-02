@@ -1,0 +1,79 @@
+﻿@model HePa.Web.ViewModels.Order.PassportViewModel
+@using HePa.Core.Extensions;
+@{
+    ViewBag.Title = "ActivePassportCode";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+@if (Session["isBlocked"] != null && Session["isBlocked"] == "true")
+{
+    <p>Tài khoản của bạn đã bị khóa chức năng kích hoạt thẻ vì nhập sai mã nhiều lần.</p>
+    <p>Vui lòng liên hệ hỗ trợ để được tư vấn thêm</p>
+}
+else
+{
+    using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Kích hoạt tài khoản của bạn và trở thành công dân của Hepatown.</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+                <div class="control-label col-md-2">Mã thẻ:</div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PassportCode)
+                    @Html.ValidationMessageFor(model => model.PassportCode)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="control-label col-md-2">Mã kích hoạt:</div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ActiveCode)
+                    @Html.ValidationMessageFor(model => model.ActiveCode)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.AlertBox(AlertBoxType.SUCCESS, ViewData["Success"] as String)
+                @Html.AlertBox(AlertBoxType.DANGER, ViewData["Error"] as String)
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Kích hoạt" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Bạn cần đăng nhập để kích hoạt tài khoản!</p>
+            </div>
+            <div class="modal-footer">
+                <a href="@Url.Action("Index", "Home", new { area = ""})" class="btn btn-defaul btn-small">Đăng ký</a>
+                <a href="@Url.Action("Index", "Home", new { area = ""})" class="btn btn-default btn-small">Đăng nhập</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section AddScript {
+    <script>
+        $(document).ready(function () {
+            var isAuth = @Html.Raw(Json.Encode(User.Identity.IsAuthenticated)); // kiem tra user da dang nhap chua
+            if (isAuth == false) {       //neu chua dang nhap thi hien thong bao
+                $("#myModal").modal({ show: true });
+            }
+        });
+    </script>
+}

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="vi" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="vi" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="vi" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="vi" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="vi" class="no-js">
+<!--<![endif]-->
+<head>
+    @* Add same head components from PartialView _MetaHead.cshtml *@
+    @Html.Partial("_MetaHead")
+
+    <script src="@Scripts.Url("~/dist/jquery-js")"></script>
+    <script src="@Scripts.Url("~/dist/js-site")"></script>
+    <!-- Style libs -->
+    @Styles.Render("~/dist/bootstrap-css")
+    @Styles.Render("~/dist/perfect-scrollbar-css")
+    @Styles.Render("~/dist/bootstrap-social")
+    @Styles.Render("~/dist/font-awesome-css")
+    @Styles.Render("~/dist/css-all")
+    @Styles.Render("~/dist/css-home")
+    @* Add section AddToHead to custom add style in Partial Page *@
+    @RenderSection("AddToHead", false)
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+        <img src="~/dist/img/site-img/load.gif" width="0" height="0" />
+    </div>
+    <div class="full-container">
+        <div class="container-fluid">
+            @RenderBody()
+        </div>
+    </div>
+    <!-- Script libs -->
+    <script src="@Scripts.Url("~/dist/modernizr-js")" async></script>
+    <script src="@Scripts.Url("~/dist/bootstrap-js")" async></script>
+    @RenderSection("AddScript", false)
+    @Html.Partial("_GoogleAnalytics")
+</body>
+</html>

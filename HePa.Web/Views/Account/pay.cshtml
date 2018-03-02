@@ -1,0 +1,323 @@
+﻿@{
+    ViewBag.Title = "Pay ment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section AddToHead{
+    @Styles.Render("~/dist/css-payment")
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <!--Introduction Panel-->
+        <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">E-flashcard học từ vựng Hepa passport</div>
+            <div class="panel-body">
+                <p>Hepatown là thị trấn trực tuyến nơi bạn có thể đến học những chương trình ngoại ngữ chất lượng.</p>
+                <p>Tất cả những gì bạn cần là 1 chiếc thẻ thông hành Hepa Passport để trở thành công dân của thị trấn.</p>
+                <p>=> Hãy sử hữu chiếc thẻ ngay hôm nay</p>
+                <p class="show-more"><a href="#">[Thông tin khuyến mãi]</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- row-->
+<div class="row">
+    <div class="col-sm-12 col-md-8">
+        <!-- content -->
+        <div class="content" role="main">
+            <!-- Payment form -->
+            <div class="tabs_framed payment-form">
+                <div class="inner">
+                    <ul class="tabs clearfix">
+                        <li class="active">
+                            <a href="#billing" data-toggle="tab" class="no-wrap">❶ Chọn thẻ</a>
+                        </li>
+                        <li>
+                            <a href="#shipping" data-toggle="tab" class="no-wrap">❷ Thanh toán</a>
+                        </li>
+                        @*<li><a href="#payment" data-toggle="tab">Payment</a></li>*@
+                    </ul>
+
+                    <div class="tab-content boxed clearfix">
+                        <!--Step 1-->
+                        <div class="tab-pane fade in active" id="billing">
+                            <div class="payment-tab-content ticket-info">
+                                <form class="form-horizontal" role="form">
+                                    <!--Select period-->
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="sel_period">Thời hạn thẻ:</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control select_styled" id="sel_period">
+                                                <option value="0" style="display:none">Chọn thời hạn sử dụng</option>
+                                                <option value="1" data-price="320000">1 năm - 320.000 VNĐ</option>
+                                                <option value="2" data-price="640000">2 năm</option>
+                                                <option value="3" data-price="1280000">3 năm</option>
+                                                <option value="4" data-price="2560000">4 năm</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!--select amount-->
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="txt_amount">Số lượng:</label>
+                                        <div class="col-sm-6">
+                                            <input type="number" max="100" min="0" class="form-control" id="txt_amount">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="discount-label"><span id="discount-amount-percent"></span> -10% <span id="discount-amount-percent-money">(-700.000 VNĐ)</span></div>
+                                        </div>
+                                    </div>
+
+                                    <!--input discount key-->
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="txt_discount">Mã khuyến mãi:</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="txt_discount">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="discount-label"><span id="discount-percent"></span> -10% <span id="discount-percent-money">(-700.000 VNĐ)</span></div>
+                                        </div>
+                                    </div>
+
+                                    @*<div class="form-group">
+                                            <ul class="col-sm-9  col-sm-offset-3">
+                                                <li><h5>Khuyến mãi (xxx%):<span class="pull-right"> -xxx VNĐ</span></h5></li>
+                                            </ul>
+                                        </div>*@
+                                    <hr />
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-9 col-sm-3">
+                                            <div class="">
+                                                <button class="btn btn-default btn-next" aria-describedby="basic-addon1">
+                                                    Tiếp tục
+                                                    <i class="fa fa-caret-right"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!--Step 2-->
+                        <div class="tab-pane fade" id="shipping">
+                            <div class="payment-tab-content customer-info">
+                                <form class="form-horizontal" role="form">
+                                    <!--Customer name-->
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="txt_name">Họ và tên:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="txt_name">
+                                        </div>
+                                    </div>
+
+                                    <!--Customer phone No-->
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="txt_phone">Số điện thoại:</label>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control phone-number" id="txt_phone1" placeholder="Số điện thoại 1">
+                                        </div>
+
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control phone-number" id="txt_phone2" placeholder="Số điện thoại 2">
+                                        </div>
+                                    </div>
+
+                                    <!--Customer Email-->
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="txt_phone">Email:</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="txt_email">
+                                        </div>
+                                    </div>
+
+                                    <!--input adresss-->
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="sel_period">Địa chỉ:</label>
+                                        <div class="col-sm-5">
+                                            <select class="form-control select_styled" id="sel_city">
+                                                <option style="display: none">TP/Tỉnh</option>
+                                                <option>HCM</option>
+                                                <option>HN</option>
+                                                <option>NT</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <select class="form-control select_styled" id="sel_distric">
+                                                <option style="display:none">Quận/Huyện</option>
+                                                <option>10</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="sel_period"></label>
+                                        <div class="col-sm-5">
+                                            <select class="form-control select_styled" id="sel_ward">
+                                                <option style="display:none">Phường xã</option>
+                                                <option>2 x</option>
+                                                <option>3 x</option>
+                                                <option>4 x</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control" id="txt_khac" placeholder="Khác">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="txt_address"></label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="txt_address" placeholder="Số nhà, tên đường, khu phố">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12 col-sm-offset-1">
+                                            <h6>Hình thức thanh toán</h6>
+                                            <div class="col-sm-offset-2 payment-kind">
+                                                <label class="radio-inline"><input type="radio" name="optradio" value="0">Giao thẻ và thu tiền tận nhà</label>
+                                                <label class="radio-inline"><input type="radio" name="optradio" value="1">Mua trực tiếp tại cửa hàng</label>
+                                                <label class="radio-inline"><input type="radio" name="optradio" value="2">Thanh toán online</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    <div class="form-group ">
+                                        <div class="col-sm-6 col-sm-offset-6">
+                                            <span>Vui lòng kiểm tra kỹ thông tin trước khi hoàn tất</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group ">
+                                        <div class="col-sm-5 col-sm-offset-7">
+                                            <div class="">
+                                                <button class="btn btn-default btn-prev" aria-describedby="basic-addon1">
+                                                    <i class="fa fa-caret-left"></i>
+                                                    Quay lại
+                                                </button>
+
+                                                <button class="btn btn-default" aria-describedby="basic-addon1">
+                                                    Hoàn tất
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Total review in small screen-->
+            <div class="clearfix visible-xs-block visible-sm-block">
+                <div class="review-total-info-small alert alert-warning">
+                    <h4><span>Tổng cộng:</span><span id="review-total" class="pull-right">0 VNĐ</span></h4>
+                </div>
+            </div>
+        </div>
+        <!--/ content -->
+        
+    </div>
+
+    <div class="col-md-4 content">
+        @*<div class="tab-pane fade" id="payment">*@
+        <div class="widget-container boxed visible-md-block visible-lg-block">
+            <h3 class="widget-title">THÔNG TIN GIAO DỊCH</h3>
+            <div class="inner">
+                <!-- place your content here -->
+                <form class="form-horizontal" role="form">
+                    <!--Card info-->
+                    <div class="review-ticket-info">
+                        <div class="review-title">
+                            <h4>
+                                THÔNG TIN THẺ HEPA PASSPORT
+                            </h4>
+                            <a class="pull-right" href="#"><i class="fa fa-pencil"></i> Edit </a>
+                            <hr />
+                        </div>
+                        <div class="row">
+                            <div class="review-body col-md-7">
+                                <h4><span class="review-body-index">Loại thẻ</span></h4>
+                            </div>
+                            <div class="review-body col-md-3 pull-right">
+                                <h4><span class="review-body-index">Số lượng</span></h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="review-body col-md-8">
+                                <span class="review-body-content" id="review_ticket_kind">Vui lòng chọn loại thẻ</span>
+                            </div>
+                            <div class="review-body col-md-2 pull-right">
+                                <span class="review-body-content" id="review_ticket_amount"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--End tiket info-->
+                    <!--Customer info-->
+                    <div class="review-customer-info">
+                        <div class="review-title">
+                            <h4>
+                                THÔNG TIN KHÁCH HÀNG
+                            </h4>
+                            <a class="pull-right" href="#"><i class="fa fa-pencil"></i> Edit </a>
+                            <hr />
+                        </div>
+
+                        <div class="review-body">
+                            <span class="review-body-index"><i class="fa fa-user-secret"></i></span>
+                            <span class="review-body-content pull-right" id="review_customer_name"></span>
+                        </div>
+
+                        <div class="review-body">
+                            <span class="review-body-index"><i class="fa fa-phone"></i></span>
+                            <span class="review-body-content pull-right" id="review_customer_phone2"></span>
+                            <span class="review-body-content pull-right hide" id="split-phone">-</span>
+                            <span class="review-body-content pull-right" id="review_customer_phone1"></span>
+                        </div>
+
+                        <div class="review-body">
+                            <span class="review-body-index"><i class="fa fa-envelope"></i></span>
+                            <span class="review-body-content pull-right" id="review_customer_email"></span>
+                        </div>
+
+                        <div class="review-body">
+                            <span class="review-body-index"><i class="fa fa-home"></i></span>
+                            <span class="review-body-content pull-right" id="review_customer_address"></span>
+                        </div>
+                    </div>
+                    <!--End customer info-->
+                    <!--Payment info-->
+                    <div class="review-payment-info">
+                        <div class="review-title">
+                            <h4>
+                                HÌNH THỨC THANH TOÁN
+                            </h4>
+                            <a class="pull-right" href="#"><i class="fa fa-pencil"></i> Edit </a>
+                            <hr />
+                        </div>
+
+                        <div class="review-body">
+                            <h5> <span class="review-body-content" id="review_payment_kind"></span></h5>
+                        </div>
+                    </div>
+                    <!--End Payment info-->
+                    <!--Total info-->
+                    <div class="widget-title review-total-info">
+                        <h4><span>Tổng cộng:</span><span id="review-total" class="pull-right">0 VNĐ</span></h4>
+                    </div>
+                    <!--End total info-->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ row-->
+<!--/ container-->
+@section AddScript {
+    @Scripts.Render("~/dist/js-payment")
+    <script src="@Scripts.Url("~/dist/input-mask-js")" async></script>
+}

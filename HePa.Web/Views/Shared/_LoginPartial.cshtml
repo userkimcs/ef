@@ -1,0 +1,96 @@
+﻿@using Microsoft.AspNet.Identity;
+@using HePa.Core.Extensions;
+@if (User.Identity.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+    <ul class="nav navbar-nav navbar-right navbar-custom-menu">
+        <!-- Notification button -->
+        <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-bell-o"></i>
+                <span class="label label-warning">10</span>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="header">You have 10 notifications</li>
+                <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-users text-aqua"></i> Something
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-users text-red"></i> 2 peoples add you as their friend
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-shopping-cart text-green"></i> Share badget successfully
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-user text-red"></i> You changed your username
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="footer"><a href="#">View all</a></li>
+            </ul>
+        </li>
+        <!-- User Account -->
+        <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="Content/hp/img/dump/user-phat.jpg" class="user-image" alt="User Image" />
+                <span class="hidden-xs">Phat Nguyen</span>
+            </a>
+            <ul class="dropdown-menu">
+                <!-- User image -->
+                <li class="user-header">
+                    <img src="Content/hp/img/dump/user-phat.jpg" class="img-circle" alt="User Image" />
+                    <p>
+                        @User.Identity.GetUserName() - VIP Hepan
+                        <small>Là thành viên từ 05/2015</small>
+                    </p>
+                </li>
+                <!-- Menu Body -->
+                <li class="user-body">
+                    <div class="col-xs-6 text-center">
+                        @Html.ActionLink("Thông tin ", "Index", "Account", routeValues: null, htmlAttributes: new { title = "Xem thông tin của bạn" })
+                    </div>
+                    <div class="col-xs-6 text-center">
+                        <a href="#">Kinh nghiệm</a>
+                    </div>
+                </li>
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                    <!-- <div class="pull-left">
+                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    </div> -->
+                    <div class="pull-right">
+                        <a href="javascript:document.getElementById('logoutForm').submit()"
+                           class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "Account")</li>
+        <li>@Html.ActionLink("Login", "Login", "Account")</li>
+    </ul>
+}

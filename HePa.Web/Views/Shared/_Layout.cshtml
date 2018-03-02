@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="vi" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="vi" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="vi" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="vi" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="vi" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" href="//hepatown.com" hreflang="vi-vn" />
+    <title>@ViewBag.Title - Hepatown</title>
+    <!-- Style libs -->
+    @Styles.Render("~/dist/bootstrap-css")
+    @Styles.Render("~/dist/font-awesome-css")
+    @Styles.Render("~/dist/css-all")
+    @* Add section AddToHead to custom add style in Partial Page *@
+    @RenderSection("AddToHead", false)
+
+    <!--[if lt IE 9]>
+        @Scripts.Render("~/dist/respond-js")    <![endif]-->
+    <!--[if gte IE 9]>
+    <style type="text/css">
+        .gradient {filter: none !important;}
+    </style>
+    <![endif]-->
+</head>
+<body>
+    <!-- Docs master nav -->
+    <header class="navbar navbar-static-top bs-docs-nav">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- Application title -->
+            @Html.ActionLink(Resources.Resource.ApplicationTitle, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="collapse navbar-collapse">
+            <!-- Login partial -->
+            @Html.Partial("_LoginPartial")
+            <!-- Page title -->
+            <ul class="nav navbar-nav">
+                <li><a><h1>@ViewBag.Title</h1></a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <!-- Script libs -->
+    <script src="@Scripts.Url("~/dist/jquery-js")"></script>
+    <script src="@Scripts.Url("~/dist/js-site")"></script>
+    <script src="@Scripts.Url("~/dist/modernizr-js")" async></script>
+    <script src="@Scripts.Url("~/dist/bootstrap-js")" async></script>
+    @RenderSection("AddScript", false)
+    @Html.Partial("_GoogleAnalytics")
+</body>
+</html>

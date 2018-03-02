@@ -1,0 +1,18 @@
+﻿@model IList<HePa.Core.Entities.UserExperience>
+<h4>@ViewData["UserIndexPageTitle"]</h4>
+<hr />
+<table>
+    <tr>
+        <td>Trạng thái</td>
+        <td>Ngày</td>
+        <td>Điểm</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ActionName </td>
+            <td>@item.CreatedDate.Value.ToString("dd/MM/yyyy") </td>
+            <td>@item.Exp</td>
+        </tr>
+    }
+</table>

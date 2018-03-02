@@ -1,0 +1,52 @@
+﻿@* This file use for adding header meta tag and components *@
+<!-- General title and Meta tag -->
+<title>@ViewBag.Title</title>
+<meta charset="utf-8">
+<meta name="description" content="@ViewBag.MetaDesc">
+<meta name="keywords" content="@ViewBag.MetaKeyword">
+<link rel="canonical" href="@Request.Url">
+<link rel="publisher" href="https://plus.google.com/109999731625810417168" />
+<!-- Meta for mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable = no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon" href="~/dist/img/icon/Icon-60@2x.png">
+<link rel="apple-touch-icon" sizes="180x180" href="~/dist/img/icon/Icon-60@3x.png">
+<link rel="apple-touch-icon" sizes="76x76" href="~/dist/img/icon/Icon-76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="~/dist/img/icon/Icon-76@2x.png">
+<link rel="apple-touch-icon" sizes="58x58" href="~/dist/img/icon/Icon-Small@2x.png">
+<!-- Meta for Facebook -->
+<meta property="og:url" content="@Request.Url" />
+<meta property="og:title" content="@ViewBag.Title - Hepatown" />
+<meta property="og:description" content="@ViewBag.MetaDesc" />
+@if (@ViewBag.OgSite_name == "" || @ViewBag.OgSite_name == null)
+{
+    ViewBag.OgSite_name = "Hepatown";
+}
+<meta property="og:site_name" content="@ViewBag.OgSite_name" />
+@if (@ViewBag.OgImage == "" || @ViewBag.OgImage == null)
+{
+    ViewBag.OgImage = "https://hepatown.com/dist/img/logo/Hepa_logo_1000x525.png";
+}
+<meta property="og:image" content="@ViewBag.OgImage" />
+@if (@ViewBag.OgType == "" || @ViewBag.OgType == null)
+{
+    ViewBag.OgType = "website";
+}
+<meta property="og:type" content="@ViewBag.OgType" />
+<meta property="fb:admins" content="100001108114660" />
+<meta property="fb:admins" content="@ViewBag.FbAdmin2" />
+@if (@ViewBag.FbApp_id == "" || @ViewBag.FbApp_id == null)
+{
+    ViewBag.FbApp_id = "570146336422477";
+}
+<meta property="fb:app_id" content="570146336422477" />
+
+<!--[if lt IE 9]>
+    @Scripts.Render("~/dist/respond-js")    <![endif]-->
+<!--[if gte IE 9]>
+<style type="text/css">
+    .gradient {filter: none !important;}
+</style>
+<![endif]-->

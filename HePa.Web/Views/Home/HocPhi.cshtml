@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "Học phí tiếng Anh năm 2016 của Hepa";
+    ViewBag.NavTitle = "Học phí";
+    ViewBag.MetaDesc = "Mực học phí cho năm học 2016 của trung tâm tiếng Anh Hepa";
+    ViewBag.MetaKeyword = "hoc phi phat am, hoc phi hepa, hoc phi";
+    Layout = "~/Views/Shared/_HomePageLayout_v1.1.cshtml";
+}
+
+@section AddToHead {
+    <style>
+        ul li {
+            line-height: 19px;
+            padding-left: 25px;
+        }
+
+        .section-1 li:before {
+            content: "●";
+            margin-right: 7px;
+            color: #e86841;
+        }
+
+        .section-2 li:before, .section-3 li:before {
+            content: "👉";
+            margin-right: 7px;
+            color: #e86841;
+        }
+
+        .box-header.hoc-phi {
+            background-image: url('/dist/img/home-page/header-1.png');
+        }
+
+        .which-class {
+            margin-bottom: 30px;
+            margin-left: 25px;
+            display: block;
+        }
+    </style>
+}
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="@Url.Action("Index", "Home")" itemprop="url">
+                <span itemprop="title">Hepatown</span>
+            </a>
+        </li>
+        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="@Url.Action("HocPhi", "Home")" itemprop="url">
+                <span itemprop="title">Học phí Hepa</span>
+            </a>
+        </li>
+    </ol>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="content">
+                <div class="simple-content boxed">
+                    <div class="box-header hoc-phi">
+                        <div class="bg-cover">
+                            <h2>Học phí tại Hepa luôn phù hợp với nhiều giá trị cộng thêm độc đáo</h2>
+                        </div>
+                    </div>
+                    <h4>Mức học phí cho năm học 2016 là 1,000,000đ/tháng, áp dụng cho tất cả các lớp chính quy.</h4>
+                    <ul class="section-1">
+                        <li>Mỗi lớp chính quy kéo dài 1.5 tháng</li>
+                        <li>1 Ưu đãi học phí 20% đối với lớp ban ngày & lớp sau 8h tối</li>
+                        <li>2 Ưu đãi thêm 5% cho 1 cặp đang yêu.</li>
+                        <li>3 Ưu đãi thêm 5% nếu bạn là nữ.</li>
+                        <li>Miễn phí các lớp ngoại khóa cho học viên Hepa</li>
+                    </ul>
+
+                    <h4>Hepatown.com cung cấp 3 lớp chính quy & 7 lớp ngoại khóa.</h4>
+                    <div class="content-2">
+                        <h6>Lớp chính quy</h6>
+                        <ul class="section-2">
+                            <li>Phát âm giọng Mỹ</li>
+                            <li>Giao tiếp cơ bản</li>
+                            <li>Giao tiếp chuyên ngành</li>
+                        </ul>
+                        <em class="which-class">Lớp ngoại ngữ nào phù hợp với bạn?</em>
+
+                        <h6>Lớp ngoại khóa (miễn phí)</h6>
+                        <ul class="section-3">
+                            <li>Ngữ pháp cơ bản</li>
+                            <li>Kỹ năng xin việc</li>
+                            <li>Kỹ năng thuyết trình</li>
+                            <li>Kỹ năng quản lý & báo cáo</li>
+                            <li>Kỹ năng Google</li>
+                            <li>Kỹ năng bán hàng</li>
+                            <li>Shortcut! (đường tắt)</li>
+                        </ul>
+
+                        <p>Lưu ý: Sứ mệnh của Hepa là thông qua tiếng Anh mang đến cho bạn cơ hội việc làm với mức thu nhập tốt hơn, vì vậy chúng tôi thiết kế các lớp ngoại khóa để hiện thực hóa ước mơ nghề nghiệp của bạn. Lớp ngoại khóa là lớp chỉ dành riêng cho học viên chính quy của trung tâm Hepa. Bạn chỉ có một cách để học lớp này là trở thành học viên lớp chính quy!</p>
+
+                    </div>
+                    <p class="start-now btn btn-warning btn-large">START NOW!</p>
+                    <p class="text-center">(Xem <a href="@Url.Action("LichKhaiGiang", "Home", new { area = "" })"><span>lịch khai giảng</span></a> – học thiệt 1 tuần miễn phí)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

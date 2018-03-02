@@ -1,0 +1,30 @@
+﻿@model IList<HePa.Core.Entities.UserGoal>
+<!--Display all registered classes as dropdown list-->.
+<h4>@ViewData["UserIndexPageTitle"]</h4>
+<hr />
+<select id="list-class-selection" >
+    <option value="default">Default</option>
+    @foreach (var item in Model)
+    {
+        <option value='@item.ClassId'>@item.Class.ClassName</option>
+    }
+</select>
+<div id="div-history"></div>
+<script>
+    $(document).ready(function () {
+        $("#list-class-selection").change(function () {
+            var dropDownValue = $('#list-class-selection').val();
+            console.log(dropDownValue);
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("GetHistoryFromClass", "Account", new { area = "" })',
+                data: {
+                    classId: dropDownValue
+                },
+                success: function (data) {
+                    $('#div-history').html(data);
+                }
+            });
+        })
+        }) 
+</script>

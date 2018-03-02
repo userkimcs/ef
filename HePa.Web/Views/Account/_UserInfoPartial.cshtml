@@ -1,0 +1,73 @@
+﻿@model HePa.Web.ViewModels.AccountViewModels.UserInfoViewModel
+
+<h4>@ViewData["UserIndexPageTitle"]</h4>
+<hr />
+<div class="row">
+    <div class="col-sm-2">
+        <img class="" style="border: 1px solid black" width="70" height="70" />
+    </div>
+    <div class="col-sm-8">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayName("Tên hiển thị")
+            </dt>
+
+            <dd>
+                @{var displayName = String.IsNullOrEmpty(Model.DisplayName) ? "Chưa cập nhật" : Model.DisplayName;}
+                @Html.DisplayName(displayName)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Họ tên")
+            </dt>
+
+            <dd>
+                @{var name = String.IsNullOrEmpty(Model.Name) ? "Chưa cập nhật" : Model.DisplayName;}
+                @Html.DisplayName(name)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Ngày sinh")
+            </dt>
+
+            <dd>
+                @{var birthDay = Model.BirthDay.HasValue ? Model.BirthDay.ToString() : "Chưa cập nhật";}
+                @Html.Display(birthDay)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Nghề nghiệp")
+            </dt>
+
+            <dd>
+                @{var job = String.IsNullOrEmpty(Model.Job) ? "Chưa cập nhật" : Model.Job;}
+                @Html.DisplayName(job)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Nơi ở")
+            </dt>
+
+            <dd>
+                @{var place = String.IsNullOrEmpty(Model.Place) ? "Chưa cập nhật" : Model.Place;}
+                @Html.Display(place)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Điện thoại")
+            </dt>
+
+            <dd>
+                @{var phone = String.IsNullOrEmpty(Model.PhoneNumber) ? "Chưa cập nhật" : Model.PhoneNumber;}
+                @Html.DisplayName(phone)
+            </dd>
+        </dl>
+    </div>
+</div>
+<div class="row">
+    <br />
+    <div class="col-sm-10">
+        <a href="@Url.Action("UpdateUserInfo", "Account", new { area = ""})" class="btn"> Cập nhật thông tin</a>
+        <a href="@Url.Action("ChangePassword", "Account", new { area = "" })" class="btn"> Đổi password</a>
+    </div>
+</div>

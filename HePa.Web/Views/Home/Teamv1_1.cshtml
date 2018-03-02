@@ -1,0 +1,293 @@
+﻿@{
+    ViewBag.Title = "Nhóm kỹ sư thiết kế chương trình học ngoại ngữ";
+    ViewBag.NavTitle = "Nhóm kỹ sư Hepa";
+    ViewBag.MetaDesc = "Đội ngũ phát triển thị trấn học ngoại ngữ Hepatown. Hãy khám phá họ là ai và tìm kiếm một cuộc hẹn vui vẻ.";
+    ViewBag.MetaKeyword = "Đội ngũ phát triển hepa, doi ngu phat trien hepa";
+    Layout = "~/Views/Shared/_HomePageLayout_v1.1.cshtml";
+}
+@section AddToHead {
+    @Styles.Render("~/dist/css-team")
+}
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="@Url.Action("Index", "Home")" itemprop="url">
+                <span itemprop="title">Hepatown</span>
+            </a>
+        </li>
+        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a href="@Url.Action("Team", "Home")" itemprop="url">
+                <span itemprop="title">Nhóm kỹ sư Hepa</span>
+            </a>
+        </li>
+    </ol>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="content">
+                <div class="simple-content boxed">
+                    <!-- START team section -->
+                    <section class="team">
+                        <h2>Nhóm thiết kế sản phẩm</h2>
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1">
+                                <p class="sumary">HepaTown được thành lập ngày 12/03/2015 bởi 2 thành viên, sau đó đội ngũ tăng lên thành 10 người làm việc toàn thời gian, có thành viên là người Mỹ sống ở Chicago. Trong năm đầu tiên, Hepa tập trung thiết kế nền tảng học Tiếng Anh Trực Tuyến, bản quyền hình ảnh, âm thanh đều do chúng tôi thiết kế - ghi âm. Năm 2016 này, sản phẩm đã hoàn tất & được ứng dụng ngay vào lớp Tiếng Anh Giao Tiếp dành cho người đi làm/chuẩn bị đi làm.</p>
+                            </div>
+                        </div>
+                        <p>Dưới đây là nhóm thiết kế sản phẩm học Tiếng Anh Trực Tuyến. Danh sách này không bao gồm các giảng viên. Hepa tuyển dụng giảng viên theo những tiêu chí quan trọng của mình. Hầu hết giảng viên là những du học sinh, đã từng học tập & sinh sống tại Mỹ, trong một vài buổi học bạn cũng sẽ được tiếp xúc với những người nước ngoài đến từ Mỹ, Úc, Anh,... </p>
+                        <h5>Chúng tôi vui, cá tính, có chút điên nhưng cực kỳ thú vị</h5>
+                        <div class="row">
+                            <!-- START a box of team -->
+                            <div class="col-sm-4 abox text-center">
+                                <div class="avatar">
+                                    <img src="~/dist/img/team/Dung.jpg" />
+                                    <span class="ring"></span>
+                                </div>
+                                <div class="persion">
+                                    <h5 class="name">Dung Nguyen</h5>
+                                    <h6 class="pos">Product creator</h6>
+                                </div>
+                                <div class="intro">
+                                    <p>Trầm tính nhưng cực kỳ dễ thương. Yêu thích tiếng Anh và tiếng Nhật.</p>
+                                </div>
+                                <div class="contact">
+                                    <ul>
+                                        <li><a href="https://www.facebook.com/100003173887292"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- E N D a box of team -->
+                            <!-- START a box of team -->
+                            <div class="col-sm-4 abox text-center">
+                                <div class="avatar">
+                                    <img src="~/dist/img/team/Trang.jpg" />
+                                    <span class="ring"></span>
+                                </div>
+                                <div class="persion">
+                                    <h5 class="name">Trang Nguyen</h5>
+                                    <h6 class="pos">Product creator</h6>
+                                </div>
+                                <div class="intro">
+                                    <p>Yêu cái đẹp và luôn vui vẻ, sống hướng thiện và tốt với mọi người.</p>
+                                </div>
+                                <div class="contact">
+                                    <ul>
+                                        <li><a href="https://www.facebook.com/100000366595830"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- E N D a box of team -->
+                            <!-- START a box of team -->
+                            <div class="col-sm-4 abox text-center">
+                                <div class="avatar">
+                                    <img src="~/dist/img/team/Thinh.png" />
+                                    <span class="ring"></span>
+                                </div>
+                                <div class="persion">
+                                    <h5 class="name">Thinh Hoang</h5>
+                                    <h6 class="pos">Customer Care</h6>
+                                </div>
+                                <div class="intro">
+                                    <p>Kín tiếng, hãy gặp anh ấy để biết thêm chi tiết.</p>
+                                </div>
+                                <div class="contact">
+                                    <ul>
+                                        <li><a href="https://www.facebook.com/100009893946376"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- E N D a box of team -->
+                        </div>
+                        <div class="row">
+                            <!-- START a box of team -->
+                            <div class="col-sm-4 abox text-center">
+                                <div class="avatar">
+                                    <img src="~/dist/img/team/Kim.jpg" />
+                                    <span class="ring"></span>
+                                </div>
+                                <div class="persion">
+                                    <h5 class="name">Kim Nguyen</h5>
+                                    <h6 class="pos">Technical Leader</h6>
+                                </div>
+                                <div class="intro">
+                                    <p>Thích phân tích hệ thống và trí tuệ nhân tạo. Làm sao cho máy tính xử lý thống minh như con người nhỉ!?</p>
+                                </div>
+                                <div class="contact">
+                                    <ul>
+                                        <li><a href="https://www.facebook.com/100004651756335"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- E N D a box of team -->
+                            <!-- START a box of team -->
+                            <div class="col-sm-4 abox text-center">
+                                <div class="avatar">
+                                    <img src="~/dist/img/team/Tan.jpg" />
+                                    <span class="ring"></span>
+                                </div>
+                                <div class="persion">
+                                    <h5 class="name">Tan Nguyen</h5>
+                                    <h6 class="pos">Developer</h6>
+                                </div>
+                                <div class="intro">
+                                    <p>Học là chuyện lớn, code là chuyện nhỏ.</p>
+                                </div>
+                                <div class="contact">
+                                    <ul>
+                                        <li><a href="https://www.facebook.com/100000091218462"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- E N D a box of team -->
+                            <!-- START a box of team -->
+                            <div class="col-sm-4 abox text-center">
+                                <div class="avatar">
+                                    <img src="~/dist/img/team/Phat.jpg" />
+                                    <span class="ring"></span>
+                                </div>
+                                <div class="persion">
+                                    <h5 class="name">Phat Nguyen</h5>
+                                    <h6 class="pos">General Operator</h6>
+                                </div>
+                                <div class="intro">
+                                    <p>Phong thái hơi nghiêm túc. Cái gì chắc thì làm. Cầu toàn và thích âm nhạc.<br /><span>♯</span></p>
+                                </div>
+                                <div class="contact">
+                                    <ul>
+                                        <li><a href="https://www.facebook.com/100001108114660"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                                        <li><a href="https://twitter.com/phatnguyen91"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- E N D a box of team -->
+                            <!-- START a box of team -->
+                            <div class="col-sm-4 abox text-center">
+                                <div class="avatar">
+                                    <img class="img-responsive" src="~/dist/img/team/Hang.jpg" />
+                                    <span class="ring"></span>
+                                </div>
+                                <div class="persion">
+                                    <h5 class="name">Hang Truong</h5>
+                                    <h6 class="pos">Marketer</h6>
+                                </div>
+                                <div class="intro">
+                                    <p>Khi làm một việc thì cố gắng lằm tốt nhất có thể!</p>
+                                </div>
+                                <div class="contact">
+                                    <ul>
+                                        <li><a href="https://www.facebook.com/100001913873090"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- E N D a box of team -->
+                            <!-- START a box of team -->
+                            <div class="col-sm-4 abox text-center">
+                                <div class="avatar">
+                                    <img src="~/dist/img/team/Huyen.jpg" />
+                                    <span class="ring"></span>
+                                </div>
+                                <div class="persion">
+                                    <h5 class="name">Huyen Le</h5>
+                                    <h6 class="pos">Designer</h6>
+                                </div>
+                                <div class="intro">
+                                    <p>Cầu toàn & thích mọi thứ thuộc về sự hoàn hảo.</p>
+                                </div>
+                                <div class="contact">
+                                    <ul>
+                                        <li><a href="https://www.facebook.com/100002055017719"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- E N D a box of team -->
+                            <!-- START a box of team -->
+                            <div class="col-sm-4 abox text-center">
+                                <div class="avatar">
+                                    <img src="~/dist/img/team/Dat.jpg" />
+                                    <span class="ring"></span>
+                                </div>
+                                <div class="persion">
+                                    <h5 class="name">Dat Tran</h5>
+                                    <h6 class="pos">Artist</h6>
+                                </div>
+                                <div class="intro">
+                                    <p>Cọ và bút là không chỉ để vẽ, nó tạo ra sự sống, niềm vui, tiếng cười, hân hoan và cả những nốt lặng.</p>
+                                </div>
+                                <div class="contact">
+                                    <ul>
+                                        <li><a href="https://www.facebook.com/100001047784390"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- E N D a box of team -->
+                            <!-- START a box of team -->
+                            <div class="col-sm-4 abox text-center">
+                                <div class="avatar">
+                                    <img src="~/dist/img/team/Keo.png" />
+                                    <span class="ring"></span>
+                                </div>
+                                <div class="persion">
+                                    <h5 class="name">Hang Le</h5>
+                                    <h6 class="pos">Accountant</h6>
+                                </div>
+                                <div class="intro">
+                                    <p>Cựu sinh viên UEH, thông minh, xinh đẹp và làm việc rất chăm chỉ.</p>
+                                </div>
+                                <div class="contact">
+                                    <ul>
+                                        <li><a href="https://www.facebook.com/1281564435"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- E N D a box of team -->
+                            <!-- START a box of team -->
+                            <div class="col-sm-4 abox text-center col-sm-pull-0">
+                                <div class="avatar">
+                                    <img src="~/dist/img/team/you.jpg" />
+                                    <span class="ring"></span>
+                                </div>
+                                <div class="persion">
+                                    <h5 class="name">You?</h5>
+                                    <h6 class="pos">Hepan</h6>
+                                </div>
+                                <div class="intro">
+                                    <p>Your awsome story is here</p>
+                                    <p><strong><a href="#">JOIN US NOW</a></strong></p>
+                                </div>
+                                <div class="contact">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- E N D a box of team -->
+                        </div>
+                    </section>
+                    <!-- E N D team section -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

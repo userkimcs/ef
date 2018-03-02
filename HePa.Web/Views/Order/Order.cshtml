@@ -1,0 +1,589 @@
+﻿@model HePa.Web.ViewModels.Order.PurchaseViewModel
+@using HePa.Core.Extensions;
+@{
+    ViewBag.Title = "Đặt thẻ Hepa Passport";
+    ViewBag.NavTitle = "Mua thẻ";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+@section AddToHead{
+    @Styles.Render("~/dist/css-payment")
+    @Styles.Render("~/dist/icheck-css")
+}
+<ol class="breadcrumb">
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="@Url.Action("Index", "Home")" itemprop="url">
+            <span itemprop="title">Hepatown</span>
+        </a>
+    </li>
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="@Url.Action("Order", "Order")" itemprop="url">
+            <span itemprop="title">Mua thẻ</span>
+        </a>
+    </li>
+</ol>
+<div class="service_list service_list_3">
+    <div class="row">
+        <div class="col-xs-12">
+            <!--service item-->
+            <div class="service_item boxed blue">
+                <div class="inner">
+                    <div class="service_img"><i class="fa fa-lg fa-magic"></i></div>
+                    <div class="service_title"><h2><a href="#">Khuyến mãi Hepa passport</a></h2></div>
+                    <div class="service_desc">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>
+                                    <img class="img-responsive" src="~/dist/img/simple-page/box-card-hepa.jpg" alt="Hepa passport" />
+                                </p>
+                                @*<p>Bạn chưa rõ về Hepa? Khám phá thêm câu chuyện của Hepa <a href="@Url.Action("About","Home")">tại đây</a>.</p>*@
+                                <p>Cần trợ giúp nhanh? Gọi ngay cho Hepa <span class="semi-bold"><i class="fa fa-phone-square"></i> <a href="tel:+84909808862">0909 808 862</a> &minus; <a href="tel:+84981820085">0981 820 085</a></span></p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <h5>[Thẻ E-flashcard học từ vựng]</h5>
+                                <div>
+                                    <p>
+                                        E-flashcard là thẻ học từ vựng online theo phương pháp L.R.I.P độc quyền. Bạn sẽ trải qua 5 bước học cho mỗi từ vựng tập trung hoàn toàn vào nghe & ghi nhớ nghĩa thông qua liên tưởng hình ảnh độc đáo. Tất cả hình ảnh do người Việt Nam thiết kế & âm thanh do người Mỹ bản xứ của Hepa đọc.
+                                        <br />Thời hạn thẻ:
+                                        <br />-	3 tháng: 50.000
+                                        <br />-	Trọn đời: 280.000
+
+                                    </p>
+                                </div>
+                                <div id="promotion"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service_meta_bot"><a href="#" class="link-more">Related works</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<div class="boxed">
+        <!-- Toggle: Danh sách cửa hàng Hepatown -->
+        <div class="toggle">
+            <div class="toggle-header">
+                <a class="toggle-link collapsed" data-toggle="collapse" href="#toggle1">
+                    <span class="question">Xem:</span>
+                    <h5>Danh sách của hàng của Hepatown</h5>
+                    <i></i>
+                </a>
+            </div>
+            <!-- default expand: add "in" class -->
+            <div id="toggle1" class="toggle-body collapse">
+                <div class="inner">
+                    <span class="visible-lg-block visible-md-block visible-sm-block"><iframe src="https://www.google.com/maps/d/embed?mid=zZA0Eul8yihs.kHJQg3Jrks-c" width="640" height="480"></iframe></span>
+                    <span class="visible-xs-block"><a href="https://www.google.com/maps/d/viewer?mid=zZA0Eul8yihs.kHJQg3Jrks-c" target="_blank" style="text-decoration:underline">Danh sách cửa hàng</a></span>
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+    </div>*@
+<div class="row">
+    <div class="col-sm-12 col-md-8">
+        <!-- content -->
+        <div class="content" role="main">
+            <!-- Payment form -->
+            <div class="tabs_framed payment-form">
+                <div class="inner">
+                    <ul class="tabs clearfix">
+                        <li class="active">
+                            <a href="#billing" data-toggle="tab" class="no-wrap billing-tab">❶ Chọn thẻ</a>
+                        </li>
+                        <li>
+                            <a href="#shipping" data-toggle="tab" class="no-wrap shipping-tab">❷ Thanh toán</a>
+                        </li>
+                    </ul>
+                    @using (@Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="tab-content boxed ajax_form clearfix">
+                            <!--Step 1-->
+                            <div class="tab-pane fade in active" id="billing">
+                                <div class="payment-tab-content clearfix ticket-info">
+                                    <!--Alert-->
+                                    @Html.AlertBox(AlertBoxType.SUCCESS, TempData["SuccessfulMessage"] as String)
+                                    @Html.AlertBox(AlertBoxType.DANGER, ViewBag.OrderErrorMessage as String)
+                                    <div class="form-horizontal" role="form">
+                                        <!--Select period-->
+                                        <div class="form-group">
+                                            <div class="col-sm-12">@Html.AlertBox(AlertBoxType.INFO, " * là những thông tin giao dịch cần thiết")</div>
+                                            <div class="col-sm-8 col-xs-12">
+                                                <h5><label class="review-body-content" for="sel_period">Thời hạn thẻ *:</label></h5>
+                                                <select class="form-control select_styled" id="sel_period">
+                                                    <option value="0" style="display:none">Chọn thời hạn thẻ *</option>
+                                                    @for (int i = 0; i < Model.Orders.OrderProducts.Count; i++)
+                                                    {
+                                                        <option value="@(i+1)" data-id="@Html.ValueFor(model => model.Orders.OrderProducts[i].ProductId)" data-price="@Html.ValueFor(model => model.Orders.OrderProducts[i].Price)">@Html.ValueFor(model => model.Orders.OrderProducts[i].ProductName)</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                            <span class="visible-xs-block"><br /><br /></span>
+                                            <!--select amount-->
+                                            <div class="col-sm-4 col-xs-12">
+                                                <h5><label class="review-body-content" for="txt_amount">Số lượng *:</label></h5>
+                                                @Html.EditorFor(model => model.Orders.OrderProducts[0].NumberOfItems, new { htmlAttributes = new { @type = "number", @max = "100", @min = "1", @class = "form-control", @id = "txt_amount" } })
+                                                <!--<span class="amount-message" style="color:red">Chưa chọn số lượng</span>-->
+                                                @Html.ValidationMessageFor(model => model.Orders.OrderProducts[0].NumberOfItems, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="collapse" id="viewdetails">
+                                                <div class="col-sm-8 col-xs-12">
+                                                    @Html.EditorFor(model => model.CoupondCode, new { htmlAttributes = new { @class = "form-control", @id = "txt_discount", @placeholder = "Mã khuyến mãi" } })
+                                                </div>
+                                                <div class="col-sm-4 col-xs-12">
+                                                    <div class="discount-label"><span id="discount-percent"></span>&nbsp;<span id="discount-percent-money"></span></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p><a href="#" class="collapse-link" data-toggle="collapse" data-target="#viewdetails">Nhập mã giảm giá (voucher)</a></p>
+                                            </div>
+                                        </div>
+                                        <!--input discount key-->
+                                        <div class="form-group">
+                                            <hr />
+                                            <div class=" col-xs-12">
+                                                <div class="pull-right">
+                                                    <button class="btn btn-next btn-blue" aria-describedby="basic-addon1">
+                                                        Tiếp tục <i class="fa fa-arrow-right"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Step 2-->
+                            <div class="tab-pane fade" id="shipping">
+                                <div class="payment-tab-content customer-info">
+                                    <div class="form-horizontal" role="form">
+                                        <!--Customer name-->
+                                        @Html.AlertBox(AlertBoxType.INFO, " * là những thông tin giao dịch cần thiết")
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                @Html.EditorFor(model => model.Customer.FullName, new { htmlAttributes = new { @class = "form-control", @id = "txt_name", @placeholder = "Họ và Tên *" } })
+                                                @Html.ValidationMessageFor(model => model.Customer.FullName, "", new { @class = "text-danger" })
+                                            </div>
+                                            <span class="visible-xs-block"><br /><br /></span>
+                                            <div class="col-sm-6">
+                                                @Html.EditorFor(model => model.Customer.Email, new { htmlAttributes = new { @class = "form-control", @id = "txt_email", @placeholder = "Email" } })
+                                                @Html.ValidationMessageFor(model => model.Customer.Email, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <!--Customer phone No-->
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <input type="tel" class="form-control phone-number" id="txt_phone1" placeholder="Số điện thoại 1 *">
+                                                @Html.ValidationMessageFor(model => model.Customer.PhoneNumber, "", new { @class = "text-danger" })
+                                            </div>
+                                            <span class="visible-xs-block"><br /></span>
+                                            <div class="col-sm-6">
+                                                <input type="tel" class="form-control phone-number" id="txt_phone2" placeholder="Số điện thoại 2">
+                                            </div>
+                                        </div>
+                                        <!--Customer Email-->
+                                        <!--End Customer Email-->
+                                        <div class="form-group">
+                                            <span class="visible-xs-block"><br /><br /></span>
+                                            <div class="col-sm-12">
+                                                @Html.EditorFor(model => model.Customer.Address, new { htmlAttributes = new { @class = "form-control", @id = "geocomplete", @placeholder = "Địa chỉ giao thẻ *" } })
+                                                @Html.ValidationMessageFor(model => model.Customer.Address, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <div class="col-sm-12">
+                                                    <div class="payment-kind skin skin-flat">
+                                                        <ul class="list-inline">
+                                                            <li><label class="radio-inline"><input type="radio" name="optradio" value="0" class="giao-the"> Giao thẻ và thu tiền tận nhà (COD)</label></li>
+                                                            <!--Thanh toan online-->
+                                                            @*<li><label class="radio-inline"><input type="radio" name="optradio" value="1" class="thanh-toan"> Thanh toán online</label></li>*@
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <hr />
+                                            </div>
+                                        </div>
+                                        <!--Hidden mapping attribute-->
+                                        <div>
+                                            @Html.EditorFor(model => model.Orders.OrderProducts[0].ProductName, new { htmlAttributes = new { @id = "txt_productname", @class = "hide" } })
+                                            @Html.EditorFor(model => model.Orders.OrderProducts[0].ProductId, new { htmlAttributes = new { @id = "txt_productid", @class = "hide" } })
+                                            @Html.EditorFor(model => model.Customer.PhoneNumber, new { htmlAttributes = new { @class = "form-control hide", @id = "txt_phone" } })
+                                            @Html.EditorFor(model => model.KindOfPurchase, new { htmlAttributes = new { @class = "form-control hide", @id = "kind_of_purchase" } })
+                                        </div>
+                                        <div class="form-group ">
+                                            <div class="pull-right">
+                                                <div class="col-sm-12">
+                                                    <strong>Vui lòng kiểm tra kỹ thông tin trước khi hoàn tất</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <div class="pull-right">
+                                                    <button class="btn btn-default btn-prev " aria-describedby="basic-addon1" aria-label="Left Align">
+                                                        <i class="fa fa-arrow-left"></i>
+                                                    </button>
+                                                    <button type="submit" class="btn btn-green btn-submit" aria-describedby="basic-addon1">
+                                                        <strong>Hoàn tất</strong>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <!--Total review in small screen-->
+            @*@<div class="clearfix visible-xs-block visible-sm-block">
+                    <div class="review-total-info-small alert alert-warning">
+                        <h4><span>Tổng cộng:</span><span class="pull-right review-total">0 VNĐ</span></h4>
+                    </div>
+                    <div class="review-total-info-small alert alert-info">
+                        <h4><span>Khuyến mại:</span></h4>
+                        <div class="row">
+                            <div class="review-body col-xs-6">
+                                <span class="review-body-content">Voucher</span>
+                            </div>
+                            <div class="review-body col-xs-4 pull-right">
+                                <span class="review-body-content review_sale_kind"></span>
+                            </div>
+                        </div>
+                        <span class="review_promotion"></span>
+                    </div>
+                </div>*@
+            <div class="info-boxes visible-xs-block visible-sm-block">
+                <!-- Alert -->
+                <div class="alert-box boxed fade in">
+                    <div class="alert-body">
+                        <span>Tổng cộng:</span>
+                        <p class="pull-right review-total">0 VNĐ</p>
+                    </div>
+                    <span class="alert-label"></span>
+                </div>
+                <!--/ Alert -->
+                <!-- Alert -->
+                <div class="alert-box boxed alert-warning fade in">
+                    <div class="alert-body">
+                        <span>Khuyễn mãi:</span>
+                        <div class="row">
+                            <div class="review-body col-xs-6">
+                                <span class="review-body-content">Voucher</span>
+                            </div>
+                            <div class="review-body col-xs-4 pull-right">
+                                <span class="review-body-content review_sale_kind"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="alert-label"></span>
+                </div>
+                <!--/ Alert -->
+            </div>
+        </div>
+        <!--/ content -->
+    </div>
+    <div class="col-md-4">
+        <div class="widget-container boxed visible-md-block visible-lg-block review-part">
+            <h3 class="widget-title">THÔNG TIN GIAO DỊCH</h3>
+            <div class="inner">
+                <!-- place your content here -->
+                <form class="form-horizontal" role="form">
+                    <!--Card info-->
+                    <div class="review-ticket-info">
+                        <div class="review-title">
+                            <h5>
+                                THÔNG TIN THẺ HEPA PASSPORT
+                            </h5>
+                            @*<a class="pull-right" href="#"><i class="fa fa-pencil"></i> Edit </a>*@
+                            <hr />
+                        </div>
+                        <div class="row">
+                            <div class="review-body col-md-6">
+                                <h4><span class="review-body-index">Loại thẻ</span></h4>
+                            </div>
+                            <div class="review-body col-md-4 text-right">
+                                <h4><span class="review-body-index">Số lượng</span></h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="review-body col-md-8">
+                                <span class="review-body-content" id="review_ticket_kind">Vui lòng chọn loại thẻ</span>
+                            </div>
+                            <div class="review-body col-md-2 pull-right">
+                                <span class="review-body-content" id="review_ticket_amount"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End tiket info-->
+                    <!--Customer info-->
+                    <div class="review-customer-info">
+                        <div class="review-title">
+                            <h5>
+                                THÔNG TIN KHÁCH HÀNG
+                            </h5>
+                            @*<a class="pull-right" href="#"><i class="fa fa-pencil"></i> Edit </a>*@
+                            <hr />
+                        </div>
+                        <div class="review-body">
+                            <span class="review-body-index"><i class="fa fa-user"></i></span>
+                            <span class="review-body-content pull-right" id="review_customer_name"></span>
+                        </div>
+                        <div class="review-body">
+                            <span class="review-body-index"><i class="fa fa-phone"></i></span>
+                            <span class="review-body-content pull-right" id="review_customer_phone2"></span>
+                            <span class="review-body-content pull-right hide" id="split-phone"> &mdash;</span>
+                            <span class="review-body-content pull-right" id="review_customer_phone1"></span>
+                        </div>
+                        <div class="review-body">
+                            <span class="review-body-index"><i class="fa fa-envelope"></i></span>
+                            <span class="review-body-content pull-right" id="review_customer_email"></span>
+                        </div>
+                        <div class="review-body">
+                            <span class="review-body-index"><i class="fa fa-home"></i></span>
+                            <span class="review-body-content text-right" id="review_customer_address"></span>
+                        </div>
+                    </div>
+                    <!--End customer info-->
+                    <!--Payment info-->
+                    <div class="review-payment-info">
+                        <div class="review-title">
+                            <h5>
+                                THÔNG TIN KHUYẾN MẠI
+                            </h5>
+                            <hr />
+                        </div>
+                        <div class="row">
+                            <div class="review-body col-md-6">
+                                <h4><span class="review-body-index">Chương trình khuyễn mãi</span></h4>
+                            </div>
+                            <div class="review-body col-md-4 text-right">
+                                <h4><span class="review-body-index">Khuyễn mãi</span></h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="review-body col-xs-6">
+                                <span class="review-body-content">Voucher</span>
+                            </div>
+                            <div class="review-body col-xs-4 pull-right">
+                                <span class="review-body-content review_sale_kind"></span>
+                            </div>
+                        </div>
+                        <div class="review_promotion"></div>
+                        @* <div class="row">
+                                <div class="review-body col-md-7">
+                                    <span class="review-body-content">Số lượng nhiều</span>
+                                </div>
+                                <div class="review-body col-md-3 pull-right">
+                                    <span class="review-body-content" id="safeOff_amount">0</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="review-body col-md-7">
+                                    <span class="review-body-content">Voucher:</span>
+                                </div>
+                                <div class="review-body col-md-3 pull-right">
+                                    <span class="review-body-content" id="review_sale_kind">0</span>
+                                </div>
+                            </div>*@
+                    </div>
+                    <!--End Payment info-->
+                    <!--Payment info-->
+                    <div class="review-payment-info">
+                        <div class="review-title">
+                            <h5>
+                                HÌNH THỨC THANH TOÁN
+                            </h5>
+                            @*<a class="pull-right" href="#"><i class="fa fa-pencil"></i> Edit </a>*@
+                            <hr />
+                        </div>
+                        <div class="review-body">
+                            <span class="review-body-content" id="review_payment_kind"></span>
+                        </div>
+                    </div>
+                    <!--End Payment info-->
+                    <!--Total info-->
+                    <div class="widget-title review-total-info">
+                        <h4><span>Tổng cộng:</span><span class="pull-right review-total">0 VNĐ</span></h4>
+                    </div>
+                    <!--End total info-->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section AddScript {
+    <script src="@Scripts.Url("~/dist/jqueryval")"></script>
+    <script src="@Scripts.Url("~/dist/jquery.validate.unobtrusive")" async></script>
+    <script src="@Scripts.Url("~/dist/input-mask-js")" async></script>
+    <script src="@Scripts.Url("~/dist/icheck-js")"></script>
+    <script src="//maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/geocomplete/1.6.5/jquery.geocomplete.min.js"></script>
+    <script src="@Scripts.Url("~/dist/js-payment")" defer></script>
+    <script>
+        //Load promotion events
+        var eventData;
+        $().ready(function () {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("LoadUnexpiredEvent", "Order")',
+                dataType: 'json',
+                success: function (data) {
+                    amount = $("#txt_amount").val();
+                    var arr = [];
+                    var review_arr = [];
+                    for (i = 0; i < data.length; i++) {
+                        arr.push('<p>' + data[i]["Desciption"] + '<p/>');
+
+                        //Show event in review part
+                        //4 kind of voucher: 1: xtime, 2: +time,3: -percent, 4: -directly to price
+                        var value = "";
+                        if (data[i]["Type"] == 1) {
+                            value = "Nhân " + data[i]["Value"] + " sử dụng";
+                        }
+                        else if (data[i]["Type"] == 2) {
+                            value = "Cộng " + data[i]["Value"] + " tháng sử dụng";
+                        }
+                        else if (data[i]["Type"] == 3) {
+                            value = "Giảm " + data[i]["Value"] + "%";
+                        }
+                        else if (data[i]["Type"] == 4) {
+                            value = "Giảm " + data[i]["Value"] + "VNĐ";
+                        }
+
+
+                        review_arr.push('<div class="row" id="pe_' + data[i]["Id"] + '" >' +
+                                            '<div class="review-body col-md-6 col-xs-6">' +
+                                                '<span class="review-body-content">' + data[i]["Name"] + '</span>' +
+                                            '</div>' +
+                                            '<div class="review-body col-md-4 col-xs-4 pull-right">' +
+                                                '<span class="review-body-content">' + value + '</span>' +
+                                            '</div>' +
+                                        '</div>'
+                                        );
+                    }
+                    $("#promotion").append(arr);
+                    $(".review_promotion").append(review_arr);
+                    eventData = data;
+
+                },
+                error: function (xhr, ajaxOptions, error) {
+                    console.log(xhr.status + " " + xhr.responseText);
+                }
+            });
+        });
+        /*----------------------------------------------*/
+        /*             CALCULATE TOTAL USE AJAX         */
+        /*----------------------------------------------*/
+        var voucherData;
+        function calculatePrice() {
+            var amount = $('#txt_amount').val();
+            $price = parseInt($('#sel_period option:selected').data('price')) * parseInt(amount);
+            //calculate disoucnt
+            var sumDiscount = 0;
+            for (i = 0; i < eventData.length; i++) {
+                if (amount >= eventData[i]["LimitedCondition"]) {
+                    if (eventData[i]["Type"] == 3) {
+                        sumDiscount += ($price * parseInt(eventData[i]["Value"])) / 100;
+                    }
+                    else if (eventData[i]["Type"] == 4) {
+                        sumDiscount += eventData[i]["Value"];
+                    }
+                    $("#pe_" + eventData[i]["Id"]).show();
+                }
+                else {
+                    $("#pe_" + eventData[i]["Id"]).hide();
+                }
+            }
+            if (voucherData) {
+                if (voucherData[2] > 0) {
+                    if (parseInt(voucherData[0]) == 3) {
+                        sumDiscount += ($price * parseInt(voucherData[1])) / 100;
+                    }
+                    else if (parseInt(voucherData[0]) == 4) {
+                        sumDiscount += parseInt(voucherData[1]);
+                    }
+                }
+            }
+            $price -= sumDiscount;
+            return $price;
+        };
+
+        $('#sel_period , #txt_amount').on('change', function () {
+            var amount = $('#txt_amount').val();
+            if (amount > 0 && $('#sel_period option:selected').val() != 0) {
+                $('.btn-next').removeClass("disabled"); // Bỏ disabled button
+
+                //In giá
+                p = calculatePrice();
+                $('.review-total').html(p.toLocaleString("vi") + " VNĐ");
+            }
+        });
+
+        //CALCULATE DISCOUNT
+        $('#txt_discount').change(function () {
+            var text = $('#txt_discount').val();
+            if (!text) { //Nếu không không nhập gì
+                $("#discount-percent").html("");
+                $(".review_sale_kind").html("");
+                voucherData = null;
+                p = calculatePrice();
+                $('.review-total').html(p.toLocaleString("vi") + " VNĐ");
+            }
+            else {  //Nếu có nhập
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("CheckCoupondCode","Order")',
+                    dataType: 'json',
+                    data: {
+                        code: text,
+                    },
+                    success: function (data) {
+                        voucherData = data;
+                        var kindOfVoucher = parseInt(data[0]);
+                        var saleOff = data[1];
+                        //3 kind of voucher: 1: xtime, 2: +time,3: -percent, 4: -directly to price
+                        if ($("txt_amount").val() > 0 && $('#sel_period option:selected').val() != 0) {
+                            if (voucherData[3] > 0) {
+                                if (kindOfVoucher == 1) {
+                                    $(".review_sale_kind").html("Nhân " + saleOff + " sử dụng");
+                                }
+                                else if (kindOfVoucher == 2) {
+                                    $(".review_sale_kind").html("Cộng " + saleOff + " tháng sử dụng");
+                                }
+                                else if (kindOfVoucher == 3) {
+                                    $(".review_sale_kind").html("Giảm: " + saleOff + "%");
+                                }
+                                else if (kindOfVoucher == 4) {
+                                    $(".review_sale_kind").html("Giảm: " + saleOff + "VNĐ");
+                                }
+                                else {
+                                    $(".review_sale_kind").html("");
+                                }
+                                p = calculatePrice();
+                                $('.review-total').html(p.toLocaleString("vi") + " VNĐ");
+                            }
+                            else {
+                                $(".review_sale_kind").html("Mã đã hết số lần sử dụng");
+                            }
+
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, error) {
+                        console.log(xhr.status + " " + xhr.responseText);
+                    }
+                });
+            }
+        })
+
+        //Validate message
+        jQuery.extend(jQuery.validator.messages, {
+            max: jQuery.validator.format("Số lượng lớn nhất là {0}."),
+            min: jQuery.validator.format("Số lượng nhỏ nhất là {0}.")
+        });
+    </script>
+}

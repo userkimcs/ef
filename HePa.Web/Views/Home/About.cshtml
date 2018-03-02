@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Giới thiệu thị trấn học tiếng Anh trực tuyến 2015";
+    ViewBag.NavTitle = "Giới thiệu Hepa";
+    ViewBag.MetaDesc = "Hepatown là thị trấn trực tuyến - nơi mà cộng đồng cư dân ở đây có chung sở thích học tiếng Anh & những chương trình phát triển nghề nghiệp.";
+    ViewBag.MetaKeyword = "học tiếng anh, học nghề nghiệp, thị trấn hepa";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+@section AddToHead {
+    <style type="text/css">
+        .whats-hepa li {
+            line-height: 19px;
+            padding-left: 25px;
+        }
+
+            .whats-hepa li:before {
+                content: "●";
+                margin-right: 7px;
+                color: #e86841;
+            }
+
+        .company-bg {
+            margin-top: 2em;
+        }
+
+        .whats-hepa, .company-bg {
+            text-align: justify;
+        }
+    </style>
+}
+<ol class="breadcrumb">
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="@Url.Action("Index", "Home")" itemprop="url">
+            <span itemprop="title">Hepatown</span>
+        </a>
+    </li>
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="@Url.Action("About", "Home")" itemprop="url">
+            <span itemprop="title">Giới thiệu Hepa</span>
+        </a>
+    </li>
+</ol>
+<div class="row">
+    <div class="col-md-12">
+        <div class="content">
+            <div class="simple-content boxed">
+                <!-- START What's Hepa section -->
+                <section class="whats-hepa">
+                    <h2>Hepatown là gì?</h2>
+                    <hr />
+                    <p>Hepatown là thị trấn trực tuyến – nơi mà cộng đồng cư dân ở đây có chung sở thích học tiếng Anh & những chương trình phát triển nghề nghiệp (song ngữ). Chỉ 2 bước đơn giản: Đăng ký & mua thẻ Hepa passport là bạn sẽ trở thành công dân của thị trấn.</p>
+                    <p>Hiện tại thị trưởng Lexus của thị trấn vừa thông qua quyết định cấp phép cho chương trình Galaxy Gate được chính thức phát hành. Trở thành công dân thị trấn bạn sẽ được học chương trình này miễn phí. Hãy <a href="@Url.Action("Index","Home")" class="semi-bold">đăng ký</a> & <a href="@Url.Action("Order","Order")" class="semi-bold">mua thẻ Hepa passport</a> ngay hôm nay.</p>
+                    <ul>
+                        <text>Chương trình của Hepatown gồm 3 phần xoay quanh:</text>
+                        <li><strong><span class="text-blue">2400<sup>+</sup> từ vựng</span></strong> với phương pháp học <span class="semi-bold"><i>“natural learning, spaced repetition & target”</i></span> độc quyền giúp bạn nghe &minus; phát âm chuẩn như người bản xứ.</li>
+                        <li><strong><span class="text-maroon">600<sup>+</sup> đề mục ngữ pháp</span></strong> từ cơ bản đến nâng cao với phương pháp học “tra cứu nhanh &minus; thực hành ngay” giúp bạn nhớ & sử dụng cấu trúc ngữ pháp theo cách tự nhiên nhất.</li>
+                        <li><strong><span class="text-success">30<sup>+</sup> video hướng dẫn phát âm</span></strong> theo chuẩn giọng Mỹ giúp bạn nói tiếng Anh sành điệu hơn bao giờ hết.</li>
+                    </ul>
+                    <h6><a href="@Url.Action("Order","Order")" class="semi-bold">Bạn đã muốn là một công dân của thị trấn!?</a></h6>
+                </section>
+                <!-- E N D What's Hepa section -->
+                <section>
+                    <img class="img-responsive" src="~/dist/img/simple-page/gioi-thieu-hepa.jpg" alt="About Hepa giới thiệu" />
+                </section>
+                @*
+                    <!-- START company background section -->
+                    <section class="company-bg">
+                        <h2>Câu chuyện của Hepa</h2>
+                        <hr />
+                        <p>Sau khi về hưu, ngài <span class="semi-bold">Lexus</span> (vốn dĩ là một doanh nhân thành công) cảm thấy cuộc sống hiện tại của mình trở nên tẻ nhạt, ông nhận ra cả cuộc đời này mình chưa làm được điều gì giúp ích cho xã hội. Vì vậy, ông quyết định chu du bốn phương để xem phần đời còn lại mình có thể giúp gì. Sống sung sướng từ nhỏ ở vương quốc mang tên <span class="semi-bold">Thịnh Vượng</span>, nay ông quyết định đi đến những quốc gia mang tên <span class="semi-bold">Đang Phát Triển</span> Ông nghĩ “có thể những nơi đó cần nhiều sự giúp đỡ hơn”.</p>
+                        <p>Thấm thoắt vài tháng trôi qua ở những quốc gia mới, ông nhận thấy nền kinh tế ở đây kém phát triển hơn so với quê hương của ông, người dân ở đây vẫn còn nghèo dù rằng rất nhiều thương nhân từ vương quốc Thịnh Vượng đã đến đây đầu tư. Ông bèn tìm hiểu nguyên nhân, và lý do rất thú vị: ngôn ngữ chung & trình độ lao động. Hai nguyên nhân này cản trở cư dân địa phương đến với những việc làm tốt hơn trong bối cảnh hội nhập toàn cầu. Đặc biệt là phái nữ, ở đây họ gánh vác nhiều trách nhiệm hơn, chăm chỉ hơn nhưng lại không được cân nhắc cho những vị trí quan trọng trong tổ chức.</p>
+                        <p>Mr. Lexus quyết định trở về nước, ông bán hết tất cả tài sản của mình và đến gõ cửa chính phủ của quốc gia mang tên Đang Phát Triển, ông đề nghị mua lại một hòn đảo nhỏ ở miền Nam và đặt tên nó là thị trấn Hepa. Từ đây, cùng với những người bạn của mình, họ xây dựng những chương trình học ngoại ngữ & nghiệp vụ chất lượng cao để giúp đỡ những cư dân địa phương ít may mắn nhưng đầy quyết tâm, sống hết mình với tình yêu với ngoại ngữ, để giúp họ có một sự nghiệp vững mạnh, một tương lai tươi sáng hơn bao giờ hết, đặc biệt là phái nữ.</p>
+                        <p>Câu chuyện mới chỉ bắt đầu từ ngày hôm qua… thị trấn vẫn còn đang rất sơ khai. Một ngày mới của miền Nhiệt Đới ấm áp đã bắt đầu, Mr. Lexus cùng đội ngũ của ông đang miệt mài xây dựng những công trình mới, trong khuôn mặt ướt dẫm mồ hôi, họ tươi cười với ánh mắt rạng ngời khi nghĩ về tương lai, về văn hóa, nền giáo dục & sự thịnh vượng cho cư dân trong thị trấn của họ &minus; những “Hepan” hạnh phúc.</p>
+                    </section>
+                    <!-- E N D comp</section>any background section -->
+                *@
+            </div>
+        </div>
+    </div>
+</div>

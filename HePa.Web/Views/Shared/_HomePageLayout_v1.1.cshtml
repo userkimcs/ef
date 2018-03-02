@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="vi" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="vi" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="vi" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="vi" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="vi" class="no-js">
+<!--<![endif]-->
+<head>
+    @* Add same head components from PartialView _MetaHead.cshtml *@
+    @Html.Partial("_MetaHead")
+    <script src="@Scripts.Url("~/dist/jquery-js")"></script>
+    <script src="@Scripts.Url("~/dist/js-site")"></script>
+    <!-- Style libs -->
+    @Styles.Render("~/dist/bootstrap-css")
+    @Styles.Render("~/dist/perfect-scrollbar-css")
+    @Styles.Render("~/dist/bootstrap-social")
+    @Styles.Render("~/dist/font-awesome-css")
+    @Styles.Render("~/dist/css-all")
+    @Styles.Render("~/dist/css-home-layout-v11")
+    @* Add section AddToHead to custom add style in Partial Page *@
+    @RenderSection("AddToHead", false)
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+        <img src="~/dist/img/site-img/load.gif" width="0" height="0" />
+    </div>
+    <div class="full-container">
+        <div class="container-fluid">
+            <header id="page-header">
+                <div class="page-header-inner">
+                    <h1 class="logo-header">
+                        <a href="/">
+                            <img src="~/dist/img/home-page/hepa-new-slogan.png" />
+                        </a>
+                    </h1>
+                </div>
+            </header>
+            <div id="header-replacing-56px"></div>
+
+            @RenderBody()
+
+            <footer class="row">
+                <div class="container">
+                    <!-- START footer separate line -->
+                    <div class="footer-separate"></div>
+                    <!-- E N D footer separate line -->
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="summary-hepa widget-container widget_nav_menu">
+                            <h3 class="widget-title logo"><a href="@Url.Action("Index", "Home", new { area = "" })"><img height="36" src="~/dist/img/logo/hepa-logo-2016-140x50.png" /></a></h3>
+                            <ul>
+                                <li>Hepatown.com&reg; &minus; là hệ thống Anh ngữ kiểu mới</li>
+                                <li>kết hợp giữa phương pháp học tại lớp và trực tuyến</li>
+                                <li>để tạo ra mô hình học tiếng Anh giao tiếp hiệu quả</li>
+                                <li>phù hợp với người mới bắt đầu/muốn cải thiện năng lực ngoại ngữ.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="start-hepa widget-container widget_nav_menu">
+                            <h3 class="widget-title"><span>Bắt đầu với Hepa</span></h3>
+                            <ul>
+                                <li><a href="@Url.Action("Aboutv1_1", "Home", new { area = "" })"><span>Giới thiệu</span></a></li>
+                                @*<li><a href="@Url.Action("LoTrinhHoc", "Home", new { area = "" })"><span>Lộ trình học</span></a></li>*@
+                                <li><a href="http://phatam.hepatown.com" target="_blank"><span>Lớp phát âm</span></a></li>
+                                <li><a href="@Url.Action("LichKhaiGiang", "Home", new { area = "" })"><span>Lịch khai giảng</span></a></li>
+                                <li><a href="@Url.Action("Teamv1_1", "Home", new { area = "" })"><span>Về chúng tôi</span></a></li>
+                                <li itemscope itemtype="http://schema.org/LocalBusiness">
+                                    <span itemprop="name" class="hide">Contact Hepatown</span>
+                                    <span itemprop="telephone" content="+84909808862" class="semi-bold">
+                                        <i class="fa fa-phone-square"></i> <a href="tel:+84909808862">0909 808 862</a> &minus; <a href="tel:+84981820085">0981 820 085</a>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-5">
+                        <div class="info-hepa widget-container widget_nav_menu">
+                            <h3 class="gia-tri-icon">
+                                <img width="240" src="~/dist/img/icon/others/gia-tri-icon.png" />
+                            </h3>
+                            <ul>
+                                <li>Bản quyền &copy; 2016 Hepa, Inc. Bảo lưu mọi quyền.</li>
+                                <li>Hepatown® là thương hiệu của Hepa, Inc.</li>
+                                <li>Giấy phép HĐ: 0313416750</li>
+                                <li>Made in Saigon, Vietnam with <i class="text-maroon fa fa-heart"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Script libs -->
+    <script src="@Scripts.Url("~/dist/modernizr-js")" async></script>
+    <script src="@Scripts.Url("~/dist/bootstrap-js")" async></script>
+    @RenderSection("AddScript", false)
+    @Html.Partial("_GoogleAnalytics")
+    <script src="//my.hellobar.com/b747e17c222476d3f03a8694c2031e2b8adfd2ea.js" type="text/javascript" charset="utf-8" async="async"></script>
+</body>
+</html>
