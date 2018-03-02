@@ -1,0 +1,245 @@
+﻿@model HePa.Web.Areas.History.ViewModels.ClassHistoryViewModel
+
+@{
+    ViewBag.Title = "ViewClassInformation";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml"; ;
+}
+
+<h2>ViewClassInformation</h2>
+
+<h2>THÔNG TIN LỚP</h2>
+Tên lớp @Model.MyClass.ClassName <br />
+Số từ @Model.MyClass.NumberOfWords <br />
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Lịch sử học từ</a></li>
+    <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+</ul>
+
+<div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+        @{Html.RenderPartial("_ListWordHistoryPartial", Model.WordHistory);}
+    </div>
+    <div id="menu1" class="tab-pane fade">
+        @{Html.RenderPartial("_ListWordResultPartial", Model.WordResult);}
+    </div>
+    <div id="menu2" class="tab-pane fade">
+        <h3>Menu 2</h3>
+        <p>Some content in menu 2.</p>
+    </div>
+</div>
+
+
+<div id="list-word-section"></div>
+<div id="view-more-place-holder"></div>
+
+@Ajax.ActionLink("Xem thêm", "GetMoreWordHistoryItems", new { page = 1, @class = "page" }, new AjaxOptions { UpdateTargetId = "list-word-section", InsertionMode = InsertionMode.InsertAfter })
+@section AddScript {
+    <script src="@Scripts.Url("~/dist/jquery.validate.unobtrusive")" async></script>
+
+   <script>
+        var currentPage = 2;
+
+        function nextPage() {
+            currentPage = currentPage + 1;
+            return currentPage;
+        }
+
+        $(document).ready(function () {
+            var pg = parseInt(currentPage);
+            var actionUrl = '@Ajax.ActionLink("Xem thêm", "GetMoreWordHistoryItems", new { page = 2 },
+                new AjaxOptions
+                {
+                    UpdateTargetId = "list-word-section",
+                    InsertionMode = InsertionMode.InsertAfter,
+                    OnSuccess = "updatePage()"
+                })';
+            actionUrl = actionUrl.replace("ShowPage", currentPage);
+            $("#view-more-place-holder").html(actionUrl);
+        });
+
+        function updatePage() {
+            var actionUrl = '@Ajax.ActionLink("Xem thêm", "GetMoreWordHistoryItems", new { page = "ShowPage" },
+        new AjaxOptions {
+            UpdateTargetId = "list-word-section",
+            InsertionMode = InsertionMode.InsertAfter,
+            OnSuccess = "updatePage()"
+        })';
+            actionUrl = actionUrl.replace("ShowPage", currentPage + 1);
+            nextPage();
+            $("#view-more-place-holder").html(actionUrl);
+        }
+
+        //Word with table history
+        $().ready(function () {
+            var data = @Html.Raw(Json.Encode(Model.WordHistory.ToArray()));
+            var NUMBER_OF_ELEMENT = 50;
+
+            //Click vao tieu de cot thi sap xep
+            $(".history-table-head").on('click', 'a', function(e) {
+                e.preventDefault();
+                var result = sort($(this), data);
+
+                //Ghi kết quả lại
+                pushElementsToTableBody(result);
+            })
+
+            ///SEARCH TOOL
+            $("#btn-search").click(function () {
+                var searchResults = [];
+                text = $("#btn-search-box").val().toLowerCase();
+                for (i = 0; i < data.length; i++) {
+                    if (data[i]["aWord"].toLowerCase().indexOf(text) >= 0) {
+                        searchResults.push(data[i]);
+                    }
+                }
+                pushElementsToTableBody(searchResults);
+            })
+
+            ///CLICK ON PAGINATION
+            $("#history-pages").on('click', 'a', function (e) {
+                e.preventDefault();
+                var pageNumber = $(this).parent().parent().attr("data-page");
+                if ($(this).hasClass("prev")) {
+                    if (pageNumber <= 1) {
+                        $("#history-pages .prev").addClass("hide");
+                        pageNumber = 1;
+                    }
+                    else {
+                        pageNumber--;
+                    }
+                    $("#history-pages .next").removeClass("hide");
+                }
+                else {
+                    $("#history-pages .prev").removeClass("hide");
+                    if ((pageNumber * NUMBER_OF_ELEMENT) >= data.length) {
+                        $("#history-pages .next").addClass("hide");
+                    }
+                    else {
+                        pageNumber++;
+                    }
+                }
+
+                pushElementsToTableBody(paging(data, (pageNumber-1) * NUMBER_OF_ELEMENT, NUMBER_OF_ELEMENT));
+                $(this).parent().parent().attr("data-page", pageNumber);
+                console.log(pageNumber);
+            });
+
+
+            ///Word with word results
+            //Load more
+            var dataResults = [];
+            $("#viewmore-result").click( function() {
+                //Nếu chưa load
+                if ($(this).attr("data-firstclick") == "no") {
+                    var classID = "home-phrase";
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("LoadMoreWordResult", "Course")',
+                        dataType: 'json',
+                        data: {
+                            classId: classID,
+                        },
+                        success: function (data) {
+                            //dataResults = data;
+                            console.log(data);
+                        },
+                        error: function (xhr, ajaxOptions, error) {
+                            console.log(xhr.status + " " + xhr.responseText);
+                        }
+                    });
+                }
+                else {
+
+                }
+            })
+            function daysInMonth(month,year) {
+                return new Date(year, month, 0).getDate();
+            }
+            console.log(daysInMonth(9,2015));
+            /************FUNCTIONS**************/
+            function sort(item, table_data) {
+                var result;
+                var currentOrder = item.attr("data-sort");
+                if (currentOrder == "inc") {  //Nếu đang sắp xếp tăng
+                    item.attr("data-sort", "dec");   // Sắp xếp giảm
+                    result = sortDec(item.attr("data-cell"), table_data);
+                }
+                else {  //Nếu đang sắp xếp giảm
+                    item.attr("data-sort", "inc");    // Sắp xếp tăng
+                    result = sortInc(item.attr("data-cell"), table_data);
+                }
+                return result;
+            }
+
+            //Sap xep giam
+            function sortDec(cellName, table_data) {
+                for(i = 0; i < table_data.length; i++) {
+                    for(j = 0; j < table_data.length; j++) {
+                        var val1 = table_data[i][cellName];
+                        var val2 = table_data[j][cellName];
+                        if (val1 < val2) {
+                            var tmp = table_data[i];
+                            table_data[i] = table_data[j];
+                            table_data[j] = tmp;
+                        }
+                    }
+                }
+                return table_data;
+            }
+
+
+            //Sap xep tang
+            function sortInc(cellName, table_data) {
+                for(i = 0; i < table_data.length; i++) {
+                    for(j = 0; j < table_data.length; j++) {
+                        var val1 = table_data[i][cellName];
+                        var val2 = table_data[j][cellName];
+                        if (val1 > val2) {
+                            var tmp = table_data[i];
+                            table_data[i] = table_data[j];
+                            table_data[j] = tmp;
+                        }
+                    }
+                }
+                return table_data;
+            }
+
+
+            function pushElementsToTableBody(data) {
+                @{
+                    <text>
+                var tmp = [];
+                for(i = 0; i < data.length; i++) {
+                    //Covert jSon to string
+                    var date = new Date(parseInt(data[i]["LearningDate"].substr(6)));
+                    var fullDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+
+                    var classId = data[i]["ClassId"];
+                    var wordId = data[i]["WordId"];
+                    var word = data[i]["aWord"];
+                    var href = '@Url.Action("Lecture", "LearnWord", new { area = "galaxygate", classId = "classId", wordId = "wordId" })'.replace("classId", classId).replace("wordId", wordId);
+                    var url = '<a href="'+ href + '"> <b>'+ data[i]["aWord"] +'</b> </a>';
+                    @*<a href='@Url.Action("Lecture", "LearnWord", new { area = "learn", classId = item.ClassId, wordId = item.WordId, word = item.aWord})'><b>@item.aWord</b></a>*@
+                    var ele = '<tr>' +  '<td class="aWord">' + url + '</td>' +
+                        '<td class="Meaning">'+ data[i]["Meaning"] + '</td>' +
+                        '<td class="LearningDate">' + fullDate  + '</td>' +
+                        '<td class="ArchivedScore">' + data[i]["ArchivedScore"]  + '</td>' + '</tr>';
+
+                    tmp.push(ele);
+                }
+                $("#history-table-body").html(tmp);
+                </text>
+        }
+            }
+
+            function paging(data, startPosition, elementAmount) {
+                var tmp = data.slice(startPosition, startPosition + elementAmount);
+                return tmp;
+            }
+
+
+        })
+    </script>
+}

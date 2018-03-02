@@ -1,0 +1,21 @@
+﻿@model IList<HePa.Core.Entities.LearnWordResult>
+
+    <div class="row" id="word-result">
+        @foreach (var item in Model)
+        {
+            <div class="col-xs-3">
+                @if (item.AchievedScore >= 5)
+                {
+                    <a style="color:green" href='@Url.Action("Lecture", "LearnWord", new { area = "galaxygate", classId = item.ClassId, wordId = item.WordId, word = item.Word.aWord })'><b>@item.Word.aWord</b></a>
+                }
+                else
+                {
+                    <a style="color:red" href='@Url.Action("Lecture", "LearnWord", new { area = "galaxygate", classId = item.ClassId, wordId = item.WordId, word = item.Word.aWord })'><b>@item.Word.aWord</b></a>
+
+                }
+            </div>
+        }
+    </div>
+                <div class="row">
+                    <button data-firstclick="yes" class="btn btn-info" id="viewmore-result">XEM THÊM</button>
+                </div>

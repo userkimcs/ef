@@ -1,0 +1,54 @@
+﻿@model HePa.Web.Areas.History.ViewModels.WordHistoryViewModel
+@{
+    ViewBag.Title = "ArchiveWord";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ArchiveWord</h2>
+
+@Model.ClassName
+<hr />
+
+@{ Html.RenderPartial("_ListWordHistoryPartial", Model.ListOfWords); }
+<div id="list-word-section"></div>
+<div id="view-more-place-holder"></div>
+@*@Ajax.ActionLink("Xem thêm", "GetMoreWordHistoryItems", new { page = 1, @class = "page" }, new AjaxOptions { UpdateTargetId = "list-word-section", InsertionMode = InsertionMode.InsertAfter })*@
+@section AddScript {
+    <script src="@Scripts.Url("~/dist/jquery.validate.unobtrusive")" async></script>
+<script>
+    var currentPage = 2;
+
+    function nextPage()
+    {
+        currentPage = currentPage + 1;
+        return currentPage;
+    }
+
+    $(document).ready(function () {
+        var pg = parseInt(currentPage);
+        var actionUrl = '@Ajax.ActionLink("Xem thêm", "GetMoreWordHistoryItems", new { page = 2 },
+                new AjaxOptions
+                {
+                    UpdateTargetId = "list-word-section",
+                    InsertionMode = InsertionMode.InsertAfter,
+                    OnSuccess = "updatePage()" 
+                })';
+        actionUrl = actionUrl.replace("ShowPage", currentPage);
+        $("#view-more-place-holder").html(actionUrl);
+    });
+
+    function updatePage() {
+        var actionUrl = '@Ajax.ActionLink("Xem thêm", "GetMoreWordHistoryItems", new { page = "ShowPage" },
+        new AjaxOptions {
+            UpdateTargetId = "list-word-section", 
+            InsertionMode = InsertionMode.InsertAfter,
+            OnSuccess = "updatePage()"
+        })';
+        actionUrl = actionUrl.replace("ShowPage", currentPage + 1);
+        nextPage();
+        $("#view-more-place-holder").html(actionUrl);
+    }
+</script>
+
+
+}

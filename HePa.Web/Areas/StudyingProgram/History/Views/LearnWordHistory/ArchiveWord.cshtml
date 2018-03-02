@@ -1,0 +1,16 @@
+﻿@model HePa.Web.Areas.History.ViewModels.WordResultViewModel
+@{
+    ViewBag.Title = "ArchiveWord";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ArchiveWord</h2>
+
+@Model.ClassName
+<hr />
+
+@{ Html.RenderPartial("_ListWordResultPartial", Model.ListOfWords); }
+@Ajax.ActionLink("Xem thêm", "GetMoreArchivedItems", new { page = 1}, new AjaxOptions { UpdateTargetId = "list-word-section", InsertionMode = InsertionMode.InsertAfter })
+@section AddScript {
+    <script src="@Scripts.Url("~/dist/jquery.validate.unobtrusive")" async></script>
+}

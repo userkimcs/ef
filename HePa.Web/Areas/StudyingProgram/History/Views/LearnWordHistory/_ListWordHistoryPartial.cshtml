@@ -1,0 +1,52 @@
+﻿@model IList<HePa.Core.Entities.LearnWordHistory>
+
+    <div class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" id="btn-search-box">
+        </div>
+        <button class="btn btn-default" id="btn-search">Search</button>
+    </div>
+    <table class="table table-bordered table-hover table-responsive" id="history-table">
+        <thead class="history-table-head">
+            <tr>
+                <th><a href="#" data-sort="inc" data-cell="aWord">Từ <i class="fa fa-sort"></i></a></th>
+                <th>Nghĩa</th>
+                <th><a href="#" data-sort="inc" data-cell="LearningDate">Thời gian học <i class="fa fa-sort"></i></a></th>
+                <th><a href="#" data-sort="inc" data-cell="ArchivedScore">Điểm <i class="fa fa-sort"></i></a></th>
+            </tr>
+        </thead>
+        <tfoot class="history-table-head">
+            <tr>
+                <th><a href="#" data-sort="inc" data-cell="aWord">Từ <i class="fa fa-sort"></i></a></th>
+                <th>Nghĩa</th>
+                <th><a href="#" data-sort="inc" data-cell="LearningDate">Thời gian học <i class="fa fa-sort"></i></a></th>
+                <th><a href="#" data-sort="inc" data-cell="ArchivedScore">Điểm <i class="fa fa-sort"></i></a></th>
+            </tr>
+        </tfoot>
+        <tbody id="history-table-body">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="aWord">
+                        <a href='@Url.Action("Lecture", "LearnWord", new { area = "galaxygate", classId = item.ClassId, wordId = item.WordId, word = item.aWord })'><b>@item.aWord</b></a>
+                    </td>
+                    <td>
+                        @item.Meaning
+                    </td>
+                    <td class="LearningDate">
+                        @item.LearningDate.Value.ToShortDateString()
+                    </td>
+                    <td class="ArchivedScore">
+                        @item.ArchivedScore
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+                <nav> 
+                    <ul class="pager" id="history-pages" data-page="1">
+                        <li><a href="#" class="prev hide">Previous</a></li>
+                        <li><a href="#" class="next">Next</a></li>
+                    </ul>
+                </nav>
