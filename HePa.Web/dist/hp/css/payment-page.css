@@ -1,0 +1,146 @@
+﻿* {
+    font-family: 'Open Sans', sans-serif;
+}
+.service_list_3 {
+    margin-top: 20px;
+}
+.tabs_framed {
+    margin-bottom: 2px;
+}
+.tabs_framed {
+    border-top-left-radius: 0;
+}
+.payment-tab-content {
+    margin: 30px 25px 12px 25px;
+}
+
+.payment-form {
+    margin-bottom: 20px;
+}
+
+.payment-form ul {
+    margin-bottom: 3px !important;
+}
+
+.payment-form .tabs li,
+.payment-form .tabs li.active{
+    height: 61px;
+    line-height: 59px;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.panel-body p {
+    margin-bottom: 8px;
+    margin-top: 3px;
+}
+/*----------------------*/
+/*    REVIEW PART       */
+/*----------------------*/
+.review-part {
+    margin-bottom: 60px;
+    margin-top: 30px;
+}
+
+.review-title {
+    margin-bottom: 5px;
+}
+
+    .review-title h3, h4, h5 {
+        display: inline;
+    }
+
+    .review-title h5, h4, h3 {
+        font-weight: 600;
+        color: #555;
+    }
+
+    .review-title h5 {
+        margin-left: 6px;
+    }
+
+    .review-title hr {
+        margin: 6px;
+    }
+
+    .review-title a {
+        text-decoration: underline;
+        font-size: 13px;
+    }
+
+.review-body {
+    margin: 10px;
+}
+
+    .review-body h5 {
+        font-weight: 600;
+        color: black;
+        margin-bottom: 6px;
+    }
+
+.review-body-index {
+    font-size: 13px;
+    display: inline;
+}
+
+.review-body-content {
+    font-weight: 500;
+    margin-right: 20px;
+}
+
+.review-ticket-info,
+.review-payment-info,
+.review-customer-info {
+    margin: 10px 7px 30px 7px;
+}
+
+.review-customer-info {
+    margin-bottom: 40px;
+}
+
+#review-total {
+    margin-left: 10px;
+}
+
+.widget-container .review-total-info {
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+}
+
+.review-total-info h4 {
+    color: white;
+}
+
+.review-total-info-small {
+    color: #ff6a00;
+    margin-top: 0px;
+}
+
+#review_customer_address {
+    width: 87%;
+}
+/*----------------------*/
+/*    END REVIEW PART   */
+/*----------------------*/
+
+/*----------------------*/
+/*     ORDER PART       */
+/*----------------------*/
+.discount-label {
+    height: 43px;
+    line-height: 43px;
+}
+
+/*.btn-submit {
+    border: 2px solid #dadada;
+    border-radius: 7px;
+    outline: none;
+    border-color: rgba(61, 76, 255, 0.69);
+    box-shadow: 0 0 12px rgba(61, 76, 255, 0.69);
+}*/
+/*----------------------*/
+/*    END ORDER PART    */
+/*----------------------*/

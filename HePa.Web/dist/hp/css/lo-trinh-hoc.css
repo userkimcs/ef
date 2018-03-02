@@ -1,0 +1,320 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Lobster&subset=latin,vietnamese);
+
+ul li {
+    line-height: 19px;
+    margin-bottom: 10px;
+}
+
+
+.circle {
+    display: inline-block;
+    width: 54px;
+    height: 54px;
+    border-radius: 54px;
+    font-size: 30px;
+    color: #fff;
+    line-height: 54px;
+    text-align: center;
+    margin-right: 15px;
+    background: #ef8c45;
+    background: -moz-linear-gradient(top, #ef8c45 0%, #e86741 100%);
+    background: -webkit-linear-gradient(top, #ef8c45 0%,#e86741 100%);
+    background: linear-gradient(to bottom, #ef8c45 0%,#e86741 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef8c45', endColorstr='#e86741',GradientType=0 );
+}
+
+.middle-child {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 18px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.space {
+    display:inline-block;
+}
+
+.section-2 li:before, .section-3 li:before {
+    content: "👉";
+    margin-right: 7px;
+    color: #e86841;
+}
+
+.box-header.hoc-phi {
+    background-image: url('/dist/img/home-page/header-1.png');
+}
+
+.which-class {
+    margin-bottom: 30px;
+    margin-left: 25px;
+    display: block;
+}
+
+.kham-pha {
+    font-family: "Lobster",cursive,serif;
+    font-size: 45px;
+    font-weight: 500;
+    color: #636363;
+    letter-spacing: 0px;
+    margin-top: 60px;
+    margin-bottom: 0;
+}
+
+    .kham-pha span {
+        display: block;
+        margin-top: 15px;
+        font-size: 30px;
+        color: #FFC107;
+        letter-spacing: 3px;
+        margin-bottom: 30px;
+    }
+
+.star-seperator {
+    display: block;
+    margin: 40px 0;
+    font-size: 20px;
+    color: #FFC107;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.five-step {
+    margin: 30px 0;
+}
+
+figcaption {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 10px;
+    color: #888;
+}
+
+.pricing-class img {
+    box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+    border-radius: 6px;
+}
+
+.pricing-class .img-responsive {
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.ky-nang, .contact {
+  text-align: center;
+  border: 1px solid #e1e1e1;
+  color: #777;
+  font-size: 11px;
+  padding-left: 0;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+.contact {
+    font-size: 12px;
+}
+
+.section-1 li {
+    padding-left: 25px;
+    margin-bottom: 15px;
+}
+
+.ky-nang .fa {
+    font-size: 40px;
+}
+
+.ky-nang li, .contact li {
+  list-style: none;
+  padding: 3px 0;
+  margin: 0;
+  font-weight: 600;
+}
+
+.ky-nang li + li, .contact li + li {
+  border-top: 1px solid #e1e1e1;
+}
+
+.ky-nang li:first-child,
+.ky-nang li:last-child {
+  padding: 12px 4px;
+  font-weight: 500;
+}
+
+.contact li:first-child {
+  padding: 12px 4px;
+  font-weight: 500;
+}
+
+
+.ky-nang big, .contact big {
+  font-size: 17px;
+  margin-top: 8px;
+  display: block;
+}
+
+.contact big {
+    margin-top: 0;
+    color: #111;
+}
+
+.ky-nang h3 {
+  margin-bottom: 0;
+  font-size: 36px;
+}
+
+.ky-nang span {
+  font-size: 12px;
+  color: #999;
+  font-weight: normal;
+}
+
+.ky-nang button {
+  width: auto;
+  margin: auto;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 50px;
+  color: #fff;
+  padding: 6px 19px;
+  background: #aaa;
+  opacity: 1;
+  transition: opacity .2s ease;
+  border: none;
+  outline: none;
+}
+
+.ky-nang button:hover {
+  opacity: .9;
+}
+
+.ky-nang button:active {
+  box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ky-nang color */
+
+.p-green big,
+.p-green h3,
+.p-green i {
+  color: #4CAF50;
+}
+
+.p-green button {
+  background: #4CAF50;
+}
+
+.p-orange big,
+.p-orange h3,
+.p-orange i {
+  color: #FF9800;
+}
+
+.p-orange button {
+  background: #FF9800;
+}
+
+
+.p-yel big,
+.p-yel h3,
+.p-yel i {
+  color: #FFC107;
+}
+
+.p-yel button {
+  background: #FFC107;
+}
+
+.p-red big,
+.p-red h3,
+.p-red i {
+  color: #e13c4c;
+}
+
+.p-red button {
+  background: #e13c4c;
+}
+
+.p-blue big,
+.p-blue h3,
+.p-blue i {
+  color: #2196F3;
+}
+
+.p-blue button {
+  background: #2196F3;
+}
+
+.p-purple big,
+.p-purple h3,
+.p-purple i {
+  color: #9C27B0;
+}
+
+.p-purple button {
+  background: #9C27B0;
+}
+
+.p-brown big,
+.p-brown h3,
+.p-brown i {
+  color: #795548;
+}
+
+.p-brown button {
+  background: #795548;
+}
+
+.hepa-slogan {
+    margin-bottom: 20px;
+}
+
+.contact-title {
+    font-size: 13px;
+}
+
+.avatar {
+    display: inline-block;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    border-radius: 50%;
+    position: relative;
+}
+
+.avatar img {
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+    }
+
+.avatar .ring {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-border-radius: 200px;
+        -moz-border-radius: 200px;
+        border-radius: 200px;
+        right: 0;
+        bottom: 0;
+        -webkit-box-shadow: inset 0px 0px 4px 1px rgba(253,148,1,0.56);
+        -moz-box-shadow: inset 0px 0px 4px 1px rgba(253,148,1,0.56);
+        box-shadow: inset 0px 0px 4px 1px rgba(253,148,1,0.56);
+    }
+
+.quote p {
+    font-size: 16px;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+.contact-messenger a {
+    color: #0084FF;
+}
+
+.contact-skype a {
+    color: #0078CA;
+}

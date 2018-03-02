@@ -1,0 +1,183 @@
+﻿body {
+    background: #f2f2f2;
+}
+
+.white-bg {
+    background-color:#fff;
+}
+
+#page-header {
+    background: #fff;
+    border-bottom: 1px solid #d0d4d9;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 99;
+    padding: 8px 0;
+}
+
+#page-header h1 {
+    margin: 0;
+}
+
+#page-header img {
+    margin: 0 auto;
+    display: block;
+    height: 40px;
+}
+
+@media(max-width: 479px) {
+    #page-header img {
+        height: 35px;
+    }
+}
+
+#header-replacing-56px {
+    height: 56px;
+}
+
+/* Code chung bên trong phần thân render */
+.box-header {
+    height: 150px;
+    margin-top: -39px;
+    margin-left: -39px;
+    margin-right: -39px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 5px 5px 0 0;
+    position: relative;
+    margin-bottom: 40px;
+}
+.bg-cover {
+    width: 100%;
+    height: 100%;
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+}
+.bg-cover > h2 {
+    position: absolute;
+    bottom: 0px;
+    left: 39px;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 0;
+}
+@media screen and (max-width: 425px) {
+    .bg-cover > h2 {
+        left: 15px;
+        font-size: 22px;
+    }
+}
+.content-2 {
+    margin-left: 20px;
+}
+h6 {
+    margin-bottom: 0.3em;
+}
+
+
+.breadcrumb {
+    margin-top: 20px;
+}
+
+.simple-content {
+    padding: 39px 39px 35px;
+}
+
+.box-choose-class {
+    padding-bottom: 20px;
+}
+
+.start-now {
+    text-align:center;
+    display:table;
+    margin:0 auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+
+    animation-name: zoominout;
+    animation-duration: .6s; 
+    animation-timing-function: ease-in; 
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+}
+
+@keyframes zoominout {
+    0% {
+        -ms-transform: scale(.95,.95); /* IE 9 */
+        -webkit-transform: scale(.95,.95); /* Safari */
+        transform: scale(.95,.95);
+    }
+    50% {
+        -ms-transform: scale(1.0,1.0); /* IE 9 */
+        -webkit-transform: scale(1.0,1.0); /* Safari */
+        transform: scale(1.0,1.0);
+    }
+    100% {
+        -ms-transform: scale(1.08,1.08); /* IE 9 */
+        -webkit-transform: scale(1.08,1.08); /* Safari */
+        transform: scale(1.08,1.08);
+    }
+}
+
+/* END Code chung bên trong phần thân render */
+
+footer {
+    padding-bottom: 25px;
+    background: #f2f2f2;
+}
+footer .container {
+    padding-left: 0;
+    padding-right: 0;
+}
+footer .footer-separate {
+    padding-top: 50px;
+    margin: 0 15px;
+    border-top: 1px solid #ddd;
+}
+footer .widget-container .widget-title{
+	font-size:21px;
+    font-weight: 400;
+	color:#fff;
+	text-transform: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background: none;
+    padding: 0;
+    margin-bottom:24px;
+}
+footer .widget-container{margin-bottom:30px;}
+footer .widget-container li{line-height: 16px; margin-bottom: 12px;color:#999;font-size: 14px;}
+footer .widget-container a{color:#666;}
+footer .widget-container a:hover{color:#444;}
+footer.boxed {
+    margin-bottom: 0;
+}
+
+footer .widget-container .widget-title.logo {
+    margin-bottom: 8px;
+}
+
+summary-hepa ul {
+    font-weight: 300;
+}
+
+footer .start-hepa {
+    color: #666;
+}
+
+    footer .start-hepa .widget-title, footer .info-hepa .widget-title, footer .summary-hepa .widget-title {
+        color: #333;
+    }
+
+    .gia-tri-icon {
+        margin-bottom: .6em;
+    }

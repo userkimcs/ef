@@ -1,0 +1,508 @@
+﻿/*
+    Description: This file use for Index of HomeController
+*/
+
+/*===================================================*/
+/* 1. LEFT SIDE */
+/*===================================================*/
+
+/*-----------------------------------*/
+/* Slide Show */
+/*-----------------------------------*/
+html, body,
+.carousel-inner,
+.carousel, .item, .active,
+.full-container, .container-fluid, .row, .left-side {
+    height: 100%;
+}
+
+.carousel-control.right, .carousel-control.left {
+    background-image: none;
+    z-index: 888;
+}
+
+.carousel-control .fa-angle-right,
+.carousel-control .fa-angle-left {
+    position: absolute;
+    top: 50%;
+}
+
+.carousel-caption {
+    z-index: 10;
+}
+
+.carousel .item {
+    background-color: #777;
+}
+
+.carousel .carousel-inner .bg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.carousel .carousel-inner .bg1 {
+    background-image: url(/dist/img/slide-home/slide1-bg.jpg);
+    background-size: cover;
+}
+
+.carousel .carousel-inner .bg2 {
+    background-image: url(/dist/img/slide-home/slide2-bg.jpg);
+    background-size: cover;
+}
+
+.carousel .carousel-inner .bg3 {
+    background-image: url(/dist/img/slide-home/slide3-bg.jpg);
+    background-size: cover;
+}
+
+/* Slide show 1 */
+.bg1 h3 {
+    color: #fff;
+    font-size: 19px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    margin: .8em -1em;
+}
+
+/* Slide show 2 */
+.bg2 h3 {
+    font-size: 3.6em;
+    font-weight: 300;
+    color: #ECE2D9;
+    margin-bottom: 10px;
+}
+
+.bg2 .carousel-caption {
+    top: 53%;
+}
+
+/* Slide show 3 */
+.bg3 .carousel-caption {
+    top: 0;
+    left: 0;
+    padding-top: 0;
+    width: 100%;
+    margin: 0;
+}
+
+.bg3 .header {
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.65);
+}
+
+.bg3 .header .left {
+    text-align: right;
+    padding-right: 0;
+}
+
+.bg3 .header .left p {
+    margin-top: 20px;
+    color: #111;
+    text-shadow: none;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.bg3 .header .right {
+    padding-left: 0;
+}
+
+.bg3 .header .right p {
+    text-shadow: none;
+    line-height: 80px;
+    text-align:left;
+    color: #E6613E;
+    font-size: 50px;
+    font-weight: 300;
+    white-space: nowrap;
+}
+
+.bg3 .btn, .bg2 .btn {
+    margin-top: 30px;
+    background: rgba(0, 0, 0, 0.3);
+    border: #f3f3f3 1px solid;
+}
+
+.bg3 .btn:hover, .bg2 .btn:hover {
+    margin-top: 30px;
+    background: rgb(230, 97, 62);
+    border: 1px solid #c44a28;
+}
+
+/*-----------------------------------*/
+/* Layout and background */
+/*-----------------------------------*/
+.left-side {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/*===================================================*/
+/* 2. RIGHT SIDE */
+/*===================================================*/
+/*-----------------------------------*/
+/* Right side layout */
+/*-----------------------------------*/
+.right-side {
+    padding: 0;
+    background: #000;
+    position: relative;
+    height: 100vh;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+    .right-side .bg-mask {
+        background: #fff;
+        padding: 25px 25px 0;
+    }
+
+/* No scroll in Small Devices, Tablets */
+@media only screen and (max-width : 767px) {
+    .right-side {
+        height: auto;
+        overflow: visible;
+    }
+}
+
+.right-side h4 {
+    font-weight: 600;
+    color: #8E8071;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 21px;
+}
+
+/*-----------------------------------*/
+/* Right side form */
+/*-----------------------------------*/
+.login-form, .reg-form {
+    margin-bottom: 20px;
+}
+
+.right-side .reg-form .input-group .text-box {
+    border-radius: 0 4px 4px 0;
+}
+
+.reg-link a,
+.forgot-link a {
+    line-height: 45px;
+    height: 45px;
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+.forgot-link a {
+    font-size: 96%;
+    display: inline-block;
+    margin-right: -15px;
+    color: #8E8071;
+}
+
+@media only screen and (max-width : 1199px) {
+    .forgot-link a {
+        margin-right: 0;
+    }
+}
+
+.btn-login input {
+    margin-bottom: 5px;
+}
+
+.reg-link a {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 17px;
+    display: block;
+}
+
+    .reg-link a:hover {
+        color: #8E8071;
+    }
+
+/*input[type="text"],
+input[type="email"],
+input[type="password"] {
+    border-radius: 0 4px 4px 0 !important;
+}
+
+    textarea:focus,
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="datetime"]:focus,
+    input[type="datetime-local"]:focus,
+    input[type="date"]:focus,
+    input[type="month"]:focus,
+    input[type="time"]:focus,
+    input[type="week"]:focus,
+    input[type="number"]:focus,
+    input[type="email"]:focus,
+    input[type="url"]:focus,
+    input[type="search"]:focus,
+    input[type="tel"]:focus,
+    input[type="color"]:focus {
+        border-color: rgba(0, 52, 255, 0.80);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(96, 136, 245, 0.60);
+        outline: 0 none;
+    }*/
+
+.right-side .input-group-addon {
+    border-color: #e5e5e5;
+    background-color: #fafafa;
+}
+
+    .right-side .input-group-addon i {
+        color: #838383;
+    }
+
+.right-side .btn-soci {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+/* For social login */
+.social-login .hr.row {
+    position: relative;
+}
+
+    .social-login .hr.row span {
+        display: block;
+        position: absolute;
+        top: 18px;
+        left: 50%;
+        font-size: 14px;
+        margin-left: -20px;
+        text-transform: uppercase;
+        background-color: #fff;
+        padding: 3px 5px;
+    }
+
+/* Facebook, Google login display in 2 rows with portrait phone screen */
+@media (max-width: 520px) {
+    .social-login .google-login,
+    .social-login .facebook-login {
+        width: 100%;
+    }
+}
+
+@media (min-width: 521px) and (max-width: 767px) {
+    .social-login .google-login {
+        padding-right: 20px;
+    }
+
+    .social-login .facebook-login {
+        padding-left: 20px;
+    }
+}
+
+.btn-soci:focus,
+.btn-soci:active:focus,
+.btn.active:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+.btn-soci:hover,
+.btn-soci:focus {
+    text-decoration: none;
+}
+
+.btn-soci:active,
+.btn.active {
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+
+/*-----------------------------------*/
+/* Right what's new */
+/*-----------------------------------*/
+.what-news {
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .dl-horizontal dt {
+        width: 80px;
+        text-align: left;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 90px;
+    }
+}
+/*-----------------------------------*/
+/* Right side footer */
+/*-----------------------------------*/
+.footer-container,
+.right-side-footer {
+    height: 30px;
+    line-height: 30px;
+}
+
+    .footer-container .row {
+        margin-left: -25px;
+        margin-right: -25px;
+    }
+
+/* Hot line css */
+.hot-line, .inc-info {
+    padding: 10px 15px;
+    background: #222428;
+}
+
+    .inc-info ul {
+        margin-bottom: 0;
+        color: #ddd;
+    }
+@media only screen and (max-width : 767px) {
+    .inc-info ul li:last-child {
+        display: none;
+    }
+}
+
+.hot-line {
+    background: #F2F2F2;
+    font-size: 20px;
+    font-weight: 300;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+    .hot-line, .hot-line a {
+        color: #E86E4E;
+    }
+
+        .hot-line i {
+            /*border: 1.5px solid rgb(102, 102, 102);
+    border-radius: 50%;
+    padding: 3px 4px;
+    background-color: rgba(255, 255, 255, 0.38);*/
+        }
+
+/*.before-footer {
+    height: 25px;
+    text-indent: -1000px;
+    background: #000;
+}
+
+@media (max-width: 767px) {
+    .before-footer {
+        height: 0px;
+    }
+}*/
+
+.right-side-footer {
+    position: fixed;
+    bottom: 0;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.66);
+    width: 100%;
+    z-index: 888;
+    overflow: hidden;
+}
+
+.right-side-footer ul {
+    margin-bottom: 0;
+}
+
+.right-side-footer h2 {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+    .right-side-footer ul li {
+        display: block;
+        float: left;
+    }
+
+    .right-side-footer a {
+        display: block;
+        color: rgb(220, 220, 220);
+        text-align: center;
+        font-size: 14px;
+        height: 30px;
+        line-height: 30px;
+        font-weight: 600;
+        letter-spacing: 0;
+    }
+
+        .right-side-footer a:hover {
+            color: rgb(255, 255, 255);
+        }
+
+    .right-side-footer .about {
+        width: 9.5%;
+    }
+
+    .right-side-footer .help {
+        white-space: nowrap;
+        width: 5.5%;
+    }
+
+    .right-side-footer .buy-ticket {
+        width: 18%;
+    }
+
+@media only screen and (max-width : 767px) {
+    .right-side-footer {
+        position: initial;
+        background: #000;
+    }
+
+        .right-side-footer .about {
+            width: 33.33333333333%;
+        }
+
+        .right-side-footer .help {
+            width: 33.33333333333%;
+        }
+
+        .right-side-footer .buy-ticket {
+            width: 33.33333333333%;
+        }
+}
+
+/*-----------------------------------*/
+/* Right side logo and slogan */
+/*-----------------------------------*/
+.slogan-side {
+    margin: 0 0 40px 0;
+}
+
+.logo-right-side {
+    margin: 0 auto 0.6em;
+    text-align: center;
+    display: block;
+    vertical-align: middle;
+}
+
+.slogan {
+    color:#e86741;
+    font-weight: 400;
+    letter-spacing: -1px;
+    line-height: 1.2em;
+    display: block;
+    text-align: center;
+}

@@ -1,0 +1,772 @@
+﻿#class-breadcrumb {
+    text-transform: capitalize;
+}
+
+.steps hr {
+    margin: 20px 0;
+}
+
+.title-step .title {
+    text-align: center;
+    color: #555;
+}
+
+    .title-step .title span {
+        font-weight: 300;
+        font-size: 19px;
+    }
+
+.guide-icon {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+    .guide-icon > div {
+        width: 70px;
+        height: 70px;
+        margin: 0 6px;
+        background-size: 100%;
+        display: inline-block;
+    }
+
+    .guide-icon.small > div {
+        width: 50px;
+        height: 50px;
+    }
+
+    .guide-icon > div.active {
+        animation: boucing 1.3s infinite;
+        border-radius: 100px;
+        border: 2px solid #FFB300;
+        box-shadow: 0 0 5px #FFB300;
+    }
+
+    .guide-icon.small > div.active {
+        border: 1px solid #FFB300;
+        box-shadow: 0 0 5px #FFB300;
+    }
+
+@keyframes boucing {
+    0% {
+        transform: scale(1.0);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+.ear-x {
+    background: url('/dist/img/learn-word/ear-x.png') no-repeat;
+}
+
+.ear {
+    background: url('/dist/img/learn-word/ear.png') no-repeat;
+}
+
+.eye-x {
+    background: url('/dist/img/learn-word/eye-x.png') no-repeat;
+}
+
+.eye {
+    background: url('/dist/img/learn-word/eye.png') no-repeat;
+}
+
+.hand-x {
+    background: url('/dist/img/learn-word/hand-x.png') no-repeat;
+}
+
+.hand {
+    background: url('/dist/img/learn-word/hand.png') no-repeat;
+}
+
+.mouth-x {
+    background: url('/dist/img/learn-word/mouth-x.png') no-repeat;
+}
+
+.mouth {
+    background: url('/dist/img/learn-word/mouth.png') no-repeat;
+}
+
+#progress-bar .point-bar-title {
+    display: inline-block;
+    margin-bottom: 3px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+#progress-bar .progress {
+    margin-bottom: 14px;
+    text-shadow: 0 1px 1px #000;
+}
+
+textarea {
+    resize: vertical;
+    line-height: 1;
+    outline: none !important;
+    border: 1px solid red;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+.steps {
+    padding: 20px 20px 20px 20px;
+}
+
+#step1,
+#step2 {
+    text-align: center;
+}
+
+.step3-content {
+    text-align: center;
+}
+
+    .step3-content h2 {
+        font-size: 40px;
+        margin-bottom: 10px;
+        color: #E86741;
+        margin: 0 8px 0 0;
+        display: inline-block;
+    }
+
+    .step3-content #step3-listening {
+        font-size: 25px;
+        line-height: 48px;
+        display: inline-block;
+    }
+
+
+    .step3-content #ipa {
+        font-size: 18px;
+        letter-spacing: 1px;
+        font-family: "Lucida Sans Unicode","DejaVu Sans","Lucida Grande",sans-serif;
+    }
+
+    .step3-content #word-img {
+        margin: 0 auto;
+    }
+
+#seperated_words p, .answers p {
+    text-align: center;
+}
+
+.answers, #seperated_words {
+    background: #eee;
+    margin: 5px 0 5px 0;
+    padding-top: 10px;
+}
+
+#question {
+    list-style-type: none;
+    padding: 5px;
+    height: 50px;
+    background: #eee;
+}
+
+#answer {
+    list-style-type: none;
+    padding: 5px;
+    height: 50px;
+    background: #eee;
+}
+
+    #question li,
+    #answer li {
+        display: inline-block;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+
+.step5-hint {
+    margin-top: 6px;
+}
+
+#sentence-hint {
+    display: inline-block;
+    margin-bottom: 0;
+    color: #5DC17D;
+}
+
+#result5 {
+    display: inline-block;
+    border-radius: 5px;
+    padding: .7em .6em .8em;
+    margin-bottom: 0;
+}
+
+.list-group-item {
+    display: inline-block;
+}
+
+#result-emotion {
+    margin: 0 auto;
+}
+
+#result {
+    text-align: center;
+}
+
+#btn-jump {
+    margin-right: 4px;
+}
+
+@keyframes facein {
+    from {
+        font-size: 0;
+    }
+
+    to {
+        font-size: 50px;
+    }
+}
+
+#result-message {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+    animation: facein 2s 1s;
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.bad {
+    color: #D81B60;
+    text-shadow: 0 0 10px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,1), 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de;
+}
+
+.cool {
+    color: #337ab7;
+    text-shadow: 0 0 10px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,1), 0 0 40px #76A9D4, 0 0 70px #337ab7, 0 0 80px #337ab7, 0 0 100px #337ab7;
+}
+
+.great {
+    color: #5CB85C;
+    text-shadow: 0 0 10px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,1), 0 0 40px #3c763d, 0 0 70px #3c763d, 0 0 80px #54AB55, 0 0 84px #46A047;
+}
+
+.perfect {
+    color: #FF9800;
+    text-shadow: 0 0 10px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,1), 0 0 30px rgba(255,255,255,1), 0 0 40px #FF9800, 0 0 70px #FF9800, 0 0 80px #FF9800, 0 0 100px #FF9800;
+}
+
+/*-----------------------------------*/
+/* Wordlist - right column */
+/*-----------------------------------*/
+.right-side {
+    padding-right: 0;
+}
+
+@media (max-width: 767px) {
+    .right-side {
+        padding-left: 0;
+    }
+}
+
+.wordlist-tab .tab-content {
+    padding: 36px 23px;
+}
+
+.word-list li {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px dotted #ddd;
+}
+
+.word-list .col-xs-5,
+.word-list .col-xs-7 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.word-list .english-word a {
+    font-weight: 600;
+    color: #5c5146;
+}
+
+.word-list .meaning > li > a > i,
+.word-list .english-word > li > i {
+    margin-right: 5px;
+}
+
+.english-word .fa-li {
+    top: 0;
+}
+
+.english-word .learned-word {
+    color: #22BA2D;
+}
+
+.word-list .english-word .unfinished_word {
+    color: rgba(92, 81, 70, 0.37);
+    font-style: italic;
+}
+
+.learned-word.fa-times {
+    color: #D80000;
+    font-size: 110%;
+}
+
+/*-----------------------------------*/
+/* Daily goal - right column */
+/*-----------------------------------*/
+/* Daily goal setting */
+.daily-goal .set {
+    color: #ABABAB;
+    font-size: 12px;
+}
+
+    .daily-goal .set:hover {
+        color: #E7613C;
+    }
+/* Progress bar */
+.progress .progress-bar {
+    font-weight: 600;
+}
+
+
+/*-----------------------------------*/
+/* Control button */
+/*-----------------------------------*/
+.content-header .control .btn {
+    margin: 5px;
+}
+
+#view-comment {
+    margin: 15px 0 0 0;
+}
+
+/*-----------------------------------*/
+/* Content word */
+/*-----------------------------------*/
+.lesson {
+    padding-bottom: 30px;
+    margin-top: 20px;
+}
+
+.content-word > .inner {
+    padding: 0 15px 15px;
+}
+
+/* Word - Image */
+.content-word .word .present-img {
+    width: 85%;
+    margin: 0 auto;
+}
+
+/* Word - Word meaning */
+.content-word .word h2 {
+    font-size: 40px;
+}
+
+.content-word .word .tow {
+    font-size: 14px;
+    letter-spacing: -0.4px;
+}
+
+    .content-word .word .tow:before {
+        content: "\00a0 \00a0 ";
+    }
+
+.content-word .word .IPA {
+    font-family: "Lucida Sans Unicode","Lucida Grande";
+}
+
+
+/* Word - Word example */
+.content-word .word .example > p {
+    margin-bottom: 10px;
+}
+
+.content-word .word .example dl {
+    padding-left: 10px;
+}
+
+.content-word .word .example dt:before {
+    content: "\2022";
+    color: #ea7456;
+    float: left;
+    margin-left: -10px;
+}
+
+.content-word .word .example dt {
+    color: #5c5146;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.content-word .word .example dd {
+    color: #8E8071;
+    margin-bottom: 8px;
+}
+
+/* Word - Word speaker icon / Sentence speaker icon */
+a.sm2_button {
+    color: #8E8071;
+}
+
+    a.sm2_button > i, .like > i {
+        cursor: pointer;
+        /* safari 3.1+ fun (/W3 working draft extension, TBD.) */
+        -webkit-transition: all .2s ease-in-out;
+        -moz-transition: all .2s ease-in-out 0s;
+        transition: all .2s ease-in-out;
+        -o-transition-property: color; /* opera 10.5 */
+        -o-transition-duration: 0.15s;
+    }
+
+    a.sm2_button:focus {
+        outline: none; /* maybe evil, but don't show the slight border outline on focus. */
+    }
+
+    a.sm2_button > i:hover,
+    a.sm2_button.sm2_playing > i,
+    a.sm2_button.sm2_playing > i:hover {
+        color: #E86741;
+    }
+
+        a.sm2_button.sm2_playing > i,
+        a.sm2_button.sm2_paused > i,
+        a.sm2_button.sm2_playing > i:hover {
+            -webkit-transform: scale(1.2, 1.2);
+            -moz-transform: scale(1.2, 1.2);
+            -ms-transform: scale(1.2, 1.2);
+            -o-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2);
+        }
+
+            a.sm2_button.sm2_paused > i,
+            a.sm2_button.sm2_paused > i:hover {
+                color: #337AB7;
+            }
+
+.learn-next-word {
+    margin-top: 15px;
+}
+
+#btn-learning {
+    background: none;
+    color: #419c5c;
+}
+
+    #btn-learning:hover {
+        background: rgb(75,181,107);
+        color: #fff;
+    }
+
+#btn-relearning {
+    background: none;
+    color: rgb(232, 102, 66);
+}
+
+    #btn-relearning:hover {
+        background: rgb(232, 102, 66);
+        color: #fff;
+    }
+
+/*-----------------------------------*/
+/* Sharing button */
+/*-----------------------------------*/
+.share-section {
+    margin-top: 20px;
+    margin-bottom: -15px;
+    z-index: 999999;
+}
+
+    .share-section .social {
+        margin-left: 4px;
+    }
+
+.email-share > a {
+    background: #23a459;
+    background: -webkit-linear-gradient(#23A95B, #209852);
+    background: -linear-gradient(#23A95B, #209852);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    height: 20px;
+    display: block;
+    padding: 0 4px;
+    border-radius: 2px;
+    text-shadow: 0 -1px 0 #1d874a;
+}
+
+    .email-share > a:hover {
+        background: #24a75b;
+        text-decoration: none;
+        background: -webkit-linear-gradient(#24b762, #22a056);
+        background: -linear-gradient(#24b762, #22a056);
+    }
+
+/*-----------------------------------*/
+/* Content Discussion */
+/*-----------------------------------*/
+
+.comment-area {
+    margin-left: 20px;
+}
+
+.discussion-comments {
+    margin-left: 50px;
+}
+
+.discussion-comments-list {
+    padding-left: 65px;
+}
+
+.content-discussion {
+    margin-top: 35px;
+}
+
+    .content-discussion .inner {
+        padding-left: 65px;
+    }
+
+.discussion-main {
+    margin-bottom: 40px;
+}
+
+/* view more discussion button */
+#btn_showMore {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #4090db;
+    border-radius: 80px;
+    line-height: 77px;
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #4090db;
+    cursor: pointer;
+    font-weight: 700;
+    margin: 0 auto;
+}
+
+    #btn_showMore:hover {
+        background: #2972B7;
+        border: 2px solid #2972B7;
+        color: #fff;
+    }
+
+/* discussion list item */
+.discussion-comments-list-item {
+    border-top: 1px solid #eeeeee;
+}
+
+/* Discussion - User image circle */
+.user-image-circle {
+    width: 50px;
+    height: 50px;
+    margin: 0 0 0 -65px;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    position: relative;
+}
+
+    .user-image-circle img {
+        width: 50px;
+        height: 50px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+    }
+
+    .user-image-circle .ring {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-border-radius: 200px;
+        -moz-border-radius: 200px;
+        border-radius: 200px;
+        right: 0;
+        bottom: 0;
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        -moz-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    }
+
+/* Discussion - Comment box */
+.comment-box {
+    overflow: hidden;
+    word-wrap: break-word;
+    resize: none;
+    height: 40px;
+    min-height: 40px;
+    border: 1px solid #E6E2DD;
+    color: #756D65;
+    font: 500 15px/20px 'Open Sans', sans-serif;
+    -webkit-box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    -moz-box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    -webkit-font-smoothing: antialiased;
+    text-align: left;
+    white-space: pre-wrap;
+    margin-bottom: 10px;
+    border-left: 3px solid rgba(17, 162, 197, 0.78);
+}
+
+    .comment-box:focus {
+        -webkit-box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+        -moz-box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+        box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+        /*min-height: 90px;*/
+    }
+
+/* Discussion - Player guide discussion */
+.player-discuss-guide {
+    color: #11a2c5;
+    background: #f2fafe;
+    border-radius: 5px;
+    padding: 12px 14px 1px 10px;
+    position: relative;
+    line-height: 24px;
+    font-weight: 600;
+    text-align: justify;
+}
+
+    .player-discuss-guide i.fa {
+        line-height: 20px;
+    }
+
+.discussion-submit {
+    margin-right: 5px;
+}
+
+.discussion-btn {
+    margin-top: 10px;
+}
+
+.discussion-filter label {
+    height: 34px;
+    line-height: 34px;
+    font-size: 14px;
+    color: #7f7f7f;
+    white-space: nowrap;
+}
+
+.discussion-filter .dis-label {
+    padding-right: 0;
+}
+
+.discussion-filter .filter-select {
+    padding-left: 5px;
+}
+
+.discussion-filter #sl_filter {
+    padding: 0 0 0 5px;
+}
+
+/* Discussion - Self comment */
+.self-comment {
+    margin-bottom: 25px;
+    padding-top: 25px;
+}
+    /* -- header contents user infomation */
+    .self-comment > header {
+        margin-bottom: 10px;
+    }
+
+        .self-comment > header > a {
+            font-weight: 600;
+        }
+
+.user-flair {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+    .user-flair .fa-star {
+        color: #FEAE16;
+    }
+
+/* -- body contents user discussion */
+.self-comment > .body {
+    margin-bottom: 10px;
+}
+
+/* -- footer contents like button & reply link */
+.self-comment > footer {
+    margin-bottom: 25px;
+}
+
+.like-count {
+    display: inline-block;
+    background: #E6E6E6;
+    border: 1px solid #D2D2D2;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 3px;
+    min-width: 24px;
+    text-align: center;
+}
+
+.like-link:hover, .like-link:active, like-link:focus {
+    text-decoration: none;
+}
+
+.fa-thumbs-up {
+    color: #8E8071;
+}
+
+    .fa-thumbs-up:hover, .fa-thumbs-up.active {
+        color: #E86741;
+    }
+
+.add-reply, .showing-date {
+    color: #C6B5A3;
+}
+
+.showing-date {
+    cursor: pointer;
+}
+
+    .add-reply:hover, .showing-date:hover {
+        text-decoration: underline;
+        color: #C6B5A3;
+    }
+
+/* -- new comment content comment textarea & button */
+.new-comment {
+    margin-bottom: 15px;
+}
+
+/* :liked sign for like icon and like-count */
+.active-liked .fa-thumbs-up {
+    color: #F38061;
+}
+
+    .active-liked .fa-thumbs-up:hover {
+        color: #E86741;
+    }
+
+.active-liked .like-count {
+    background: #F38061;
+    border: 1px solid #F38F75;
+    color: #FFF9F7;
+}
+
+/* -- shift for a child comment */
+.discussion-comments-list.shifted {
+    margin-left: 65px;
+}
+
+
+/*LIST TODAY WORDs*/
+.transparent {
+    color: rgba(142, 128, 113, 0.18);
+}

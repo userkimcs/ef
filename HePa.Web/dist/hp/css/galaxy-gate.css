@@ -1,0 +1,63 @@
+﻿.course {
+    margin-top: 25px;
+    display: block;
+}
+
+.course:hover, .course:focus {
+    text-decoration: none;
+    margin-top: 24px;
+}
+
+.word .course-name {
+    background: #0073b7;
+}
+.grammar .course-name {
+    background: #D83538;
+}
+.pronunciation .course-name {
+    background: #3c763d;
+}
+.course-name h2 {
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+    font-weight: 300;
+    color: white;
+    letter-spacing: 0;
+    padding: 4px 0;
+}
+
+.course-desc {
+    border-radius: 0 0 5px 5px;
+    padding: 4px 0 0;
+    margin-bottom: 50px;
+}
+
+.word .course-desc {
+    background: rgba(0, 115, 183, .25);
+    border: 1px solid  rgba(0, 115, 183, .4);
+}
+.grammar .course-desc {
+    background: rgba(216, 53, 56, .25);
+    border: 1px solid  rgba(216, 53, 56, .4);
+}
+.pronunciation .course-desc {
+    background: rgba(60, 118, 61, .25);
+    border: 1px solid  rgba(60, 118, 61, .4);
+}
+
+.course-desc p {
+    padding: 0px 12px 14px;
+    text-align: justify;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.course-img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#available-soon-modal .modal-title {
+    text-align: center;
+}

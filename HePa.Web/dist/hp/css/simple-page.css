@@ -1,0 +1,136 @@
+﻿body {
+    /*background: #aa8a6e url(/dist/img/site-img/bg1.jpg) no-repeat center center fixed;background-size: cover;*/
+    background-color: #f2f2f2;
+}
+
+.simple-content {
+    padding: 39px 39px 35px;
+}
+
+@media (max-width: 479px) {
+    .simple-content {
+        padding: 24px 24px 20px;
+    }
+}
+
+/* ----------------------------- */
+/* Footer --------------------*/
+/* ----------------------------- */
+.footer.boxed {
+    margin-bottom: 0;
+}
+
+.footer .widget-container .widget-title.logo {
+    margin-bottom: 8px;
+}
+
+.summary-hepa ul {
+    font-weight: 300;
+}
+
+.footer .start-hepa {
+    color: #666;
+}
+
+    .footer .start-hepa .widget-title {
+        color: #333;
+    }
+
+/* ----------------------------- */
+/* Couse --------------------*/
+/* ----------------------------- */
+
+/* Learning class */
+.learning-class {
+    overflow: hidden;
+}
+
+.class-link {
+    display: block;
+    color: inherit;
+}
+
+.class-title h4 {
+    font-weight: 600;
+    font-size: 120%;
+    color: #333;
+}
+.class-exit {
+    color: #aaa;
+}
+.learning-class .class-img {
+    height: 100%;
+}
+.class-rating {
+    position: relative;
+    white-space: nowrap;
+    display: inline-block;
+}
+.class-rating:before, .class-rating span:before {
+    font-family: FontAwesome;
+    content: "\f005 \f005 \f005 \f005 \f005";
+    color: #aaa;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 4px;
+    cursor: default;
+}
+.class-rating span {
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+}
+.class-rating span:before {
+    color: #fba617;
+}
+.class-detail {
+    padding: 15px 30px 0 0;
+}
+.class-label, .class-info2 {
+    margin-bottom: 12px;
+}
+.class-title h4, .class-info1, .class-progress h6 {
+    margin-bottom: 8px;
+}
+.class-info1, .class-info2 {
+    font-size: 90%;
+}
+.class-control {
+    margin-bottom: 15px;
+}
+.change-goal {
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+}
+@media (max-width: 649px) {
+    .class-img, .class-img img, .class-detail {
+        width: 100%;
+    }
+    .class-detail {
+        padding: 15px 30px;
+    }
+}
+
+/* Recomended class */
+.recommend-class {
+    overflow: hidden;
+}
+.recommend-class .class-detail {
+    padding: 10px;
+}
+
+.recommend-class .class-info {
+    margin-bottom: 10px;
+    color: #999;
+}
+
+/* Help page */
+.image-top .simple-content {
+    padding: 0 39px 35px 39px;
+}
+
+.image-top .help-img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}

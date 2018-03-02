@@ -1,0 +1,102 @@
+﻿.sumary {
+    border: 1px solid #03A9F4;
+    background: #E1F5FE;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-style: italic;
+}
+
+.team .avatar {
+    display: inline-block;
+    margin-bottom: 10px;
+    width: 180px;
+    height: 180px;
+    vertical-align: middle;
+    border-radius: 50%;
+    position: relative;
+}
+
+    .team .avatar img {
+        width: 180px;
+        height: 180px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        filter: gray;
+        filter: grayscale(0.6);
+        -webkit-filter: grayscale(0.6);
+    }
+
+    .team .avatar .ring {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-border-radius: 200px;
+        -moz-border-radius: 200px;
+        border-radius: 200px;
+        right: 0;
+        bottom: 0;
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        -moz-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    }
+
+.team .abox {
+    margin-bottom: 35px;
+}
+
+    .team .abox:hover .ring {
+        -webkit-box-shadow: inset 0px 0px 7px 2px rgba(253,148,1,0.56);
+        -moz-box-shadow: inset 0px 0px 7px 2px rgba(253,148,1,0.56);
+        box-shadow: inset 0px 0px 7px 2px rgba(253,148,1,0.56);
+    }
+
+    .team .abox:hover img {
+        filter: none;
+        -webkit-filter: grayscale(0);
+    }
+
+.team .ring, .team .avatar img, .team .contact i {
+    transition: all .25s;
+}
+
+.team .name {
+    margin-bottom: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.team .intro {
+    padding: 0 25px;
+}
+
+.team .contact li {
+    display: inline-block;
+    padding: 0 3px;
+}
+
+.team .contact i {
+    color: #9A9A9A;
+}
+
+.team .fa-facebook-square:hover {
+    color: #3C5A99;
+}
+
+.team .fa-twitter-square:hover {
+    color: #28AAE1;
+}
+
+.team .fa-linkedin-square:hover {
+    color: #0077B5;
+}
+
+.team h2, .team h5 {
+    text-align: center;
+}
+
+.team h5 {
+    margin-bottom: 40px;
+}

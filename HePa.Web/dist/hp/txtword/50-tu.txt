@@ -1,0 +1,51 @@
+galaxy-gate
+1501	certificate	2	n	giấy chứng nhận	/sərˈtɪfɪkət/	Have you recieved a certificate yet?	Jake shows me his certificate.	Cậu đã nhận giấy chứng nhận chưa?	Jake cho tôi xem giấy chứng nhận của anh ấy.
+1502	chain	2	n	chuỗi	/tʃeɪn/	He want to buil a chain of restaurant.	Michelle has built up a chain of 11 supermarkets across the country.	Anh ấy muốn xây dựng một chuỗi nhà hàng.	Michelle đã xây dựng một chuỗi gồm 11 siêu thị trên toàn quốc.
+1503	chairman, chairwoman	2	n	chủ tịch	/ˈtʃermən/	Liam will replace the old chairman.	Sophia was married to a company chairman.	Liam sẽ thay thế chủ tịch cũ.	Sophia đã kết hôn với chủ tịch của công ty.
+1504	cheat	2	v	gian lận	/tʃiːt/	Did you cheat in the test?	You shouldn't cheat like this.	Cậu đã gian lận trong bìa kiểm tra đúng không?	Em không được gian lận như vậy.
+1505	cheek 	2	n	má	/tʃiːk/	Lily's cheeks are wet with tears.	Mitchell kissed her on both cheeks.	Hai má của Lily ướt đẫm nước mắt.	Mitchell hôn lên cả hai má cô ấy.
+1506	cheerful	2	adj	hào hứng	/ˈtʃɪrfl/	Andrew has a cheerful smile.	All of my students are very cheerful today.	Andrew nở một nụ cười hào hứng.	Hôm nay các học sinh của tôi đều rất hào hứng.
+1507	chemical	2	adj	thuộc hóa học	/ˈkemɪkl/	Factories release toxic chemicals to the air.	You have to remember chemical substances to do the homework.	Nhà máy thải ra những hóa chất độc hại vào không khí.	Con phải nhớ những chất hóa học để làm bài tập đó.
+1508	chemist	2	n	nhà hóa học	/ˈkemɪst/	Joel is a chemist.	My grandfather used to be a chemist.	Joel là một nhà hóa học.	Ông tôi đã từng là nhà hóa học.
+1509	chest	2	n	ngực	/tʃest/	Blake folds his arms across his chest.	Angus has a muscled chest.	Blake khoanh tay trước ngực.	Angus có bộ ngực vạm vỡ.
+1510	chew	2	v	nhai	/tʃuː/	The cat is chewing meat.	I want to chew gum.	Con mèo đang nhai thịt.	Tôi muốn nhai kẹo gum.
+1511	classic	2	adj	cổ điển	/ˈklæsɪk/	Cody likes classic music.	The classic novel was first published in 1921.	Cody thích nhạc cổ điển.	Quyển tiểu thuyết kinh điển được xuất bản lần đầu năm 1921.
+1514	closet	2	n	buồng nhỏ	/ˈklɑːzət/	Tyler, your closet is dirty.	My closet is filled with dresses.	Tyler à, tủ của con dơ quá đấy.	Tủ của tôi đầy váy.
+1518	comedy 	2	n	hài kịch	/ˈkɑːmədi/	They are watching a comedy.	Henry spends hours watching comedy on the Internet.	Họ đang xem hài kịch.	Henry dành hàng giờ để xem hài kịch trên mạng.
+1520	communicate	2	v	giao tiếp	/kəˈmjuːnɪkeɪt/	They communicate with each other in body language.	To get high score, candidates must good at communicate.	Họ giao tiếp với nhau bằng ngôn ngữ cơ thể.	Để đạt điểm cao, thí sinh phải giao tiếp tốt.
+1521	communication	2	n	sự giao tiếp	/kəˌmjuːnɪˈkeɪʃn/	Good communication is necessary.	I'm learning a course of communication skill.	Giao tiếp tốt là rất cần thiết.	Tôi đang theo học khóa kĩ năng giao tiếp.
+1522	competition	2	n	sự canh tranh	/ˌkɑːmpəˈtɪʃn/	You have to face the competition in this job.	They are in competition with some other companies.	Cậu phải đối mặt với sự cạnh tranh trong công việc này.	Họ đang trong một cuộc cạnh tranh với một số công ty khác.
+1523	complain	2	v	than phiền	/kəmˈpleɪn/	She never complains with me.	You shouldn't complain about that.	Cô ấy không bao giờ than phiền với tôi.	Chị không nên than phiền về điều đó.
+1524	complex	2	adj	phức tạp	/ˈkɑːmpleks/ 	This cake has a complex formula.	It is the most complex  sentence.	Loại bánh này có công thức phức tạp.	Đó là câu phức tạp nhất.
+1525	complicated	2	adj	phức tạp (khó hiểu)	/ˈkɑːmplɪkeɪtɪd/	The exercise is too complicated.	The relationship of Peter and Nancy is complicated.	Bài tập này quá phức tạp.	Mối quan hệ của Peter và Nancy thật phức tạp.
+1526	concern	2	v	lo lắng	/kənˈsɜːrn/	My mother always concern me.	When Jacob was absent, everyone concered him.	Mẹ tôi luôn luôn lo lắng cho tôi.	Khi Jacob vắng mặt, mọi người đều lo lắng cho anh ấy.
+1529	confident	2	adj	tự tin	/ˈkɑːnfɪdənt/	Liam is very confident about his ability.	I feel confident with the result.	Liam rất tự tin về khả năng của anh ấy.	Tôi cảm thấy tự tin với kết quả.
+1530	confirm	2	v	xác nhận	/kənˈfɜːrm/	Max will confirm next Tuesday.	Please confirm your order.	Max sẽ xác nhận lại vào thứ 3 tuần tới.	Xin vui lòng xác nhận lại đơn đặt hàng của bạn.
+1532	construction	2	n	xây dựng	/kənˈstrʌkʃn/	Dylan works in construction.	Jacob starts on the construction of the new building.	Dylan làm việc trong ngành xây dựng.	Jacob bắt đầu xây dựng tòa nhà mới.
+1533	consumer	2	n	người tiêu dùng	/kənˈsuːmər/	Consumer is god.	They are potential consumers of the company.	Khách hàng là thượng đế.	Họ là những khách hàng tiềm năng của công ty.
+1534	container	2	n	đồ đựng/chứa	/kənˈteɪnər/	Fill the container with milk.	Keep food in a container.	Đổ đầy sữa vào thùng đi.	Giữ thức ăn trong hộp.
+1614	export	2	v	xuất khẩu	/ɪkˈspɔːrt/	Coffee is exported to many countries.	Vietnam exports rice to China. 	Cà phê được xuất khẩu đến nhiều nước trên thế giới.	Việt Nam xuất khẩu gạo sang Trung Quốc.
+1618	failure	2	n	sự thất bại	/ˈfeɪljər/	You have to accept the failures.	Mia learned from failures.	Anh phải chấp nhận thất bại.	Mia học hỏi từ những thất bại.
+1622	fence	2	n	hàng rào	/fens/	The fence is tall.	The house is surrounded by a white fence.	Cái hàng rào này thì cao.	Ngôi nhà được bao quanh bởi một hàng rào màu trắng.
+1623	financial	2	adj	thuộc tài chính	/faɪˈnænʃl/	Adam gets into financial difficulties.	She manages financial matter very efficiently.	Adam đang gặp khó khăn về tài chính.	Cô ấy quản lý những vấn đề tài chính rất hiệu quả.
+1625	flash	2	v	vụt qua	/flæʃ/	The lightning suddenly flash.	An idea flashes on his mind.	Tia chớp bỗng nhiên lóe lên.	Một ý tưởng chợt loé lên trong đầu anh ấy.
+1626	flight	2	n	chuyến bay	/flaɪt/	David changed the flight.	My flight is canceled.	David đã thay đổi chuyến bay.	Chuyến bay của tôi đã bị hủy.
+1627	focus	2	v	tập trung	/ˈfoʊkəs/	We want to focus on main ideas.	Logan should focus on studying.	Chúng tôi muốn tập trung vào những ý chính.	Logan nên tập trung vào việc học.
+1629	formal	2	adj	trang trọng	/ˈfɔːrməl/ 	I have a formal dinner.	Nancy wears a formal dress for party.	Tôi có một bữa tối trang trọng.	Nancy mặc một bộ váy trang trọng để đi tiệc.
+1630	fortune	2	n	vận may	/ˈfɔːrtʃun/ 	Fortune will smile on you.	She's very excited in her fortune.	May mắn sẽ mỉm cười với bạn.	Cô ấy vui mừng trong sự may mắn của mình.
+1633	frighten	2	v	làm hoảng sợ	/ˈfraɪtn/	Adam frightens me when he drives so fast.	The baby will frighten when you wear a mask.	Adam làm tôi sợ khi anh ta lái xe quá nhanh.	Đứa bé sẽ hoảng sợ khi nhìn thấy bạn đeo mặt nạ.
+1634	fry 	2	v	chiên, rán	/fraɪ/	Max is frying potatoes.	I hate to fry fish.	Max đang chiên khoai tây.	Tôi ghét chiên cá.
+1635	fuel	2	n	nhiên liệu	/ˈfjuːəl/	This motorbike consumes a lot of fuel.	There are many kinds of fuel in the world.	Chiếc xe máy này tiêu tốn nhiều nhiên liệu.	Trên thế giới có nhiều loại nguyên liệu.
+1637	fund	2	n	quỹ	/fʌn/	The fund is set up for poor children.	The fund of company is limited.	Quỹ được lập ra cho trẻ em nghèo.	Quỹ của công ty bị giới hạn.
+1638	fur	2	n	lông thú	/fɜːr/	My friend gives me a fur coat.	The cat's fur is white.	Bạn tôi cho tôi một cái áo lông thú.	Lông con mèo này màu trắng.
+1639	gamble	2	v	đánh bạc	/ˈɡæmbl/	He doesn't gamble any more.	Anthony's mother is disappointed because he gambles.	Anh ấy không dám đánh bạc nữa.	Mẹ của Anthony rất thất vọng vì anh ấy đánh bạc. 
+1640	gasoline	2	n	xăng dầu	/ˈɡæsəliːn/	The price of gasoline rises again.	Joseph can smell gasoline here.	Giá xăng lại tăng nữa.	Joseph có thể ngửi thấy mùi xăng ở đây.
+1641	generation	2	n	thế hệ	/ˌdʒenəˈreɪʃn/	My family has 5 generations.	I'm living in a modern generation.	Gia đình tôi có 5 thế hệ.	Tôi đang sống ở một thế hệ hiện đại.
+1642	generous	2	adj	hào phóng	/ˈdʒenərəs/	Patrick is a generous man.	Hayden is quite generous with me.	Patrick là một người đàn ông hào phóng.	Hayden khá hào phóng với tôi.
+1643	geography	2	n	địa lý học	/dʒiˈɑːɡrəfi/	Nancy doesn't know geography of her own country.	Harry should learn the geography of Australia before studying abroad.	Nancy không biết gì về địa lý của nước mình.	Harry nên học địa lý của Úc trước khi đi du học.
+1644	giant	2	n	người khổng lồ	/ˈdʒaɪənt/	He is a giant.	Joel is so scared when seeing a giant.	Ông ta là người khổng lồ.	Joel tỏ ra sợ hãi khi nhìn thấy người khổng lồ.
+1645	glove	2	n	bao tay	/ɡlʌv/	Adam has a pair of glove.	Angus likes to wear leather gloves.	Adam có một đôi găng tay.	Angus thích đeo găng tay da.
+1646	glue	2	n	hồ dán	/ɡluː/	Blake bought a tube of glue.	Stick glue on both side.	Blake mua một tuýp hồ dán.	Bôi hồ dán lên cả hai mặt.
+1647	goods	2	n	hàng hóa	/ɡʊdz/	I usually buy goods in the supermarket.	The shop sells electrical goods.	Tôi thường mua hàng hóa ở siêu thị.	Cửa hàng này bán đồ điện.
+1648	grab	2	v	chộp, túm	/ɡræb/	Bailey grabs the tail of dog immediately.	Jacob grabs my hand and run quickly.	Lập tức Bailey túm lấy đuôi của con chó.	Jacob nắm lấy tay tôi và chạy thật nhanh.
+1649	grade	2	n	lớp	/ɡreɪd/	Nathan is in grade 6.	These topics are suitable for tenth grade.	Nathan học lớp 6.	Những chủ đề này phù hợp với lớp 10.

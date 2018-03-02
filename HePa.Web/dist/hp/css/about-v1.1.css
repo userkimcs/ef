@@ -1,0 +1,60 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Lobster&subset=latin,vietnamese);
+
+.whats-hepa li {
+    line-height: 19px;
+    padding-left: 25px;
+}
+
+    .whats-hepa li:before {
+        content: "●";
+        margin-right: 7px;
+        color: #e86841;
+    }
+
+.whats-hepa h2 span {
+    display: block;
+}
+
+.company-bg {
+    margin-top: 2em;
+}
+
+.whats-hepa, .company-bg {
+    text-align: justify;
+}
+
+    .whats-hepa h4 {
+        margin-top: 40px;
+    }
+
+h6 {
+    margin-bottom: 0.4em;
+}
+
+.ba-ly-do {
+    font-family: "Lobster",cursive,serif;
+    font-size: 45px;
+    font-weight: 500;
+    color: #636363;
+    letter-spacing: 0px;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+    .ba-ly-do span {
+        display: block;
+        margin-top: 5px;
+        font-size: 30px;
+        color: #FFC107;
+        letter-spacing: 3px;
+    }
+
+@media screen and (max-width: 425px) {
+    .ba-ly-do {
+        font-size: 34px;
+    }
+
+        .ba-ly-do span {
+            font-size: 25px;
+        }
+}
