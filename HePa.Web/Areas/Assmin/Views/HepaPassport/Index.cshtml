@@ -1,0 +1,63 @@
+﻿@model IEnumerable<HePa.Web.Areas.Admin.ViewModels.HepaPassportAdminViewModel.HepaPassportViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+
+<h2>Quản lý thẻ</h2>
+
+<p>
+    @Html.ActionLink("Tạo 1", "Insert")
+    @Html.ActionLink("Tạo nhiều", "Inserts")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã thẻ
+        </th>
+        <th>
+            Mã kích hoạt
+        </th>
+        <th>
+           Hạn sử dụng(ngày)
+        </th>
+        <th>
+           Ngày tạo
+        </th>
+        <th>
+            UserId
+        </th>
+        <th>
+            Ngày kích hoạt
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassportCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActiveCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpiryDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActiveDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { area = "admin", id = item.PassportCode })
+            @Html.ActionLink("Delete", "Delete", new {/* id=item.PrimaryKey */  })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,23 @@
+﻿@model HePa.Web.Areas.GalaxyGate.ViewModels.Grammar.GrammarIndexViewModel
+
+@{
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+
+<strong>Grammar dictionary</strong> <br />
+@{
+    // Html.RenderPartial("_GammarArticlePartial", Model);
+    Html.RenderPartial("_GrammarTreePartial", Model.GrammarTree);
+}
+@using (Html.BeginForm())
+{
+    @Html.TextBoxFor(model => model.SearchKey) 
+    <input type="submit" />
+}
+
+@section AddScript
+{
+    <!--Script for ajax loading-->
+    @Scripts.Render("~/dist/jquery-ui-js")
+    @Scripts.Render("~/dist/jquery.unobtrusive-ajax")
+}

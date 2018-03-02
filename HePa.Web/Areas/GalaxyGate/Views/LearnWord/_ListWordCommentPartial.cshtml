@@ -1,0 +1,191 @@
+﻿@model HePa.Web.Areas.GalaxyGate.ViewModels.ListWordCommentViewModel
+
+@*Comment of users*@
+@foreach (var item in Model)
+{
+    <li class="discussion-comments-list-item">
+        <div class="nested-comment">
+            <!-- Self comment -->
+            <div class="self-comment">
+                <!-- User image -->
+                <span class="pull-left">
+                    <a href="#" class="user-image-circle">
+                        <img src="/dist/img/site-img/default-avatar.png" class="user-image" alt="User Image">
+                        <span class="ring"></span>
+                    </a>
+                </span>
+                <!-- User name -->
+                <header>
+                    <a href="#">@item.Comment.User.DisplayName</a>
+                    @* Hiển thị điểm kinh nghiệm *@
+                    @*<ul class="user-flair">
+                            <li>
+                                <i class="fa fa-star fa-lg level-flag"></i>
+                                <span class="level-number">2</span>
+                            </li>
+                        </ul>*@
+                </header>
+                <div class="body">@item.Comment.CommentContent</div>
+                <footer>
+                    <div class="like-module-small">
+                        <span class="like-count">@item.Comment.Votes</span>
+                        <span class="like loading-like-button">
+                            @if (item.IsLiked == false) // Nếu chưa like
+                            {
+                                @*<a class="like-link" data-status="success" data-times="0" id="@item.Comment.Id" href="#">
+                                        <i class="fa fa-thumbs-up fa-lg"></i>
+                                    </a>*@
+                                <a data-status="success" data-times="0" id="@item.Comment.Id" href="#">Thích</a>
+                            }
+                            else
+                            {
+                                //liked
+                                @*<a data-status="success" data-times="0" id="@item.Comment.Id" href="#">
+                                        <i class="fa fa-thumbs-up fa-lg active"></i>
+                                    </a>*@
+                                <a data-status="success" data-times="0" id="@item.Comment.Id" href="#">Bỏ thích</a>
+                            }
+                        </span>
+                        @if (item.IsAllowDelete == true)
+                        {
+                            <span>·</span>
+                            <span>Xóa</span>
+                        }
+                        <span>·</span>
+                        <span class="showing-date">@item.Comment.CreatedDate</span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </li>
+
+    @*if (item.Comment.NumberOfReplies > 0)
+        {
+            <div id="div-show-reply-comment-@item.Comment.Id">
+                @Ajax.ActionLink("Xem trả lời", "ViewReplyComment",
+                            new AjaxOptions
+                            {
+                                UpdateTargetId = "div-show-reply-comment-" + @item.Comment.Id,
+                                InsertionMode = InsertionMode.Replace,
+                            })
+            </div>
+        }
+        <a onclick="createCommentReplyForm('@item.Comment.Id');">Reply</a>
+        <div id="div-reply-comment-@item.Comment.Id">
+
+        </div>*@
+}
+
+
+<script>
+    $(".loading-like-button").on("click", "a", function (e) {
+        e.preventDefault();
+        var likeLink = $(this); // get html element
+        var commentId = likeLink.attr('id');    //get id
+        var clickTimes = parseInt(likeLink.attr("data-times"));    //get click times
+        likeLink.attr("data-times", parseInt(clickTimes + 1));   //increase click times
+        if (likeLink.html() == "Thích") {   //if haven't liked
+            likeLink.html("Bỏ thích");  // change html text
+            if (likeLink.attr("data-status") == "success") {    //if the previous status is successful,  call ajax
+                likeLink.attr("data-status", "unsuccess");  //change link status
+                if (clickTimes <= 5) {  // if click times > 5, dont use ajax call to server
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("LikeComment", "LearnWord", new { area = "galaxygate" })',
+                        dataType: 'html',
+                        data: {
+                            commentId: commentId,
+                        },
+                        success: function (datanew) {
+                            likeLink.attr("data-status", "success");    // if successfuly, set status success
+                        },
+                        error: function (xhr, ajaxOptions, error) {
+                            likeLink.attr("data-status", "unsuccess");  // else, set status unsuccess
+                            // $("#list-word-section").html(xhr.status + " " + xhr.responseText);
+                            console.log(xhr.status + " " + xhr.responseText);
+                        }
+                    });
+                }
+            }
+            else {
+                //DO NOTHING
+            }
+        }
+        else {
+            likeLink.html("Thích"); // change html text
+            if (likeLink.attr("data-status") == "success") {    //if the previous status is successful,  call ajax
+                likeLink.attr("data-status", "unsuccess");  //change link status
+                if (clickTimes <= 5) {  // if click times > 5, dont use ajax call to server
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("UnlikeComment", "LearnWord", new { area = "galaxygate" })',
+                        dataType: 'html',
+                        data: {
+                            commentId: commentId,
+                        },
+                        success: function (datanew) {
+                            likeLink.attr("data-status", "success");    // if successfuly, set status success
+                        },
+                        error: function (xhr, ajaxOptions, error) {
+                            likeLink.attr("data-status", "unsuccess");  // else, set status unsuccess
+                            // $("#list-word-section").html(xhr.status + " " + xhr.responseText);
+                            console.log(xhr.status + " " + xhr.responseText);
+                        }
+                    });
+                }
+            }
+            else {
+                //DO NOTHING
+            }
+        }
+    });
+
+    function removeActionLinkHrefOnBegin(id) {
+        var actionLink = $("#" + id);
+        actionLink.attr("href", "#");
+        if (actionLink.html() == "Thích") {
+            actionLink.html("Bỏ thích");
+        }
+        else {
+            actionLink.html("Thích");
+        }
+    }
+
+    function reassignHrefForActionLinkOnSuccess(id) {
+        var actionLink = $("#" + id);
+        if (actionLink.html() == "Thích") {
+            var url = '@Url.Action("LikeComment", "LearnWord", new { area = "galaxygate"})/?commentId=' + id;
+            actionLink.attr("href", url);
+        }
+        else {
+            var url = '@Url.Action("UnlikeComment", "LearnWord", new { area = "galaxygate" })/?commentId=' + id;
+            actionLink.attr("href", url);
+        }
+    }
+    //function likeComplete(commentId) {
+    //    //$("#div-unlike-button-" + commentId).html("<a>Bỏ thích</a>");
+
+    //    //Change like link to unlike link
+
+    //}
+
+    //function unlikeComplete(commentId) {
+    //$("#div-like-button-" + commentId).html("<a>Thích</a>");
+    //}
+
+    function createCommentReplyForm(commentId) {
+        var test = '@Html.EditorFor(model => model.CommentReply.Comment)';
+        var btn = "<input type='submit' value='Ok' />";
+        // Create ajax form
+        var actionUrl = '@using (Ajax.BeginForm("Xem thêm", "GetMoreCommentItems", new { page = "ShowPage" },
+        new AjaxOptions {
+            UpdateTargetId = "list-word-section",
+            InsertionMode = InsertionMode.InsertAfter,
+        }))
+        {
+            @Html.EditorFor(model => model.CommentReply.Comment);
+        }';
+        var btn = "<input type='submit' value='Ok' />";
+        $("#div-reply-comment-" + commentId).html(actionUrl);
+    }
+</script>

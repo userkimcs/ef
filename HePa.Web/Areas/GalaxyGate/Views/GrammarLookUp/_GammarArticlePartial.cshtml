@@ -1,0 +1,5 @@
+﻿@model HePa.Web.Areas.GalaxyGate.ViewModels.Grammar.GrammarArticleViewModel
+@{
+    Html.RenderPartial("_GrammarTreePartial", Model.GrammarDictionaryTree);
+    Html.RenderPartial("_GrammarContentPartial", Model.ArticleContent);
+}

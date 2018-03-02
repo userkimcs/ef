@@ -1,0 +1,34 @@
+﻿@model IList<HePa.Core.QueryHelpers.GrammarElement>
+@using HePa.Core.QueryHelpers;
+@using HePa.Core.Extensions;
+
+<div id="tree-section">
+    @DisplayTree(Model.Where(e => e.Parent == null).OrderBy(e => e.Index))
+</div>
+<!--helper-->
+@helper DisplayTree(IEnumerable<GrammarElement> elements)
+{
+    <ul>
+        @foreach (var element in elements)
+        {
+            <li>
+                <a href='@Url.Action("GrammarArticleDetails", "GrammarLookUp", new { alias = element.Alias })'>@element.Title</a> 
+                <small>@Ajax.ActionLink("more", "UpdateTreeView", "GrammarLookUp", 
+                new { alias = element.Alias }, 
+                new AjaxOptions 
+                { 
+                    UpdateTargetId = "tree-section",
+                    InsertionMode = InsertionMode.Replace,
+                    HttpMethod = "GET"
+                })</small>
+            @{
+            var children = Model.Where(e => e.Parent == element).OrderBy(e => e.Index).ToList(); ;
+            if (children.Count() > 0)
+            {
+                @DisplayTree(children)
+            }
+            }
+        </li>
+        }
+    </ul>
+}

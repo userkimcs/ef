@@ -1,0 +1,11 @@
+﻿@model HePa.Core.QueryHelpers.GrammarArticleContent
+
+<h3>@Model.Title</h3>
+@if (Model == null)
+{
+    <strong>search</strong>
+}
+else
+{
+    @Html.Raw(Model.Text)
+}

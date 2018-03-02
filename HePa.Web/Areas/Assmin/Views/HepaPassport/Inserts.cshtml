@@ -1,0 +1,51 @@
+﻿@model HePa.Web.Areas.Admin.ViewModels.HepaPassportAdminViewModel.HepaPassportInsertsViewModel
+@using HePa.Core.Extensions;
+@{
+    ViewBag.Title = "Inserts";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+
+<h2>Thêm nhiều thẻ</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>HepaPassportInsertsViewModel</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.AlertBox(AlertBoxType.SUCCESS, ViewData["Success"] as String)
+        @Html.AlertBox(AlertBoxType.DANGER, ViewData["Error"] as String)
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartNumber, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StartNumber, new { @maxlength = "8" })
+                @Html.ValidationMessageFor(model => model.StartNumber)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EndNumber, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EndNumber, new { @maxlength = "8" })
+                @Html.ValidationMessageFor(model => model.EndNumber)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ExpiryDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ExpiryDate) (ngày)
+                @Html.ValidationMessageFor(model => model.ExpiryDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+

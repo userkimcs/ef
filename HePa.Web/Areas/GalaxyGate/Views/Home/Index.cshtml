@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Chương trình Galaxy Gate của Hepatown";
+    ViewBag.NavTitle = "Galaxy Gate";
+    ViewBag.MetaDesc = "Galaxy Gate là chương trình học từ vựng, ngữ pháp, phát âm độc quyền của Hepatown.";
+    ViewBag.MetaKeyword = "galaxy gate, từ vựng, ngữ pháp, phát âm";
+    ViewBag.OgType = "https://hepatown.com/dist/img/course-img/5vocabulary.jpg";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+@section AddToHead {
+    @Styles.Render("~/dist/galaxy-gate")
+}
+<ol class="breadcrumb">
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="/" itemprop="url">
+            <span itemprop="title">Hepatown</span>
+        </a>
+    </li>
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="@Url.Action("Index", "Home")" itemprop="url">
+            <span itemprop="title">Galaxy Gate</span>
+        </a>
+    </li>
+</ol>
+<div class="row">
+    <!-- Lớp từ vựng -->
+    <div class="col-sm-4 word">
+        <a class="course" href="@Url.Action("CourseInfo", "LearnWord", new { area = "galaxygate"})">
+            <div class="boxed">
+                <img class="course-img img-responsive" alt="Khoá học từ vựng của Galaxy Gate" src="~/dist/img/course-img/5vocabulary.jpg" />
+                <div class="course-name">
+                    <h2>TỪ VỰNG</h2>
+                </div>
+                <div class="course-desc">
+                    <p>Hoàn thành 3 lớp từ vựng Starter, Mover, Flyer sẽ giúp bạn "nghe &minus; nói" chuẩn với 2.400 từ thông dụng dùng trong tiếng Anh giao tiếp.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <!-- Lớp ngữ pháp -->
+    <div class="col-sm-4 grammar" data-toggle="modal" data-target="#available-soon-modal">
+        <a class="course" href="#">
+            <div class="boxed">
+                <img class="course-img img-responsive" alt="Khoá học ngữ pháp của Galaxy Gate" src="~/dist/img/course-img/5grammar.jpg" />
+                <div class="course-name">
+                    <h2>NGỮ PHÁP</h2>
+                </div>
+                <div class="course-desc">
+                    <p>Trải nghiệm phương pháp học ngữ pháp độc đáo "tra cứu nhanh &minus; thực hành ngay" giúp bạn nắm vững đến 600 đề mục ngữ pháp cần thiết.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <!-- Lớp phát âm -->
+    <div class="col-sm-4 pronunciation" data-toggle="modal" data-target="#available-soon-modal">
+        <a class="course" href="#">
+            <div class="boxed">
+                <img class="course-img img-responsive" alt="Khoá học phát âm của Galaxy Gate" src="~/dist/img/course-img/5pronunciation.jpg" />
+                <div class="course-name">
+                    <h2>PHÁT ÂM</h2>
+                </div>
+                <div class="course-desc">
+                    <p>Nói tiếng anh sành điệu luôn là niềm tự hào của bất kỳ ai. Hoàn thành lớp học này giúp bạn tự tin tuyệt đối trong giao tiếp với người bản xứ.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Modal -->
+    <div id="available-soon-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><i class="fa fa-lightbulb-o"></i> Lời nhắn cho bạn</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img class="img-responsive" src="~/dist/img/icon/others/coming-soon.jpg" />
+                        </div>
+                        <div class="col-xs-9">
+                            <p>Chương trình đang được phát triển.
+                            Hepateam sẽ thông báo đến bạn ngay khi chương trình bắt đầu mở lớp.</p>
+                            <p><em>Thân ái.</em></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-blue btn-small" data-dismiss="modal">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

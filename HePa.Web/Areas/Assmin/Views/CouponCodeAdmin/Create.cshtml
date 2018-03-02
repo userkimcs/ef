@@ -1,0 +1,154 @@
+﻿@model HePa.Core.Entities.CouponCode
+@using HePa.Core.Extensions;
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="boxed">
+        <div class="inner inner-content">
+            <div class="form-horizontal">
+                <h4>CouponCode</h4>
+                <hr />
+                @Html.ValidationSummary(true)
+                @Html.AlertBox(AlertBoxType.SUCCESS, ViewBag.SuccessfulMessage as String)
+                @Html.AlertBox(AlertBoxType.DANGER, ViewBag.ErrorMessage as String)
+                <div class="form-group">
+                    <div class="col-md-2 control-label">
+                        Mã:
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.Id)
+                        @Html.ValidationMessageFor(model => model.Id)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-2 control-label">
+                        Loại sự kiện
+                    </div>
+                    <div class="col-md-8">
+                        <select id="sel_eventType">
+                            <option value="0" style="display:none">Chọn loại sự kiện</option>
+                            <option value="1">Nhân thời gian</option>
+                            <option value="2">Cộng thêm thời gian</option>
+                            <option value="3">Giảm theo phần trăm tổng hóa đơn</option>
+                            <option value="4">Giảm trực tiếp trên tổng hóa đơn</option>
+                        </select>
+                        @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "hide" } })
+                        @Html.ValidationMessageFor(model => model.Type)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-2 control-label" id="event_value">
+                        Giá trị khuyến mại
+                    </div>
+                    <div class="col-xs-2">
+                        @Html.EditorFor(model => model.SaleOffAmount)
+                        @Html.ValidationMessageFor(model => model.SaleOffAmount)
+                    </div>
+                    <div class="col-xs-4" id="eventTypePresentation"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-2 control-label">
+                        Mô tả sự kiện ngắn gọn
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.Desciption)
+                        @Html.ValidationMessageFor(model => model.Desciption)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 control-label">Áp dụng cho đơn hàng mua trên</div>
+                    <div class="col-md-2">
+                        @Html.EditorFor(model => model.LimitedCondition)
+                        @Html.ValidationMessageFor(model => model.LimitedCondition)
+                    </div>
+                    <div class="col-sm-1 control-label">thẻ</div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 control-label">Số lần sử dụng</div>
+                    <div class="col-md-2">
+                        @Html.EditorFor(model => model.UsageAmount)
+                        @Html.ValidationMessageFor(model => model.UsageAmount)
+                    </div>
+                    <div class="col-sm-1 control-label">lần</div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-2 control-label">
+                        Ngày bắt đầu
+                    </div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @placeholder = "mm/dd/yyyy" } })
+                        @Html.ValidationMessageFor(model => model.CreateDate)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-2 control-label">
+                        Ngày kết thúc
+                    </div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @placeholder = "mm/dd/yyyy" } })
+                        @Html.ValidationMessageFor(model => model.EndDate)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section AddScript {
+    @Scripts.Render("~/dist/jquery-ui-js")
+    <script>
+        $().ready(function () {
+            $("#sel_eventType").change(function () {
+                var eventType = $("#sel_eventType option:selected").val();
+                $("#Type").val(eventType);
+                if (eventType == 1) {
+                    $("#event_value").html("Nhân");
+                    $("#eventTypePresentation").html("thời hạn sử dụng");
+                }
+                else if (eventType == 2) {
+                    $("#event_value").html("Cộng");
+                    $("#eventTypePresentation").html("tháng sử dụng");
+                }
+                else if (eventType == 3) {
+                    $("#event_value").html("Giảm");
+                    $("#eventTypePresentation").html("% hóa đơn");
+                }
+                else if (eventType == 4) {
+                    $("#event_value").html("Giảm");
+                    $("#eventTypePresentation").html(" VNĐ trên tổng hóa đơn");
+                }
+                else {
+                    console.log(eventType);
+                }
+
+            });
+            $("#CreateDate").datepicker();
+            $("#EndDate").datepicker();
+        });
+    </script>
+}

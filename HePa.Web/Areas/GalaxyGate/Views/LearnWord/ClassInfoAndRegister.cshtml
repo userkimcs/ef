@@ -1,0 +1,347 @@
+﻿@model HePa.Web.Areas.GalaxyGate.ViewModels.ClassInfoAndRegisterViewModel
+@using HePa.Core.Extensions;
+@{
+    ViewBag.Title = "Thông tin lớp " + @Model.ClassInfo.ClassName;
+    ViewBag.NavTitle = @Model.ClassInfo.ClassName;
+    ViewBag.MetaDesc = "Đặt mục tiêu cho lớp học " + @Model.ClassInfo.ClassName;
+    ViewBag.MetaKeyword = "Thông tin lớp, Đặt mục tiêu," + @Model.ClassInfo.ClassName;
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+    @ViewBag.Feedback = 0;
+}
+@section AddToHead {
+    @Styles.Render("~/dist/range-slide-css")
+    @Styles.Render("~/dist/word-class-info")
+    @{
+        var TitleBgColor = "#272727";
+        if (@Model.ClassInfo.Id == "starter")
+        {
+            TitleBgColor = "#026839";
+        }
+        else if (@Model.ClassInfo.Id == "mover")
+        {
+            TitleBgColor = "#F8931D";
+        }
+        else if (@Model.ClassInfo.Id == "flyer")
+        {
+            TitleBgColor = "#EF4138";
+        }
+        else
+        {
+            TitleBgColor = "#0288D1";
+        }
+    }
+    <style>
+        .class-title {
+            background-color: @TitleBgColor;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+    </style>
+}
+<ol class="breadcrumb">
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="/" itemprop="url">
+            <span itemprop="title">Hepatown</span>
+        </a>
+    </li>
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="@Url.Action("Index", "Home")" itemprop="url">
+            <span itemprop="title">Galaxy Gate</span>
+        </a>
+    </li>
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="/galaxy-gate/words" itemprop="url">
+            <span itemprop="title">Từ vựng</span>
+        </a>
+    </li>
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="@Url.Action("ClassInfoAndRegister", "LearnWord", new { classId = @Model.ClassInfo.Id })" itemprop="url">
+            <span itemprop="title">@Model.ClassInfo.ClassName</span>
+        </a>
+    </li>
+</ol>
+
+<div class="row image-top">
+    <div class="col-md-12">
+        <div class="content">
+            <div class="boxed">
+                <div class="class-title">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <img class="img-responsive class-img-top" src="~/dist/img/class-img/voca/class_vocab_stock-starter.png" />
+                        </div>
+                        <div class="class-title-right col-xs-10">
+                            <div class="title-container">
+                                <h2>Lớp @Model.ClassInfo.ClassName</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="class-detail simple-content">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3 class="ttin-lop">Thông tin lớp</h3>
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-3 col-lg-3"><p class="bullet">SL từ: </p></div>
+                                <div class="col-xs-8 col-sm-9 col-lg-9"><p>@Model.ClassInfo.NumberOfWords</p></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-3 col-lg-3"><p class="bullet">Độ khó: </p></div>
+                                <div class="col-xs-8 col-sm-9 col-lg-9">
+                                    <p>
+                                        <span class="class-rating" rating="@Model.ClassInfo.Complexity">
+                                            <span></span>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-3 col-lg-3"><p class="bullet">Tóm tắt: </p></div>
+                                <div class="col-xs-8 col-sm-9 col-lg-9">
+                                    <p>
+                                        @Model.ClassInfo.Abstract
+                                    </p>
+                                </div>
+                            </div>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="row">
+                                    <div class="col-xs-4 col-sm-3 col-lg-3"><p><img class="img-responsive" src="~/dist/img/icon/others/icon-flat-target.png"></p></div>
+                                    <div class="col-xs-8 col-sm-9 col-lg-9">
+                                        <p class="target-text">
+
+                                            @if (!Model.IsRegistered)
+                                            {
+                                            <text>Đặt mục tiêu giúp bạn cải thiện kết quả học tập. Chọn số từ vựng bạn muốn học mỗi ngày bằng cách chỉnh thanh kéo để bắt đầu.</text>
+                                            }
+                                            else
+                                            {
+                                            <text>Đặt mục tiêu giúp bạn cải thiện kết quả học tập. Nếu bạn chưa thấy mục tiêu phù hợp, hãy thay đổi nó! Số từ học mỗi ngày sẽ thay đổi vào 0 giờ sáng.</text>
+                                            }
+
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+                            @if (User.Identity.IsAuthenticated && Model.IsRegistered)
+                            {
+                                <div class="row text-center">
+                                    <!--Change goal-->
+                                    <a class="btn btn-small btn-blue" href="@Url.Action("ChangeGoal", "LearnWord", new { area = "galaxygate", classId = Model.ClassInfo.Id }, null)">Thay đổi mục tiêu</a>
+                                    <!--resume button-->
+                                    <a class="btn btn-small resume" href="@Url.Action("Resume", "LearnWord", new { area = "galaxygate", classId = Model.ClassInfo.Id }, null)" data-ismaintained="@Model.ClassInfo.IsMaintained">Học tiếp  <i class="fa fa-caret-right"></i></a>
+                                </div>
+                            }
+                        </div>
+                        <div class="col-sm-6">
+                            @if (User.Identity.IsAuthenticated == false)
+                            {
+                                <h3>Bạn chưa đăng nhập!</h3>
+                                <p>Bạn cần <strong><a href="/">đăng nhập</a></strong> vào hệ thống để đăng ký học lớp này.</p>
+                            }
+                            else
+                            {
+                                <!--
+                                if user is registered before
+                                1. display resume class button
+                                2. display change goal button
+                                3. display learning chart
+                                4. List of words and score of this day
+                                -->
+
+                                if (Model.IsRegistered == true)
+                                {
+                                    <h3>Từ vựng hôm nay</h3>
+                                    <!--List of word and score-->
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <tr>
+                                                <th>Từ vựng</th>
+                                                <th>Điểm cao nhất</th>
+                                            </tr>
+                                            @foreach (var item in Model.TodayWords)
+                                            {
+                                                <tr>
+                                                    <td><a href='@Url.Action("Lecture", "LearnWord", new { area = "galaxygate", classId = item.ClassId, wordId = item.WordId, word = item.Word.aWord })'>@item.Word.aWord</a></td>
+                                                    <td>@item.ArchivedScore</td>
+                                                </tr>
+                                            }
+                                        </table>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <h3>Đặt mục tiêu học tập</h3>
+                                    using (Html.BeginForm("RegisterConfirm", "LearnWord", new { area = "galaxygate", classId = Model.ClassInfo.Id }, FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.HiddenFor(model => model.ClassInfo.Id)
+                                        @Html.HiddenFor(model => model.CourseInfo.Id)
+                                        <input type="range" min="2" max="20" value="8" data-rangeslider>
+                                        <div class="row">
+                                            <div class="col-xs-4 col-sm-3 col-lg-3"><p class="bullet">Bạn học: </p></div>
+                                            <div class="col-xs-8 col-sm-9 col-lg-9"><p><ins></ins> từ mỗi ngày</p></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4 col-sm-3 col-lg-3"><p class="bullet">Bạn cần: </p></div>
+                                            <div class="col-xs-8 col-sm-9 col-lg-9"><p><span id="minutes_cal">32</span> phút mỗi ngày</p></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4 col-sm-3 col-lg-3"><p class="bullet">Trong: </p></div>
+                                            <div class="col-xs-8 col-sm-9 col-lg-9"><p><span id="days_cal">x</span> ngày</p></div>
+                                        </div>
+                                        @Html.EditorFor(model => model.NumberOfWeeks, new { htmlAttributes = new { @class = "hide" } }) <br />
+                                        if (Session["isPaid"].ToString() == "true")
+                                        {
+                                            <div class="form-group">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <input type="submit" value="Bắt đầu học!" class="btn btn-default" />
+                                                </div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="form-group">
+                                                <div class="col-xs-12 text-center">
+                                                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#suggestBuy">Bắt đầu học</button>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Suggest buy model -->
+@Html.Partial("~/Views/Shared/_SuggestBuyHepaPassport.cshtml")
+
+@section AddScript {
+    @Scripts.Render("~/dist/range-slide-js")
+    <script>
+        $("#btn-save").click(function () {
+            $("form").submit();
+        })
+
+        $(document).ready(function () {
+            // Set the rating star of a class
+            $ratingClass = $('.class-rating').attr('rating');
+            $('.class-rating span').width(
+                113 * $ratingClass / 5
+            );
+
+        });
+    </script>
+
+    <script>
+        var numOfWords =  @Html.Raw(Json.Encode(Model.ClassInfo.NumberOfWords));
+        $("#days_cal").html(numOfWords/8);
+
+
+        $(function () {
+
+            var $document = $(document);
+            var selector = '[data-rangeslider]';
+            var $element = $(selector);
+
+            // For ie8 support
+            var textContent = ('textContent' in document) ? 'textContent' : 'innerText';
+
+            // Example functionality to demonstrate a value feedback
+            function valueOutput(element) {
+                var value = element.value;
+                var output = element.parentNode.getElementsByTagName('ins')[0] || element.parentNode.parentNode.getElementsByTagName('ins')[0];
+                output[textContent] = value;
+            }
+
+            $document.on('input', selector, function (e) {
+                valueOutput(e.target);
+            });
+
+            // Example functionality to demonstrate disabled functionality
+            $document.on('click', '#js-example-disabled button[data-behaviour="toggle"]', function (e) {
+                var $inputRange = $(selector, e.target.parentNode);
+
+                if ($inputRange[0].disabled) {
+                    $inputRange.prop("disabled", false);
+                }
+                else {
+                    $inputRange.prop("disabled", true);
+                }
+                $inputRange.rangeslider('update');
+            });
+
+            // Example functionality to demonstrate programmatic value changes
+            $document.on('click', '#js-example-change-value button', function (e) {
+                var $inputRange = $(selector, e.target.parentNode);
+                var value = $('input[type="number"]', e.target.parentNode)[0].value;
+
+                $inputRange.val(value).change();
+            });
+
+            // Example functionality to demonstrate programmatic attribute changes
+            $document.on('click', '#js-example-change-attributes button', function (e) {
+                var $inputRange = $(selector, e.target.parentNode);
+                var attributes = {
+                    min: $('input[name="min"]', e.target.parentNode)[0].value,
+                    max: $('input[name="max"]', e.target.parentNode)[0].value,
+                    step: $('input[name="step"]', e.target.parentNode)[0].value
+                };
+
+                $inputRange.attr(attributes);
+                $inputRange.rangeslider('update', true);
+            });
+
+            // Example functionality to demonstrate destroy functionality
+            $document
+                .on('click', '#js-example-destroy button[data-behaviour="destroy"]', function (e) {
+                    $(selector, e.target.parentNode).rangeslider('destroy');
+                })
+                .on('click', '#js-example-destroy button[data-behaviour="initialize"]', function (e) {
+                    $(selector, e.target.parentNode).rangeslider({ polyfill: false });
+                });
+
+            // Example functionality to test initialisation on hidden elements
+            $document
+                .on('click', '#js-example-hidden button[data-behaviour="toggle"]', function (e) {
+                    var $container = $(e.target.previousElementSibling);
+                    $container.toggle();
+                });
+
+            // Basic rangeslider initialization
+            $element.rangeslider({
+
+                // Deactivate the feature detection
+                polyfill: false,
+
+                // Callback function
+                onInit: function () {
+                    valueOutput(this.$element[0]);
+                },
+
+                // Callback function
+                onSlide: function (position, value) {
+                    $("#NumberOfWeeks").val(value);
+
+                    var numOfWords =  @Html.Raw(Json.Encode(Model.ClassInfo.NumberOfWords));
+                    $("#days_cal").html(Math.round(numOfWords/value));
+                    $("#minutes_cal").html(Math.round(value * 4));
+                },
+
+                // Callback function
+                onSlideEnd: function (position, value) {
+                    $("#NumberOfWeeks").val(value);
+
+                    var numOfWords =  @Html.Raw(Json.Encode(Model.ClassInfo.NumberOfWords));
+                    $("#days_cal").html(Math.round(numOfWords/value));
+                    $("#minutes_cal").html(Math.round(value * 4));
+                }
+            });
+        });
+    </script>
+}

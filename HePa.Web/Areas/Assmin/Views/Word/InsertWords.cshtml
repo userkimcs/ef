@@ -1,0 +1,69 @@
+﻿@model HePa.Core.Entities.Word
+
+@{
+    ViewBag.Title = "InsertWords";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+
+<h2>InsertWords</h2>
+@using (Ajax.BeginForm("InsertWords", "Word", new AjaxOptions { HttpMethod = "POST" }, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="file" name="file" id="ful" accept=""/>
+    <input type="submit" value="Upload File" />
+}
+<div class="progress">
+    <div class="progressbar"></div>
+</div>
+<div id="status"></div>
+<style>
+    .progress {
+        position: relative;
+        width: 400px;
+        border: 1px solid #ddd;
+        padding: 1px;
+    }
+
+    .progressbar {
+        width: 0px;
+        height: 20px;
+        background-color: #57be68;
+    }
+</style>
+@section AddScript {
+@*<script src="~/Scripts/jQuery_malsup.js"></script>
+<script src="http://malsup.github.io/jquery.form.js"></script>*@
+@*<script>
+
+    (function () {
+        var bar = $('.progressbar');
+        var percent = $('.progressbar');
+        var status = $('#status');
+
+        $('form').ajaxForm({
+            beforeSend: function () {
+                status.empty();
+                var percenValue = '0%';
+                bar.width(percenValue);
+                percent.html(percenValue);
+            },
+            uploadProgess: function (event, position, total, percentComplete) {
+                var percentValue = percentComplete + '%';
+                bar.width(percentValue);
+                percent.html(percentValue);
+            },
+            success: function (d) {
+                var percentValue = '100%';
+                bar.width(percentValue);
+                percent.html(percentValue);
+                $('#ful').val('');
+                alert(d);
+            },
+            complete: function (xhr) {
+                alert(xhr);
+            }
+        });
+    })();
+</script>*@
+
+}

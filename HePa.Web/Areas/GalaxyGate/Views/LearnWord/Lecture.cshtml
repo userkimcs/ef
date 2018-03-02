@@ -1,0 +1,863 @@
+﻿@model HePa.Web.Areas.GalaxyGate.ViewModels.LectureViewModel
+@{
+    ViewBag.Title = "Tiếng Anh Galaxy Gate - " + Model.TodayWord.Word.aWord + " nghĩa là gì?";
+    ViewBag.NavTitle = "Từ vựng";
+    ViewBag.MetaDesc = "Nghĩa ưu tiên của từ " + Model.TodayWord.Word.aWord + " là \"" + Model.TodayWord.Word.Meaning + "\". Ví dụ: " +
+        Model.TodayWord.Word.ExampleSentences.FirstOrDefault().Sentence + " - " + Model.TodayWord.Word.ExampleSentences.FirstOrDefault().Meaning;
+    ViewBag.MetaKeyword = Model.TodayWord.Word.aWord + " nghĩa là gì, " + Model.TodayWord.Word.aWord + " nghia la j, nghĩa của từ " + Model.TodayWord.Word.aWord + " định nghĩa " + Model.TodayWord.Word.aWord;
+    ViewBag.OgSite_name = "Học từ " + Model.TodayWord.Word.aWord;
+    ViewBag.OgImage = "https://hepatown.com" + Model.TodayWord.Word.ImageLink;
+    ViewBag.FbAdmin2 = "100009893946376";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+@section AddToHead {
+    @Styles.Render("~/dist/css-learn-word")
+}
+<ol class="breadcrumb">
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="/" itemprop="url">
+            <span itemprop="title">Hepatown</span>
+        </a>
+    </li>
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="@Url.Action("Index", "Home")" itemprop="url">
+            <span itemprop="title">Galaxy Gate</span>
+        </a>
+    </li>
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="/galaxy-gate/words">
+            <span itemprop="title">Từ vựng</span>
+        </a>
+    </li>
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href='@Url.Action("ClassInfoAndRegister", "LearnWord", new { classId = @Model.TodayWord.ClassId })' itemprop="url">
+            <span id="class-breadcrumb" itemprop="title">@Model.TodayWord.ClassId</span>
+        </a>
+    </li>
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a itemprop="url" href="@Url.Action("Lecture", "LearnWord", new { area = "galaxygate", classId = @Model.TodayWord.ClassId, wordId = @Model.TodayWord.Word.Id, word =  @Model.TodayWord.Word.aWord })">
+            <span itemprop="title">@Model.TodayWord.Word.aWord</span>
+        </a>
+    </li>
+</ol>
+<div class="container-fluid">
+    <div class="row lesson" id="learning-content">
+        <div class="col-sm-8 boxed">
+            <section class="content-header">
+                <div class="row">
+                    <div class="col-xs-3 col-xs-offset-9" id="function-content">
+                        <div class="control">
+                            @using (Ajax.BeginForm("WordDetails", new { wordId = Model.TodayWord.WordId },
+                                new AjaxOptions
+                                {
+                                    UpdateTargetId = "load-all-comments",
+                                    InsertionMode = InsertionMode.Replace,
+                                    OnBegin = "hideViewCommentButton()",
+                                    HttpMethod = "GET",
+                                }))
+                            {
+                                <input type="submit" class="btn btn-yellow btn-supper-small pull-right" id="view-comment" value="Xem nhận xét" />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </section>
+            @if (Model.IsAllowView == true)
+            {
+                // Hiển thị view Chi tiết từ vựng
+                Html.RenderPartial("_WordDetailsPartial", Model.WordDetails);
+            }
+            else
+            {
+                // Hiển thị view học 5 bước
+                Html.RenderPartial("_TodayWordPartial", Model.TodayWord);
+            }
+        </div>
+        <div class="col-sm-4 right-side">
+            <div class="boxed">
+                <div class="inner">
+                    <div class="steps inner" id="word_list">
+                        @{ Html.RenderPartial("_ListTodayWordPartial", Model.TodayWords);}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section AddScript {
+    @Scripts.Render("~/dist/soundMng-js")
+    @Scripts.Render("~/dist/soundMng-mp3Btn-js")
+    <script src="~/dist/libs/jquery.unobtrusive-ajax/jquery.unobtrusive-ajax.min.js"></script>
+
+    @if (!Model.IsAllowView == true)
+    {   
+        @* Nếu là view học 5 bước *@
+        @Scripts.Render("~/dist/jquery-ui-js")
+        @* The unminification of following script for debuging is in ~/dist/hp/js/learn-word.js *@
+        <script>
+            // Change JQueryUI Tooltips plugin names to fix name collision with Bootstrap.
+            $.widget.bridge('uitooltip', $.ui.tooltip);
+            $.widget.bridge('uibutton', $.ui.button);
+
+            function hideViewCommentButton() {
+                $("#view-comment").hide();
+            }
+
+            $(document).ready(function () {
+
+                /*----------------------------*/
+                /*        SET UP DATA         */
+                /*----------------------------*/
+                var audio_url = @Html.Raw(Json.Encode(Model.TodayWord.Word.AudioLink)); //$("#data").data("audiolink");
+                var word =  @Html.Raw(Json.Encode(Model.TodayWord.Word.aWord)); //$("#data").data("word");
+                var ipa =  @Html.Raw(Json.Encode(Model.TodayWord.Word.IPA)); //$("#data").data("ipa");
+                var img_url = @Html.Raw(Json.Encode(Model.TodayWord.Word.ImageLink)); //$("#data").data("imagelink");
+                var meaning =  @Html.Raw(Json.Encode(Model.TodayWord.Word.Meaning)); //$("#data").data("meaning");
+                var example = @Html.Raw(Json.Encode(Model.TodayWord.Word.ExampleSentences.FirstOrDefault().Sentence));
+                var audio_example = @Html.Raw(Json.Encode(Model.TodayWord.Word.ExampleSentences.FirstOrDefault().AudioLink));
+                var word_id = @Html.Raw(Json.Encode(Model.TodayWord.Word.Id));
+
+                $('#word').html(word);
+                $('#ipa').html(ipa);
+                $('#word-img').prop('src', img_url);
+                $('#word-mean').html(meaning);
+                $('#word-example').html(example);
+
+                //split ul li + init example setence to list
+                $(function () {
+                    var splitedExampleArray  = example.split(" ");
+                    var questionList = [];
+                    for (i = 0; i < splitedExampleArray.length; i++) {
+                        questionList.push('<li class="list-group-item list-group-item-success">' + splitedExampleArray[i] + '</li>');
+                    }
+                    questionList = shuffleExampleArray(questionList);
+                    $("#question").append(questionList);
+                    splitBreakArray();
+                })
+
+                /**********************************/
+                /*      CREATE TIMMER CONTROL     */
+                /**********************************/
+                var timers = new Array(); //use to add all timer into this array.
+
+                /**********************************/
+                /*      FUNCTION  BREAK ARRAY     */
+                /**********************************/
+                function splitBreakArray() {
+                    //$("#question").find(".break-item").remove();
+                    //$("#answer").find(".break-item").remove();
+                    var wordsAmountInXS = 2;
+                    var wordsAmountInSM = 3;
+                    var wordsAmountInMD = 5;
+                    var wordsAmountInLG = 7;
+
+                    array = $("#question li");
+                    arrayA = $("#answer li");
+                    var breakTimeQ = 0;
+                    var breakTimeA = 0;
+
+                    var width = $(window).width();      //Get width screen size
+                    questionLength = array.length;      //Get question array length
+                    answerLength = arrayA.length;       //Get answer array length
+
+                    if (width < 485) {
+                        for (i = 0; i < questionLength; i++) {
+                            if ((i + 1) % wordsAmountInXS == 0) {
+                                //array.splice(i, 0, '<li class="break-item"><br/><br/><br/></li>');
+                                breakTimeQ++;
+                            }
+                        }
+                        for (i = 0; i < answerLength; i++) {
+                            if ((i + 1) % wordsAmountInXS == 0) {
+                                // arrayA.splice(i, 0, '<li class="break-item"><br/><br/><br/><br/></li>');
+                                breakTimeA++;
+                            }
+                        }
+                    }
+                    else if (width < 750) {
+                        for ( i = 0; i < array.length; i++) {
+                            if ((i + 1) % wordsAmountInSM == 0) {
+                                //array.splice(i, 0, '<li class="break-item"><br/><br/><br/><br/></li>');
+                                breakTimeQ++;
+                            }
+                        }
+                        for (i = 0; i < answerLength; i++) {
+                            if ((i + 1) % wordsAmountInSM == 0) {
+                                //arrayA.splice(i, 0, '<li class="break-item"><br/><br/><br/><br/></li>');
+                                breakTimeA++;
+                            }
+                        }
+
+                    }
+                    else if (width < 1000) {
+                        for (i = 0; i < array.length; i++) {
+                            if ((i + 1) % wordsAmountInMD == 0) {
+                                //array.splice(i, 0, '<li class="break-item">  <br/> <br/> <br/><br/> </li>');
+                                breakTimeQ++;
+                            }
+                        }
+                        for (i = 0; i < answerLength; i++) {
+                            if ((i + 1) % wordsAmountInMD == 0) {
+                                //arrayA.splice(i, 0, '<li class="break-item"><br/><br/><br/><br/></li>');
+                                breakTimeA++;
+                            }
+                        }
+                    }
+                    else {
+                        for (i = 0; i < array.length; i++) {
+                            if ((i + 1) % wordsAmountInLG == 0) {
+                                //array.splice(i, 0, '<li class="break-item"> <br/> <br/> <br/><br/></li>');
+                                breakTimeQ++;
+                            }
+                        }
+                        for (i = 0; i < answerLength; i++) {
+                            if ((i + 1) % wordsAmountInLG == 0) {
+                                //arrayA.splice(i, 0, '<li class="break-item"><br/><br/><br/><br/></li>');
+                                breakTimeA++;
+                            }
+                        }
+                    }
+                    array = $.makeArray(array);
+                    arrayA = $.makeArray(arrayA);
+                    $("#question").html(array);
+                    $("#answer").html(arrayA);
+
+                    $("#seperated_words").height(140 + 20*breakTimeQ);
+                    $("#question").height(100 + 20*breakTimeQ);
+                    //$(".answers").height(120 + 20*breakTimeA);
+                    $("#answer").height(100 + 20*breakTimeA);
+                    return false;
+                }
+
+                // set up sound mp3
+                var wordSound;
+                var sentenceSound;
+                var titleSound1;
+                var titleSound2;
+                soundManager.setup({
+                    preferFlash: false,
+                    //, url: "swf/"
+                    onready: function () {
+                        var i = 0;
+                        wordSound = soundManager.createSound({
+                            url: audio_url,
+                            id: "word",
+                        });
+
+                        sentenceSound = soundManager.createSound({
+                            url: audio_example,
+                            id: "sentence"
+                        });
+
+                        prepare = soundManager.createSound({
+                            url: "/dist/hp/audio/music/KissTheRain.mp3",
+                            id: "prepare_audio"
+                        });
+
+                        //Prepare
+                        soundManager.stopAll();
+                        if ($('#prepare').is(':visible')) {
+                            prepare.play();
+                            if (prepare.playState === 1) {
+                                $("#sound-wave").removeClass("hide");
+                            }
+                            else {
+                                alert("Máy bạn chưa hỗ trợ phiên bản Flash hoặc JavaScript mới nhất. Vào FAQ để nhận trợ giúp");
+                            }
+                        }
+                    },
+                    ontimeout: function() {
+                        alert("Máy bạn chưa hỗ trợ phiên bản Flash hoặc JavaScript mới nhất. Vào FAQ để nhận trợ giúp");
+                    },
+                }).beginDelayedInit();
+
+                /*--------------------------------------------*/
+                /*             Step config handler           */
+                /*--------------------------------------------*/
+                $('#step1, #step2, #step3, #step4, #step5, #result').hide(); //default hide
+
+                //check cookie
+                var theFirstTimeInDay = getCookie("theFirstTimeInDay");
+                if (theFirstTimeInDay != "") {
+                    $("#prepare").hide();
+                    btnNextInStepPrepare();
+                }
+                else {
+                    setCookie("theFirstTimeInDay", "true", 365);
+                }
+
+                var turnOffIntroduction = getCookie("turnOffIntroduction");
+                if (turnOffIntroduction != "") {
+
+                }
+
+                //Jump into step3
+                $("#btn-jump").click(function () {
+                    $("#result-score").html(2);
+                    //Update progressbar width
+                    $("#result-score-bar").width(20 + "%")
+                    $('#step1').hide('slow');
+                    $('#step2').hide('slow');       // hide current step
+                    $('#step3').show('slow');
+                    clearTimeout();     //clear delay event
+                    soundManager.stopAll();     // stop all current mp3 sound
+                    timers.push(setTimeout(wordSound.play, 2000));       // set play time for mp3 sound
+                    timers.push(setTimeout(function () { $("#btn-next3").removeClass("disabled") }, 4000));      // set show time for button next
+                    $("#step3-listening").attr('href', audio_url);      // add dynamic link audio sound file
+                    $("#step-score, #max-step-score").html("2");
+                    $("#step-number").html("3");
+                    return false;
+                });
+                //Step 1 config after click btn-next in prepare View
+                $("#btn-next").click(function () {
+                    btnNextInStepPrepare();
+                    return false;
+                });
+
+                //Step 2 config after click btn-next in step1 View
+                $('#btn-next1').click(function () {
+                    btnNextInStep1();
+                    return false;
+                });
+
+                //Step 3 config after click btn-next in step2 View
+                $('#btn-next2').click(function () {
+                    btnNextInStep2();
+                    return false;
+                });
+
+                //Step 4 config after click btn-next in step3 View
+                $('#btn-next3').click(function () {
+                    btnNextInStep3();
+                    return false;
+                });
+
+                //Step 5 config after click btn-next in step4 View
+                $('#btn-next4').click(function () {
+                    btnNextInStep4();
+                    return false;
+                });
+
+                //Hint step 4
+                $('#step4-hint').on('mousedown touchstart', function () {
+                    var times = parseInt($(this).data("times"));
+                    if (times > 2) {
+                        $(this).addClass("disabled");
+                        $(this).data("times", (times + 1));
+                        return false;
+                    }
+                    else if (times > 0) {
+                        curScore = parseInt($("#step-score").html());
+                        newScore = curScore - 1;
+                        if (newScore < 0) {
+                            newScore = 0;
+                        }
+                        $("#step-score").html(newScore);
+                        $("#score").width(newScore*50 + "%");
+                        $('#word-hint').html(word);
+                        soundManager.play("word");
+                        $(this).data("times", (times + 1));
+                        return false;
+                    }
+                    else {
+                        $('#word-hint').html(word);
+                        soundManager.play("word");
+                        $(this).data("times", (times + 1));
+                        return false;
+                    }
+                });
+
+                //Hint step 5
+                $('#step5-hint').on('mousedown touchstart', function () {
+                    soundManager.stopAll();
+                    var times = parseInt($(this).data("times"));
+                    if (times > 4) {    // chỉ cho nghe 4 lần
+                        $(this).addClass("disabled");
+                        $(this).data("times", (times + 1));
+                    } else if (times > 0) {
+                        curScore = parseInt($("#step-score").html());
+                        newScore = curScore - 1;
+                        if (newScore < 0) {
+                            newScore = 0;
+                        }
+                        $("#step-score").html(newScore);
+                        $("#score").width(newScore*25 + "%");
+                        $('#sentence-hint').html(example);
+                        soundManager.play("sentence");
+                        $(this).data("times", (times + 1));
+                    } else {
+                        $('#sentence-hint').html(example);
+                        soundManager.play("sentence");
+                        $(this).data("times", (times + 1));
+                    }
+                    return false;
+
+                });
+
+                //Remove hint
+                $('#step5-hint, #step4-hint').on('mouseup touchend mouseleave', function () {
+                    timers.push(setTimeout(function() {
+                        $('#word-hint, #sentence-hint').html('');
+                    }, 2000));
+                    return false;
+                });
+
+                //Check word input value step 4
+                $('#step4-compare').on('click', function () {
+                    btnCompareInStep4();
+                    var btn =  $(this);
+                    btn.attr('disabled',true);
+                    timers.push(setTimeout(function(){
+                        btn.attr('disabled',false);
+                    },1500));
+                    return false;
+                });
+
+                //Check sentence in example input value step 5
+                $('#step5-compare').on('click', function () {
+                    btnCompareInStep5();
+                    var btn =  $(this);
+                    btn.attr('disabled',true);
+                    timers.push(setTimeout(function(){
+                        btn.attr('disabled',false);
+                    },1500));
+                    return false;
+                });
+
+                //Step 5
+                $("#question").on('click', "li", function () {
+                    if ($('#step5').is(':visible')) {
+                        if (!$('.btn-next5').is(':visible')) {
+                            $(this).animate({
+                                top: '+=100px',
+                            }, "fast", function() {
+                                $("#answer").append('<li class="list-group-item list-group-item-success">' + $(this).html() + '</li>');
+                                $(this).remove();
+                            });
+                            splitBreakArray();
+                        }
+                    }
+                    return false;
+                });
+
+                $("#answer").on("click", "li", function () {
+                    if ($('#step5').is(':visible')) {
+                        if (!$('.btn-next5').is(':visible')) {
+                            $(this).animate({
+                                top: '-=100px',
+                            }, "fast", function() {
+                                $("#question").append('<li class="list-group-item list-group-item-success">' + $(this).html() + '</li>');
+                                $(this).remove();
+                            });
+                            splitBreakArray();
+                        }
+                    }
+                    return false;
+                });
+
+                // Show Finish Button
+                $("#showFinish").hide();
+                $("#showFinish").click(function () {
+                    $(this).addClass("disabled");
+                    showResult();
+                });
+
+                // Finish Button
+                // Save result and load ajax for change the left-content
+                $("#btn-finish").click(function () {
+                    $(this).addClass("disabled");
+                    saveResult();
+                });
+
+                /*---------------------------------*/
+                /*     KEY PRESS EVENT HANDLER     */
+                /*---------------------------------*/
+                var allowKeyPress = true;
+                $(document).keypress(function(e) {
+                    if(e.which == 13) {
+                        if (allowKeyPress == true) {
+                            allowKeyPress = false;
+                            timers.push(setTimeout(function() { allowKeyPress = true; }, 2000));
+                            if ($('#step1').is(':visible')) {
+                                if (!$('#btn-next1').is(':disabled')) {
+                                    btnNextInStep1();
+                                }
+                            }
+                            else if ($('#step2').is(':visible')) {
+                                if (!$('#btn-next2').is(':disabled')) {
+                                    btnNextInStep2();
+                                }
+                            }
+                            else if ($('#step3').is(':visible')) {
+                                if (!$('#btn-next3').is(':disabled')) {
+                                    btnNextInStep3();
+                                }
+                            }
+                            else if ($('#step4').is(':visible')) {
+                                if ($('#btn-next4').is(':visible')) {
+                                    btnNextInStep4();
+                                }
+                                else {
+                                    btnCompareInStep4();
+                                }
+                            }
+                            else if ($('#step5').is(':visible')) {
+                                if ($('#showFinish').is(':visible')) {
+                                    showResult();
+                                }
+                                else {
+                                    btnCompareInStep5();
+                                }
+                            }
+                            else if ($('#result').is(':visible')) {
+                                saveResult();
+                            }
+                        }
+                        return false;
+                    }
+                });
+
+                /*---------------------------------*/
+                /*     HANDLER        FUNCTION     */
+                /*---------------------------------*/
+                function btnNextInStepPrepare() {
+                    $('#prepare').hide("slow");
+                    $('#step1').show("slow");
+                    soundManager.stopAll();
+                    timers.push(setTimeout(function () {        // set play time for mp3 sound
+                        soundManager.play('word', {
+                            multiShotEvents: true,
+                            onfinish: function () {
+                                timers.push(setTimeout(function () {
+                                    soundManager.play('word', {
+                                        multiShotEvents: true,
+                                        onfinish: function () {
+                                            timers.push(setTimeout(function () { soundManager.play('word'); }, 2000));
+                                        }
+                                    });
+                                }, 2000));
+                            }
+                        });
+                    }, 2000));
+
+                    timers.push(setTimeout(function () { $("#btn-next1").removeClass("disabled") }, 8000));
+                    $("#step-score, #max-step-score").html("1");
+                    $("#step-number").html("1");    //set step number to next step
+                }
+
+                function btnNextInStep1() {
+                    if (!$('#btn-next1').hasClass("disabled")) {
+                        //Calculate score
+                        calculateResultScore();
+
+                        $('#step1').hide('slow');      // hide current step
+                        $('#step2').show('slow');    // show next step
+
+                        soundManager.stopAll();         // stop all current mp3 sound
+                        timers.push(setTimeout(function () {
+                            soundManager.play('word', {
+                                multiShotEvents: true,
+                                onfinish: function () {
+                                    timers.push(setTimeout(function () { soundManager.play('word'); }, 2500));
+                                }
+                            });
+                        }, 2500));
+
+
+                        timers.push(setTimeout(function () { $("#btn-next2").removeClass("disabled") }, 6000));      // set show time for button next
+                        $("#step-score, #max-step-score").html("1");        //set default score
+                        $("#step-number").html("2");    //set step number to next step
+                    }
+                };
+
+                function btnNextInStep2() {
+                    if (!$("#btn-next2").hasClass("disabled")) {
+                        //Calculate score
+                        calculateResultScore();
+
+                        $('#step2').hide('slow');       // hide current step
+                        $('#step3').show('slow');       // show next step
+
+                        soundManager.stopAll();     // stop all current mp3 sound
+                        timers.push(setTimeout(wordSound.play, 2000));       // set play time for mp3 sound
+                        timers.push(setTimeout(function () { $("#btn-next3").removeClass("disabled") }, 4000));      // set show time for button next
+                        $("#step3-listening").attr('href', audio_url);      // add dynamic link audio sound file
+                        $("#step-score, #max-step-score").html("2");
+                        $("#step-number").html("3");    //set step number to next step
+                    }
+                };
+
+                function btnNextInStep3() {
+                    if (!$("#btn-next3").hasClass("disabled")) {
+                        //Calculate score
+                        calculateResultScore();
+
+                        $('#step3').hide('slow');
+                        $('#step4').show('slow');
+                        soundManager.stopAll();
+                        timers.push(setTimeout(wordSound.play, 2000));
+                        $("#step-score, #max-step-score").html("2");
+                        $("#word-input").focus();
+                        $("html, body").animate({ scrollTop: 0 }, "fast");
+                    }
+                    $("#step-number").html("4");    //set step number to next step
+                };
+
+                function btnNextInStep4() {
+                    $('#step4').hide('slow');
+                    $('#step5').show('slow');
+
+                    soundManager.stopAll();
+                    timers.push(setTimeout(sentenceSound.play, 2000));
+                    $("#step-score, #max-step-score").html("4");
+                    $("#score").width(100 + "%");
+                    $("#word-input").focus();
+                    $("#step-number").html("5");    //set step number to next step
+                };
+
+                function btnCompareInStep4() {
+                    if ($('#word-input').val().toLowerCase().trim() == word.toLowerCase().trim()) {
+                        $('#word-hint').html('<i class="fa fa-check"></i>');
+                        $('#word-hint').css({ "border-color": "rgba(49, 255, 0, 0.80)", "box-shadow": "0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(96, 245, 108, 0.60)", "outline": "0 none", "color": "green" });
+                        $('#word-input').css({ "border-color": "rgba(49, 255, 0, 0.80)", "box-shadow": "0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(96, 245, 108, 0.60)", "outline": "0 none", "outline": "0 none" });
+                        $('#word-input').attr("readonly", "readonly");
+                        $('#step4-compare').hide();
+                        $("#btn-next4").removeClass("hide");
+                        $("#step4-hint").attr("disabled", true);
+                        calculateResultScore();
+                        btnNextInStep4();
+                    }
+                    else {
+                        var times = parseInt($('#step4-compare').data("times"));
+                        curScore = parseInt($("#step-score").html());
+                        if (curScore > 0) {        //nếu chưa bị trừ hết điểm
+                            $('#step4-compare').data("times", (times + 1));
+                            $('#word-hint').html('<i class="fa fa-times"></i>');
+                            $('#word-hint').css({ "border-color": "rgba(255, 23, 0, 0.80)", "box-shadow": "0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(245, 101, 96, 0.60)", "outline": "0 none", "color": "red" });
+                            $('#word-input').css({ "border-color": "rgba(255, 23, 0, 0.80)", "box-shadow": "0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(245, 101, 96, 0.60)", "outline": "0 none" });
+                            newScore = curScore - 1;
+                            if (newScore < 0) {
+                                newScore = 0;
+                            }
+                            $("#step-score").html(newScore);
+                            $("#score").width(newScore*50 + "%");
+                        }
+                        else {  //nếu đã bị trừ hết điểm thì show Kết quả
+                            showResult();
+                        }
+                    }
+                };
+
+                function btnCompareInStep5() {
+                    var user_answer = "";
+                    $arrayAnswer = $("#answer li");
+                    $arrayAnswer.find(".break-item").remove();
+                    $arrayAnswer.each(function () {
+                        if (!$(this).hasClass("break-item")) {
+                            user_answer += $(this).html();
+                        }
+                    });
+                    user_answer = user_answer.replace(/ /g, "");
+                    system_sentence = example.replace(/ /g, "");
+                    if (user_answer == system_sentence) {
+                        //Hiện kết quả đúng/sai cho người dùng
+                        $('#result5').html("Đúng");
+                        $('#result5').removeClass("label label-danger");
+                        $('#result5').addClass("label label-success");
+
+                        $('#step5-compare').hide("slow"); // ẩn button Kiểm tra
+                        calculateResultScore(); //cập nhật lại điểm
+
+                        //Không cho thay đổi kết quả nữa
+                        $("#answer").sortable( "option", "disabled", false );
+                        $("#question").sortable( "option", "disabled", false );
+                        $("#answer li").click(false);
+                        $("#answer li").on("mousedown", function(e){ e.preventDefault(); return false;});
+                        $("#question li").on("mousedown", function(e){ e.preventDefault(); return false;});
+
+                        $("#step5-hint").attr("disabled", true);    //Không cho xem gợi ý nữa (tránh turong72 hp75 bị trừ điểm)
+                        //Display button showFinish
+                        $("#showFinish").show();
+                        //Hiển thị trang kết quả sau 1s
+                        timers.push(setTimeout(showResult(), 1000));
+                    }
+                    else {
+                        //var times = parseInt($('#step5-compare').data("times"));
+                        var curScore = parseInt($("#step-score").html())
+                        //Hiện kết quả sai
+                        $('#result5').html("Sai");
+                        $('#result5').removeClass("label label-success");
+                        $('#result5').addClass("label label-danger");
+                        if (curScore > 0) {    //nếu chưa bị trừ hết điểm
+                            // $('#step5-compare').data("times", (times + 1));
+                            newScore = curScore - 1;
+                            if (newScore < 0) {
+                                newScore = 0;
+                            }
+                            $("#step-score").html(newScore);    //Cập nhật lại điểm
+                            $("#score").width(newScore*25 + "%");   //Cập nhật lại thanh progess bar
+                        }
+                        else {  // nếu đã trừ hết thì
+                            //Show button finish
+                            $("#step5-compare").hide("slow");
+                            $("#showFinish").show("slow");
+                            //Hiển thị trang kết quả sau 1s
+                            timers.push(setTimeout(showResult(), 1000));
+                        }
+                    }
+                };
+
+                function btnFinishInStep5() {
+                    showResult();
+                    soundManager.stopAll();
+                };
+
+                //Calculate final score
+                function calculateResultScore() {
+                    //Calculate score
+                    var stepScore = parseInt($("#step-score").html());
+                    var curScore = parseInt($("#result-score").html());
+                    var totalScore = stepScore + curScore;
+                    $("#result-score").html(totalScore);
+                    //Update progressbar width
+                    $("#result-score-bar").width((totalScore * 10) + "%")
+                };
+
+                function showResult() {
+                    $("#view-comment").hide();
+                    $('#step5').hide('slow');
+                    $("#score-step").hide("slow");
+                    var scoreTest = $("#result-score").html();
+                    if (scoreTest < 6) {
+                        $("#result-title").html("Aww, rớt mất rồi ...");
+                        $("#result-message").html("BAD");
+                        $("#result-message").addClass("bad")
+                        $("#result-emotion").attr("src", "/dist/img/learn-word/emotion-bad.png");
+                    }
+                    else if (scoreTest < 8) {
+                        $("#result-title").html("Tốt lắm, bạn cần cố gắng hơn nữa.");
+                        $("#result-message").html("COOL");
+                        $("#result-message").addClass("cool")
+                        $("#result-emotion").attr("src", "/dist/img/learn-word/emotion-cool.png");
+                    }
+                    else if (scoreTest < 10) {
+                        $("#result-title").html("Chúc mừng, bạn làm rất tốt!");
+                        $("#result-message").html("GREAT");
+                        $("#result-message").addClass("great")
+                        $("#result-emotion").attr("src", "/dist/img/learn-word/emotion-great.png");
+                    }
+                    else {
+                        $("#result-title").html("Wow thật tuyệt vời, bạn đạt điểm 10!");
+                        $("#result-message").html("PERFECT");
+                        $("#result-message").addClass("perfect")
+                        $("#result-emotion").attr("src", "/dist/img/learn-word/emotion-perfect.png");
+                    }
+                    $("#result").show();
+                    // Cho kết quả học nhấp nháy
+                    fadeResultInteval = setInterval(function () {
+                        $("#result-message").fadeTo(400,.3).fadeTo(400,1);
+                    }, 800);
+                    $("html, body").animate({ scrollTop: 0 }, "normal");
+                }
+
+                /*---------------------------------------*/
+                /*         AJAX SAVE RESULT             */
+                /*--------------------------------------*/
+                function saveResult() {
+                    // clear all timers in the array to fix bug for next setTimeout
+                    for (var i = 0; i < timers.length; i++)
+                    {
+                        clearTimeout(timers[i]);
+                    }
+                    clearInterval(fadeResultInteval);
+                    console.log("Save result start");
+                    var scoreTest = $("#result-score").html();
+                    $.ajax({
+                        type: 'GET',
+                        url: '@Url.Action("SaveScore", "LearnWord", new { area = "galaxygate" })',
+                        dataType: 'html',
+                        data: {
+                            score: scoreTest,
+                        },
+                        success: function (data) {
+                            $("#word_list").html(data);
+                            $.ajax({
+                                type: 'GET',
+                                url: '@Url.Action("WordDetails", "LearnWord", new { area = "galaxygate" })',
+                                dataType: 'html',
+                                data: {
+                                    wordId: word_id,
+                                },
+                                success: function (datanew) {
+                                    $("#left-content").html(datanew);
+                                    try {
+                                        FB.XFBML.parse(); 
+                                    }catch(ex){}
+                                    $('#post-text-box').click();
+                                    $('#post-text-box').focus();
+                                },
+                                error: function (xhr, ajaxOptions, error) {
+                                    console.log(xhr.status + " " + xhr.responseText);
+                                    alert("Đã xảy ra lỗi khi lưu kết quả học, bạn hãy thử Refresh trang và học lại từ này.");
+                                }
+                            });
+                        },
+                        error: function (xhr, ajaxOptions, error) {
+                            console.log(xhr.status + " " + xhr.responseText);
+                            alert("Đã xảy ra lỗi khi lưu kết quả học, bạn hãy thử Refresh trang và học lại từ này.");
+                        }
+                    });
+                    console.log("Save result end");
+                }
+            });
+
+            function shuffleExampleArray(array) {
+                var currentIndex = array.length, temporaryValue, randomIndex ;
+
+                // While there remain elements to shuffle...
+                while (0 !== currentIndex) {
+
+                    // Pick a remaining element...
+                    randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex -= 1;
+
+                    // And swap it with the current element.
+                    temporaryValue = array[currentIndex];
+                    array[currentIndex] = array[randomIndex];
+                    array[randomIndex] = temporaryValue;
+                }
+                return array;
+            }
+
+            /*----------------------------*/
+            /*      COOCKIE HANDLER       */
+            /*---------------------------*/
+            //Set new coockie
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                var expires = "expires="+d.toUTCString();
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+            }
+            //get coockie value
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for(var i=0; i<ca.length; i++) {
+                    var c=ca[i];
+                    while (c.charAt(0) ==' ' ) c=c.substring(1);
+                    if (c.indexOf(name) ==0) return c.substring(name.length,c.length);
+                }
+                return "" ;
+            }
+
+            // Sortable jqueryui - Sắp xếp thảo luận
+            $(function() {
+                $("#answer, #question").sortable({
+                    connectWith: ".list-group-sortable"
+                }).disableSelection();
+            });
+        </script>
+    }
+}

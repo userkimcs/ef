@@ -1,0 +1,71 @@
+﻿@model IEnumerable<HePa.Core.Entities.TodayWord>
+
+
+@{
+    if (User.Identity.IsAuthenticated == false || Model.Count() == 0)
+    {
+        <a href="@Url.Action("Order", "Order", new { area = "" })">
+            <img class="img-responsive" src="/dist/img/site-img/box-card-hepa-3.jpg" />
+        </a>
+    }
+    else
+    {
+        var classId = "";
+        <!-- Daily goal -->
+        <div class="daily-goal row">
+            <div class="col-xs-10">
+                <h4>Mục tiêu hàng ngày</h4>
+            </div>
+            <div class="col-xs-2">
+                <a href='@Url.Action("ChangeGoal", "LearnWord", new { area = "galaxygate", classId = Model.FirstOrDefault().ClassId })' class="set" data-toggle="tooltip" data-placement="bottom" title="Thay đổi mục tiêu hàng ngày">
+                    <i class="fa fa-cog fa-2x"></i>
+                </a>
+            </div>
+        </div>
+        <h6>Đã hoàn thành</h6>
+        <div class="progress progress-striped active">
+            <div id="word-progressbar" class="progress-bar progress-bar-success" role="progressbar" data-transitiongoal="62.5" data-done="5" data-goal="8" aria-valuenow="62">5/8 từ</div>
+        </div>
+            <!-- Wordlist -->
+        <h6>Danh sách từ hôm nay</h6>
+        <div class="word-list no-gutter">
+            <ul class="english-word">
+                @foreach (var item in Model)
+                {
+                    classId = item.ClassId;
+                    if (item.IsPassed == true)
+                    {
+                        <li>
+                            <i class="learned-word fa fa-check-square-o"></i>
+                            <a href='@Url.Action("Lecture", new { area = "galaxygate", classId = item.ClassId, wordId = item.WordId, word = item.Word.aWord })'>@item.Word.aWord</a>
+                            <span class="pull-right">@item.Word.Meaning</span>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <i class="fa fa-square"></i>
+                            <a class="unfinished_word" href='@Url.Action("Lecture", new { area = "galaxygate", classId = item.ClassId, wordId = item.WordId, word = item.Word.aWord })'>@item.Word.aWord</a>
+                            <br />
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    }
+
+
+    //Update progessbar
+    <script>
+        var passedAmount = @Model.Where(t => t.IsPassed == true).Count();
+        var goal = @Model.Count();
+        var percent = passedAmount * 100/goal;
+        $("#word-progressbar").attr("data-done", passedAmount);
+        $("#word-progressbar").attr("data-goal", goal);
+        $("#word-progressbar").attr("data-transitiongoal", percent);
+        $("#word-progressbar").attr("aria-valuenow", percent);
+        $("#word-progressbar").width(percent + "%");
+        $("#word-progressbar").html(passedAmount + "/" + goal + " từ");
+    </script>
+
+}

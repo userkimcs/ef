@@ -1,0 +1,271 @@
+﻿@model HePa.Core.Entities.TodayWord
+
+<!--5 steps begin -->
+    <div class="steps inner" id="load-all-comments">
+        <div id="progress-bar">
+        <div class="row">
+            <div class="col-xs-2 col-md-1">
+                <span class="point-bar-title">Tổng: </span>
+            </div>
+            <div class="col-xs-10 col-md-11">
+                <div class="progress">
+                    <div id="result-score-bar" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                        <span id="result-score">0</span>/10 điểm
+                    </div>
+            </div>
+            </div>
+        </div>
+        <div id="score-step" class="row">
+            <div class="col-xs-2 col-md-1">
+                <span class="point-bar-title">Bước <i id="step-number">1</i>:</span>
+            </div>
+            <div class="col-xs-10 col-md-11">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-info" role="progressbar" id="score"
+                         aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                        <span id="step-score">1</span>/<span id="max-step-score">1</span> điểm
+                    </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <hr>
+        <div id="left-content">
+            <!--Prepare-->
+            <div id="prepare">
+                <div class="row">
+                    <div class="title-step">
+                        <h3 class="title">
+                        Bạn cần nghe thật rõ để có thể đọc thật đúng.<br />
+                        <span>Bạn đã bật loa lên chưa?</span>
+                        </h3>
+                    </div>
+                    <!--content -->
+                <div class="container-step text-center">
+                    <img alt="Test your speaker" src="~/dist/img/learn-word/test_speaker.png" />
+                    </div>
+                </div>
+                <hr />
+                <!--footer -->
+                <div class="row">
+                    <div class="footer-step clearfix col-xs-12 ">
+                        <button class="btn btn-next pull-right" id="btn-next">Bắt đầu học <i class="fa fa-caret-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!--Step 1-->
+            <div id="step1">
+                <div class="row">
+                    <div class="title-step">
+                        <h3 class="title">
+                            Nhắm mắt lại và tập trung nghe 3 lần
+                        </h3>
+                    </div>
+                    <!--content -->
+                    <div class="container-step" id="step1-listening">
+                    <div class="guide-icon">
+                        <div class="eye-x active"></div>
+                        <div class="ear active"></div>
+                        <div class="mouth-x"></div>
+                        <div class="hand-x"></div>
+                    </div>
+                </div>
+            </div>
+                <hr />
+                <!--footer -->
+                <div class="row">
+                    <div class="footer-step clearfix col-xs-12 ">                       
+                        <button class="btn btn-next disabled pull-right" id="btn-next1">Bước 2 <i class="fa fa-caret-right"></i></button>
+                    <button class="btn btn-blue pull-right" id="btn-jump">Bỏ qua luyện nghe</button>
+                    </div>
+                </div>
+            </div>
+            <!--Step 2-->
+            <div id="step2">
+                <div class="row">
+                    <div class="title-step">
+                    <h3 class="title">
+                            Nhắm mắt, nghe và lặp lại 2 lần
+                        </h3>
+                    </div>
+                    <!--content -->
+                    <div class="container-step">
+                    <div class="guide-icon">
+                        <div class="eye-x active"></div>
+                        <div class="ear active"></div>
+                        <div class="mouth active"></div>
+                        <div class="hand-x"></div>
+                    </div>
+                </div>
+            </div>
+                <hr />
+                <!--footer -->
+                <div class="row">
+                    <div class="footer-step clearfix col-xs-12 ">
+                        <button class="btn btn-next disabled pull-right" id="btn-next2">Bước 3 <i class="fa fa-caret-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!--Step 3-->
+            <div id="step3">
+                <div class="row">
+                    <div class="title-step">
+                    <h3 class="title">
+                            Mở mắt, nghe và lặp lại
+                        </h3>
+                    </div>
+                    <!--content -->
+                    <div class="container-step">
+                    <div class="guide-icon small">
+                        <div class="eye active"></div>
+                        <div class="ear active"></div>
+                        <div class="mouth active"></div>
+                        <div class="hand-x"></div>
+                            </div>
+                    <div class="step3-content">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h2 id="word"></h2>
+                                <a href="" class="sm2_button" id="step3-listening">
+                                    <i class="fa fa-volume-up fa-lg jp-play"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p>
+                                    <span id="ipa"></span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <img src="" class="img-responsive" id="word-img" alt=@Model.Word.aWord>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--footer -->
+                <div class="row">
+                    <div class="footer-step clearfix col-xs-12">
+                        <hr />
+                        <button class="btn btn-next disabled pull-right" id="btn-next3">Bước 4 <i class="fa fa-caret-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!--Step 4-->
+            <div id="step4">
+                <div class="title-step">
+                <h3 class="title">
+                        Nghe và viết lại từ đó
+                    </h3>
+                </div>
+                <!--content -->
+                <div class="container-step">
+                <div class="guide-icon">
+                    <div class="eye active"></div>
+                    <div class="ear active"></div>
+                    <div class="mouth active"></div>
+                    <div class="hand active"></div>
+                </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-11 col-md-offset-2">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="word-input" aria-describedby="word-hint">
+                            <span class="input-group-addon" id="word-hint"><i class="fa fa-lightbulb-o"></i></span>
+                            </div>
+                        </div>
+                        <div class="visible-xs-block visible-sm-block"><br /> <br /> <br /> <br /> </div>
+                        <div class="col-xs-1 col-md-1">
+                        <button data-times="0" class="btn btn-green" id="step4-hint">Gợi ý</button>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <!--footer -->
+                <div class="row">
+                <div class="footer-step clearfix col-xs-12">
+                    <button data-times="0" class="btn pull-right" id="step4-compare">Kiểm tra</button>
+                    <button class="btn btn-next4 hide pull-right" id="btn-next4">Bước 5 <i class="fa fa-caret-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!--Step 5-->
+            <div class="step5" id="step5">
+                <div class="row">
+                    <div class="title-step clearfix">
+                    <h3 class="title">
+                            Sắp xếp từ theo thứ tự
+                        </h3>
+                    </div>
+                </div>              
+                <div class="row">
+                    <!--content -->
+                    <div class="container-step col-md-12 clearfix">
+                    <div class="guide-icon">
+                        <div class="eye active"></div>
+                        <div class="ear active"></div>
+                        <div class="mouth active"></div>
+                        <div class="hand active"></div>
+                    </div>
+                        <div id="seperated_words">
+                        <p>Nhấn hoặc kéo thả từng từ để tạo thành câu</p>
+                            <ul class="list-group list-group-sortable" id="question"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 clearfix">
+                    <div class="row">
+                        <div class="col-md-12 step5-hint clearfix">
+                            <button data-times="0" class="btn btn-small btn-green" id="step5-hint"><i class="fa-lightbulb-o fa"></i> Gợi ý</button>
+                            <h6 id="sentence-hint"></h6>
+                        </div>
+                    </div>
+                        <div class="answers">
+                        <p>CÂU TRẢ LỜI</p>
+                            <ul class="list-group list-group-sortable" id="answer"></ul>
+                        </div>
+                    </div>
+                </div>         
+                <!--footer -->
+                <div class="row">
+                    <div class="footer-step clearfix col-xs-12 ">
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <h2 class="result5"><span id="result5"></span></h2>
+                        </div>
+                        <div class="col-xs-3">
+                            <button data-times="0" class="btn pull-right" id="step5-compare">Kiểm tra kết quả</button>
+                            <button data-times="0" class="btn pull-right" id="showFinish" style="">Chấm điểm <i class="fa fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <button data-times="0" class="btn pull-right hide" id="finish">Hoàn tất</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Result -->
+            <div id="result">
+                <div class="row">
+                    <div class="title-step clearfix">
+                        <h3 id="result-title">
+                            Lời chúc mừng học từ
+                        </h3>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <!--content -->
+                    <h1 id="result-message" class="">Great</h1>
+                    <img id="result-emotion" src="" class="img-responsive" />
+                </div>
+                <!--footer -->
+                <div class="row">
+                    <div class="footer-step clearfix col-xs-12 ">
+                        <button data-times="0" class="btn pull-right" id="btn-finish">Hoàn tất</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

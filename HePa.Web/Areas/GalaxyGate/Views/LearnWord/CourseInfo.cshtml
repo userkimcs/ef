@@ -1,0 +1,293 @@
+﻿@model HePa.Web.Areas.GalaxyGate.ViewModels.CourseViewModel
+
+@{
+    ViewBag.Title = "Khoá học từ vựng tại Hepa";
+    ViewBag.NavTitle = "Khoá học từ vựng";
+    ViewBag.MetaDesc = "Galaxy Gate là chương trình học từ vựng, ngữ pháp, phát âm độc quyền của Hepatown.";
+    ViewBag.MetaKeyword = "galaxy gate, từ vựng, ngữ pháp, phát âm";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+
+@section AddToHead {
+    <style>
+        .box-sel-class div {
+            background: rgb(0, 114, 184);
+            border-radius: 5px 5px 0 0;
+            color: #fff;
+            text-align: center;
+            font-weight: 300;
+            font-size: 20px;
+            padding-top: 10px;
+        }
+
+        .box-sel-class img {
+            border-radius: 0 0 5px 5px;
+        }
+    </style>
+}
+<ol class="breadcrumb">
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="/" itemprop="url">
+            <span itemprop="title">Hepatown</span>
+        </a>
+    </li>
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="@Url.Action("Index", "Home")" itemprop="url">
+            <span itemprop="title">Galaxy Gate</span>
+        </a>
+    </li>
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="@Url.Action("CourseInfo", "LearnWord", new { area = "galaxygate"})">
+            <span itemprop="title">Từ vựng</span>
+        </a>
+    </li>
+</ol>
+<div class="row">
+    <div class="col-md-8">
+        <div class="content" id="course_content">
+            @foreach (var cls in Model.RegisteredClasses)
+            {
+                @* Init variable for RegisteredClass and Not registeredClass *@
+                //var displayLeaveClassBtn = "";
+                //System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                //if (cls.IsRegistered)
+                //{
+                //    // HTML for "Leave class button"
+                //    sb.Append("<div class='col-xs-6'>");
+                //    sb.Append("<a class='class-exit text-right pull-right' href='@Url.Action('LeaveClass', 'LearnWord', new { area = 'galaxygate', classId = cls.Class.Id })' onclick='return confirm('Bạn chắc là muốn huỷ lớp này?')'><i class='fa fa-times'></i></a>");
+                //    sb.Append("</div>");
+                //    displayLeaveClassBtn = sb.ToString();
+                //    sb.Clear();
+                //}
+                <div class="boxed class learning-class">
+
+                    @{
+                string src = "";
+                if (cls.Class.IsMaintained)
+                {
+                    // Empty
+                }
+                else
+                {
+                    src = Url.Action("ClassInfoAndRegister", "LearnWord", new { classId = cls.Class.Id });
+                }
+                <div class="row">
+                    <a href=@src>
+                        <div class="col-xs-6 class-img">
+                            <img class="img-responsive" src="@cls.Class.Image" alt="@cls.Class.ClassName" />
+                        </div>
+                    </a>
+
+                    <div class="col-xs-6 class-detail">
+                        <div class="row class-label">
+                            <div class="col-xs-6">
+                                @if (cls.Class.IsMaintained == false)
+                                {
+                                    <span class="label label-danger">Lớp HOT nhất</span>
+                                }
+                                else
+                                {
+                                    <span class="label label-success">Lớp sắp mở</span>
+                                }
+                            </div>
+                            @* Leave class button *@
+                            @if (cls.IsRegistered)
+                            {
+                                <div class="col-xs-6">
+                                    <a class="class-exit text-right pull-right" href="@Url.Action("LeaveClass", "LearnWord", new { area = "galaxygate", classId = cls.Class.Id })" onclick="return confirm('bạn chắc là muốn huỷ lớp này?')"><i class="fa fa-times"></i></a>
+                                </div>
+                            }
+                        </div>
+                        <a href=@src>
+                            <div class="row class-title">
+                                <div class="col-xs-12">
+                                    <h4>@cls.Class.ClassName</h4>
+                                </div>
+                            </div>
+                            <div class="row class-info1">
+                                <div class="col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6">SL: @cls.Class.NumberOfWords từ vựng</div>
+                                        <div class="col-xs-6">
+                                            <span class="class-rating" rating="@cls.Class.Complexity">
+                                                <span></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row class-info2">
+                                <div class="col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6">Đã hoàn tất: @cls.AchievingAmount/@cls.Class.NumberOfWords từ</div>
+                                        <div class="col-xs-6">Đã học: <span>@cls.RemainingDays</span> ngày</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row class-progress">
+                                <div class="col-xs-12">
+                                    @* thiết lập câu dẫn nội dung lớp *@
+                                    @if (cls.Class.IsMaintained && cls.IsRegistered)
+                                    {
+                                        <h6>Lớp đang bảo trì, mời bạn quay lại sau</h6>
+                                    }
+                                    else if (cls.Class.IsMaintained && !cls.IsRegistered)
+                                    {
+                                        <h6>Lớp sẽ được mở sớm</h6>
+                                    }
+                                    else if (!cls.Class.IsMaintained && !cls.IsRegistered)
+                                    {
+                                        <h6>Đăng ký ngay để bắt đầu</h6>
+                                    }
+                                    else if (!cls.Class.IsMaintained && cls.IsRegistered)
+                                    {
+                                        <h6>Hôm nay học được</h6>
+                                    }
+
+                                    @* hiển thị thanh tiến độ học cho từng lớp *@
+                                    <div id="@cls.Class.Id" class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" data-transitiongoal="00" word-done="@cls.PassedTodayWordAmount" word-totals="@cls.TodayWordAmount"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="row class-control">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                if (cls.Class.IsMaintained && cls.IsRegistered)
+                                {
+                                    <div class="col-xs-4 pull-right text-right">
+                                        <a class="btn btn-small btn-blue disabled resume" href="@Url.Action("Resume", "LearnWord", new { area = "galaxygate", classId = cls.Class.Id }, null)" data-ismaintained="@cls.Class.IsMaintained">Học tiếp  <i class="fa fa-caret-right"></i></a>
+                                    </div>
+                                }
+                                else if (cls.Class.IsMaintained && !cls.IsRegistered)
+                                {
+                                    <div class="col-xs-4 pull-right text-right">
+                                        <a class="btn btn-small btn-green disabled resume" href="@Url.Action("ClassInfoAndRegister", "LearnWord", new { area = "galaxygate", classId = cls.Class.Id }, null)" data-ismaintained="@cls.Class.IsMaintained">Đăng ký  <i class="fa fa-caret-right"></i></a>
+                                    </div>
+                                }
+                                else if (!cls.Class.IsMaintained && !cls.IsRegistered)
+                                {
+                                    <div class="col-xs-4 pull-right text-right">
+                                        <a class="btn btn-small btn-green resume" href="@Url.Action("ClassInfoAndRegister", "LearnWord", new { area = "galaxygate", classId = cls.Class.Id }, null)" data-ismaintained="@cls.Class.IsMaintained">Đăng ký  <i class="fa fa-caret-right"></i></a>
+                                    </div>
+                                }
+                                else if (!cls.Class.IsMaintained && cls.IsRegistered)
+                                {
+                                    <div class="col-xs-8 change-goal">
+                                        <a href="@Url.Action("ChangeGoal", "LearnWord", new { area = "galaxygate", classId = cls.Class.Id }, null)">Thay đổi mục tiêu</a>
+                                    </div>
+                                    <div class="col-xs-4 pull-right text-right">
+                                        <a class="btn btn-small btn-blue resume" href="@Url.Action("Resume", "LearnWord", new { area = "galaxygate", classId = cls.Class.Id }, null)" data-ismaintained="@cls.Class.IsMaintained">Học tiếp  <i class="fa fa-caret-right"></i></a>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="content">
+            <div class="right-simple-content boxed box-sel-class">
+                <div>Chọn lớp mà bạn thích <i class="fa fa-heart"></i></div>
+                <p>
+                    <img class="img-responsive" src="~/dist/img/course-img/vocabulary.jpg" />
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Lớp học này đăng được nâng cấp</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section AddScript {
+    <script src="@Scripts.Url("~/dist/bsProgressbar-js")"></script>
+    <script>
+        /* START Progress bar for class */
+        $classList = ['starter', 'mover', 'flyer'];
+        $percentList = [];
+        $wordDone = [];
+        $wordTotal = [];
+        for (var i = 0; i < $classList.length; i++) {
+            $wordDone[i] = $('#' + $classList[i] + ' .progress-bar').attr('word-done');
+            $wordTotal[i] = $('#' + $classList[i] + ' .progress-bar').attr('word-totals');
+            $percentList[i] = $wordDone[i] * 100 / $wordTotal[i];
+            $('#' + $classList[i] + ' .progress-bar').attr(
+            'data-transitiongoal', $percentList[i]
+            ).progressbar({
+                transition_delay: 2500,
+                display_text: 'fill',
+                use_percentage: false
+            });
+        }
+        $('#' + $classList[0] + ' .progress-bar').attr(
+            'data-transitiongoal', $percentList[0]
+            ).progressbar({
+            amount_format: function (p, t) {
+                return $wordDone[0] + '/' + $wordTotal[0] + ' từ';
+            }
+        });
+        $('#' + $classList[1] + ' .progress-bar').attr(
+            'data-transitiongoal', $percentList[1]
+            ).progressbar({
+            amount_format: function (p, t) {
+                return $wordDone[1] + '/' + $wordTotal[1] + ' từ';
+            }
+        });
+        $('#' + $classList[2] + ' .progress-bar').attr(
+            'data-transitiongoal', $percentList[2]
+            ).progressbar({
+            amount_format: function (p, t) {
+                return $wordDone[2] + '/' + $wordTotal[2] + ' từ';
+            }
+        });
+        /* E N D Progress bar for class */
+
+        //Add modal taget to class
+        var linkList = $(".resume");
+        $.each(linkList, function () {
+            if ($(this).attr("data-ismaintained") == "True") {
+                $(this).data("toggle", "modal");
+                $(this).data("target", "#myModal");
+            }
+        });
+
+        $(document).ready(function () {
+            // Set height for image of learning class
+            if (viewport.width >= 650) {
+                $('.learning-class .class-img img').height(
+                    $('.learning-class').height()
+                );
+            }
+
+            /* Set the rating star of a class */
+            // lấy mảng các phần span star cần cập nhật width
+            $stars = $('.class-rating').find('span');
+            // với mỗi span star cập nhật width tính theo rating của div cha
+            $stars.each(function () {
+                $(this).width(
+                    113 * $(this).parent().attr('rating') / 5
+                );
+            });
+
+        });
+    </script>
+}

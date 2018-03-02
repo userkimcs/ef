@@ -1,0 +1,83 @@
+﻿@model IList<HePa.Web.Areas.Admin.ViewModels.UserViewModel>
+
+    @{
+        ViewBag.Title = "UserList";
+        Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+    }
+    <div class="boxed">
+        <div class="inner">
+            <h2>UserList</h2>
+
+            <table class="table" id="table2excel">
+                <thead>
+                    <tr>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Tên hiển thị
+                        </th>
+                        <th>
+                            Tuổi
+                        </th>
+                        <th>
+                            Nghề nghiệp
+                        </th>
+                        <th>
+                            Địa chỉ
+                        </th>
+                        <th>
+                            Ngày tạo
+                        </th>
+                        <th>
+                            Hoạt động
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DisplayName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Age)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Job)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Place)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastActive)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "UserEdit", new { id = item.Id }) |
+                                @Html.ActionLink("Thông tin", "UserDetail", new { id = item.Id })
+                                <!--| @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) -->
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <button class="btn" id="excel-export">Xuất file excel</button>
+        </div>
+    </div>
+    @Scripts.Render("~/dist/export-excel-js")
+    <script>
+        $("#excel-export").click(function () {
+            $("#table2excel").table2excel({
+                // exclude CSS class
+                name: "Excel Document Name"
+            });
+        });
+    </script>

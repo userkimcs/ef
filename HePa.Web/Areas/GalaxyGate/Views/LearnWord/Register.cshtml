@@ -1,0 +1,183 @@
+﻿@model HePa.Web.Areas.GalaxyGate.ViewModels.RegisterToClassViewModel
+@using HePa.Core.Extensions;
+@{
+    ViewBag.Title = "Đặt mục tiêu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/dist/range-slide-css")
+<h2>Đặt mục tiêu</h2>
+Bạn phải đặt mục tiêu <br />
+Mục tiêu gợi ý: <b>sẽ đưa lên sau</b><br />
+<hr /> <br />
+<h2>Thông tin lớp</h2>
+Tên: @Model.Classs.ClassName <br />
+<strong>@User.IsPaid()</strong><br />
+@using (Html.BeginForm("RegisterConfirm", "LearnWord", new { area = "galaxygate", classId = Model.Classs.Id }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Classs.Id)
+    @Html.HiddenFor(model => model.Course.Id)
+    @Html.Label("Course: ") @Model.Course.CourseName <br />
+    @Html.Label("Class name: ") @Model.Classs.ClassName <br />
+    @Html.Label("Goal: ")
+    <input type="range" min="2" max="20" value="8" data-rangeslider>
+    <div> 
+        <output></output>
+        <p>Cần: <span id="minutes_cal">32</span> phút mỗi ngày</p>
+        <p>Trong: <span id="days_cal"></span> ngày</p>
+    </div>
+    
+    @Html.EditorFor(model => model.NumberOfWeeks, new { default_value = "8", htmlAttributes = new { @class = "hide" } }) <br />
+
+    if (User.IsPaid() == true)
+    {
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    }
+    else
+    {
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Save</button>
+    }
+}
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Thông báo</h4>
+            </div>
+            <div class="modal-body">
+                <p>Người dùng miễn phí chỉ được học 2 từ/1 ngày</p>
+                <p><a style="font-size: 20px" href="@Url.Action("Order", "Order", new { area = ""})">Mua thẻ Hepa</a> để được <b>nhiều quyền lợi hơn</b></p>
+            </div>
+            <div class="modal-footer">
+                <a href="@Url.Action("Order", "Order", new { area = ""})" class="btn btn-default" data-dismiss="modal">Trở thành công dân Hepa</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-save">Để sau</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section AddScript {
+    @Scripts.Render("~/dist/range-slide-js")
+    <script>
+        $("#btn-save").click(function () {
+            $("form").submit();
+        })
+    </script>
+
+
+<script>
+    var numOfWords =  @Html.Raw(Json.Encode(Model.Classs.NumberOfWords));
+    $("#days_cal").html(numOfWords/8);
+
+
+    $(function () {
+
+        var $document = $(document);
+        var selector = '[data-rangeslider]';
+        var $element = $(selector);
+
+        // For ie8 support
+        var textContent = ('textContent' in document) ? 'textContent' : 'innerText';
+
+        // Example functionality to demonstrate a value feedback
+        function valueOutput(element) {
+            var value = element.value;
+            var output = element.parentNode.getElementsByTagName('output')[0] || element.parentNode.parentNode.getElementsByTagName('output')[0];
+            output[textContent] = value;
+        }
+
+        $document.on('input', selector, function (e) {
+            valueOutput(e.target);
+        });
+
+        // Example functionality to demonstrate disabled functionality
+        $document.on('click', '#js-example-disabled button[data-behaviour="toggle"]', function (e) {
+            var $inputRange = $(selector, e.target.parentNode);
+
+            if ($inputRange[0].disabled) {
+                $inputRange.prop("disabled", false);
+            }
+            else {
+                $inputRange.prop("disabled", true);
+            }
+            $inputRange.rangeslider('update');
+        });
+
+        // Example functionality to demonstrate programmatic value changes
+        $document.on('click', '#js-example-change-value button', function (e) {
+            var $inputRange = $(selector, e.target.parentNode);
+            var value = $('input[type="number"]', e.target.parentNode)[0].value;
+
+            $inputRange.val(value).change();
+        });
+
+        // Example functionality to demonstrate programmatic attribute changes
+        $document.on('click', '#js-example-change-attributes button', function (e) {
+            var $inputRange = $(selector, e.target.parentNode);
+            var attributes = {
+                min: $('input[name="min"]', e.target.parentNode)[0].value,
+                max: $('input[name="max"]', e.target.parentNode)[0].value,
+                step: $('input[name="step"]', e.target.parentNode)[0].value
+            };
+
+            $inputRange.attr(attributes);
+            $inputRange.rangeslider('update', true);
+        });
+
+        // Example functionality to demonstrate destroy functionality
+        $document
+            .on('click', '#js-example-destroy button[data-behaviour="destroy"]', function (e) {
+                $(selector, e.target.parentNode).rangeslider('destroy');
+            })
+            .on('click', '#js-example-destroy button[data-behaviour="initialize"]', function (e) {
+                $(selector, e.target.parentNode).rangeslider({ polyfill: false });
+            });
+
+        // Example functionality to test initialisation on hidden elements
+        $document
+            .on('click', '#js-example-hidden button[data-behaviour="toggle"]', function (e) {
+                var $container = $(e.target.previousElementSibling);
+                $container.toggle();
+            });
+
+        // Basic rangeslider initialization
+        $element.rangeslider({
+
+            // Deactivate the feature detection
+            polyfill: false,
+
+            // Callback function
+            onInit: function () {
+                valueOutput(this.$element[0]);
+            },
+
+            // Callback function
+            onSlide: function (position, value) {
+                $("#NumberOfWeeks").val(value);
+
+                var numOfWords =  @Html.Raw(Json.Encode(Model.Classs.NumberOfWords));
+                $("#days_cal").html(Math.round(numOfWords/value));
+                $("#minutes_cal").html(Math.round(value * 4));
+            },
+
+            // Callback function
+            onSlideEnd: function (position, value) {
+                $("#NumberOfWeeks").val(value);
+
+                var numOfWords =  @Html.Raw(Json.Encode(Model.Classs.NumberOfWords));
+                $("#days_cal").html(Math.round(numOfWords/value));
+                $("#minutes_cal").html(Math.round(value * 4));
+            }
+        });
+
+    });
+</script>
+}

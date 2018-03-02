@@ -1,0 +1,55 @@
+﻿@model HePa.Core.Entities.WordComment
+@using HePa.Core.Extensions;
+
+    @*<span style="font-weight: bold; color: blue"> @User.DisplayName()</span> <span>: </span>@Model.CommentContent
+    <br/>
+    @Model.CreatedDate
+<br/>
+    <a data-status="success" data-times="0" id="@Model.Id" href="#">Thích</a>
+
+    <br/>*@
+
+<li class="discussion-comments-list-item">
+    <div class="nested-comment">
+        <!-- Self comment -->
+        <div class="self-comment">
+            <!-- User image -->
+            <span class="pull-left">
+                <a href="#" class="user-image-circle">
+                    <img src="/dist/img/site-img/default-avatar.png" class="user-image" alt="User Image">
+                    <span class="ring"></span>
+                </a>
+            </span>
+            <!-- User name -->
+            <header>
+                <a href="#">@User.DisplayName()</a>
+                @* Hiển thị điểm kinh nghiệm *@
+                @*<ul class="user-flair">
+                        <li>
+                            <i class="fa fa-star fa-lg level-flag"></i>
+                            <span class="level-number">2</span>
+                        </li>
+                    </ul>*@
+            </header>
+            <div class="body">@Model.CommentContent</div>
+            <footer>
+                <div class="like-module-small">
+                    <span class="like-count">@Model.Votes</span>
+                    <span class="like loading-like-button">
+                        <a data-status="success" data-times="0" id="@Model.Id" href="#">Thích</a>
+                    </span>
+                    <span>·</span>
+                    <span class="showing-date">@Model.CreatedDate</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+</li>
+
+
+
+@if (Model.NumberOfReplies > 0)
+{
+    <a>View more</a>
+}
+<br />

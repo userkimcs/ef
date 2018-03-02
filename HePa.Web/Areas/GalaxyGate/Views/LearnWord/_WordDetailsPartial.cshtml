@@ -1,0 +1,449 @@
+﻿@model HePa.Web.Areas.GalaxyGate.ViewModels.ViewWordViewModel
+
+@{
+    var POS_VN = "";
+    switch (Model.Word.PartOfSpeech)
+    {
+        case "n":
+            POS_VN = "danh từ";
+            break;
+        case "v":
+            POS_VN = "động từ";
+            break;
+        case "adj":
+            POS_VN = "tính từ";
+            break;
+        case "adv":
+            POS_VN = "trạng từ";
+            break;
+        case "pro":
+            POS_VN = "đại từ";
+            break;
+        case "prep":
+            POS_VN = "giới từ";
+            break;
+        case "conj":
+            POS_VN = "liên từ";
+            break;
+        case "det":
+            POS_VN = "từ hạn định";
+            break;
+        case "exclamation":
+            POS_VN = "thán từ";
+            break;
+        case "number":
+            POS_VN = "số";
+            break;
+        case "modal":
+            POS_VN = "đtừ khiếm khuyết";
+            break;
+        case "det, pro":
+            POS_VN = "từ hạn định/đại từ";
+            break;
+        default:
+            POS_VN = "loại từ";
+            break;
+    }
+}
+
+<div class="content-word">
+    @*Display word*@
+    <!--content -->
+    <div class="row word">
+        <div class="row-heigh">
+            <div class="col-xs-5 col-height col-middle">
+                <img src="" class="img-responsive word-img" id="word-img">
+            </div>
+            <div class="col-xs-7 col-height">
+                <div class="row">
+                    <h2 class="text-center">
+                        <span id="word" class="aword"></span>   <!--Show words-->
+                        <small class="tow"><em>@POS_VN</em></small>     <!--Show loại từ-->
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <p>
+                            <span class="label label-default" data-toggle="tooltip" title="Phiên âm quốc tế (NAmE)">IPA</span> <!--Show IPA-->
+                            <span id="ipa" class="ipa IPA"></span>
+                            <a href="@Model.Word.AudioLink" class="sm2_button step3-listening" id="step3-listening" title="Nghe phát âm giọng Anh Mỹ (NAmE)">
+                                <i class=" fa fa-volume-up fa-lg jp-play"></i>
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-xs-6">
+                        <p>
+                            <span class="label label-default" data-toggle="tooltip" title="Nghĩa của từ">M</span>
+                            <span class="meaning word-mean" id="word-mean">nghĩa-của-từ</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 example">
+                        <p>
+                            <span class="label label-default" data-toggle="tooltip" data-placement="right" title="Ví dụ">Example</span>
+                        </p>
+                        <dl>
+                            <dt>
+                                <span id="word-example" class="word-example"></span>
+                                <a href="@Model.Word.ExampleSentences.ElementAt(0).AudioLink" class="sm2_button">
+                                    <i class="fa fa-volume-up fa-lg jp-play"></i>
+                                </a>
+                            </dt>
+                            <dd>@Model.Word.ExampleSentences.ElementAt(0).Meaning</dd>
+                            <dt>
+                                @Model.Word.ExampleSentences.ElementAt(1).Sentence
+                                <a href="@Model.Word.ExampleSentences.ElementAt(1).AudioLink" class="sm2_button">
+                                    <i class="fa fa-volume-up fa-lg jp-play"></i>
+                                </a>
+                            </dt>
+                            <dd>@Model.Word.ExampleSentences.ElementAt(1).Meaning</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        @* if authenticated, show this view *@
+        <div class="row learn-next-word">
+            <div class="col-sm-12">
+                @if (Model.IsAllowLearnAgain)
+                {
+                    <!--Show button if user can learn again-->
+                    <a href="@Url.Action("Lecture", "LearnWord", new { area = "galaxygate", classId = Model.Word.ClassBelongId, wordId = Model.Word.Id})" class="btn pull-left" id="btn-relearning"><i class="fa fa-undo"></i> Học lại từ này</a>
+                }
+                <a href="@Url.Action("Resume", "LearnWord", new { area = "galaxygate"})" class="btn pull-right btn-green" id="btn-learning">Tiếp tục học từ <i class="fa fa-arrow-right"></i></a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <!--Remind user login or register-->
+        <div class="player-discuss-guide">
+            <ul class="fa-ul">
+                <li>
+                    <i class="fa fa-info-circle fa-lg fa-li"></i>
+                    <span>Bạn muốn cải thiện từ vựng? Hãy <a href="/">đăng ký miễn phí</a> để học được học 2 từ mỗi ngày hoặc <a href="//hepatown.com/mua-the-hepa-passport">mua thẻ Hepa passport</a> ngay để nhận được ưu đãi tốt nhất!</span>
+                </li>
+            </ul>
+        </div>
+    }
+
+    <div class="share-section">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="social email-share pull-right">
+                    <a href="mailto:yourfriend@mail.com?subject=Học từ vựng rất hay&body=Hi yourfriend"><i class="fa fa-envelope"></i> Email</a>
+                </div>
+                <div class="social facebook-message pull-right">
+                    <div class="fb-send" data-href="@Url.Action("lecture", "LearnWord", new { area="galaxygate", classid=@Model.Word.ClassBelongId, wordid=@Model.Word.Id, word=@Model.Word.aWord })"></div>
+                </div>
+                <div class="social facebook-like pull-right">
+                    <div class="fb-like" data-href="@Url.Action("lecture", "LearnWord", new { area="galaxygate", classid=@Model.Word.ClassBelongId, wordid=@Model.Word.Id, word=@Model.Word.aWord })" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*Post comment*@
+    <div class="comment-area">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <section class="content-discussion">
+                <div class="inner">
+                    <div class="discussion-main">
+                        <div>
+                            <!-- User image -->
+                            <span class="pull-left">
+                                <a href="#" class="user-image-circle">
+                                    <img src="/dist/img/site-img/default-avatar.png" class="user-image" alt="User Image">
+                                    <span class="ring"></span>
+                                </a>
+                            </span>
+                            <!-- Text box to post new comment -->
+                            @using (Ajax.BeginForm("PostComment", "LearnWord", new { area = "galaxygate" }, new AjaxOptions
+                    {
+                        UpdateTargetId = "comment-section",
+                        InsertionMode = InsertionMode.InsertAfter,
+                        // OnComplete = "resetCommentTextBox()",
+                        OnBegin = "disablePostCommentButtonAndResetTextbox()",
+                    }, new { id = "comment-form" }))
+                            {
+                                @Html.TextAreaFor(model => model.Comment, htmlAttributes: new
+                                   {
+                                       @id = "post-text-box",
+                                       @class = "comment-box input-autoheight",
+                                       @placeholder = "Đặt câu với từ vừa học ở đây",
+                                       @row = 1
+                                   })
+                            }
+                        </div>
+                        <div id="comment-field">
+                            <div class="player-discuss-guide">
+                                <ul class="fa-ul">
+                                    <li>
+                                        <i class="fa fa-info-circle fa-lg fa-li"></i>
+                                        <span>Thử vận dụng từ <i class="text-orange">@Model.Word.aWord</i> vừa học nào.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="discussion-btn">
+                                <input form="comment-form" type="submit" id="comment_btn_submit" class="btn discussion-submit btn-small" value="Đăng" />
+                                <button form="comment-form" type="reset" class="btn btn-brown btn-small">Huỷ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            if (@Model.Comments.Count != 0)
+            {
+                <div class="row discussion-comments">
+                    <div class="col-xs-7">
+                        <h1>@Model.Comments.Count&nbsp;bình luận</h1>
+                    </div>
+                    <!-- Select filter -->
+                    <div class="col-xs-5 discussion-filter">
+                        @if (@Model.Comments.Count > 1)
+                        {
+                            <div class="form-group">
+                                <div class="row">
+
+                                    <div class="col-xs-6 dis-label">
+                                        <label class="pull-right">Sắp xếp theo:</label>
+                                    </div>
+                                    <div class="col-xs-6 filter-select">
+                                        <select onchange="commentFilter(this);" class="form-control">
+                                            <option value="1">Ngày</option>
+                                            <option value="2">Lượt thích</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>}
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            // Do nothing
+        }
+
+        @* List of all comments *@
+        <ul class="discussion-comments-list">
+            @* A comment content "self-comment" and "discussion-comment" *@
+
+            @* self comment of user *@
+            <li id="comment-section"></li>
+            @* list exist comments *@
+            <li id="list-word-section">
+                @{ Html.RenderPartial("_ListWordCommentPartial", Model.GetListWordCommentViewModel()); }
+            </li>
+        </ul>
+        <div id="view-more-comment-section"></div>
+        @*Change comment view section*@
+        <!--Show more-->
+        @if (@Model.Comments.Count != 0)
+        {
+            <botton class="" data-page="1" id="btn_showMore">Xem thêm</botton>
+        }
+
+    </div>
+
+    <div>
+        @Html.Partial("_FacebookCommentBoxPartial")
+    </div>
+</div>
+
+@Scripts.Render("~/dist/js-learn-word-guest")
+<script>
+    //Reset comment textbox when submit
+    function resetCommentTextBox() {
+        var commentbox = $("#post-text-box");
+        commentbox.val("");
+        commentbox.html("");
+    }
+
+    function disablePostCommentButtonAndResetTextbox()
+    {
+        // disable button
+        var btn = $("#comment_btn_submit");
+        btn.prop('disabled', true);
+        setTimeout(function(){
+            btn.prop('disabled', false);
+        }, 3*1000);
+        // reset textbox
+        var commentbox = $("#post-text-box");
+        commentbox.val("");
+        commentbox.html("");
+    }
+
+    function checkNullText(event) {
+        var commentbox = $("#post-text-box");
+        if (commentbox.val("") ||  commentbox.html("")) {
+            event.preventDefault()
+        }
+    }
+
+    //Load từ form model
+    var audio_url = @Html.Raw(Json.Encode(Model.Word.AudioLink)); //$("#data").data("audiolink");
+    var word = @Html.Raw(Json.Encode(Model.Word.aWord)); //$("#data").data("word");
+    var ipa =  @Html.Raw(Json.Encode(Model.Word.IPA)); //$("#data").data("ipa");
+    var img_url = @Html.Raw(Json.Encode(Model.Word.ImageLink)); //$("#data").data("imagelink");
+    var meaning = @Html.Raw(Json.Encode(Model.Word.Meaning)); //$("#data").data("meaning");
+    var example = @Html.Raw(Json.Encode(Model.Word.ExampleSentences.FirstOrDefault().Sentence));
+    var word_id = @Html.Raw(Json.Encode(Model.Word.Id));
+
+    //Gán từ
+    $('.aword').html(word);
+    $('.word .ipa').html(ipa);
+    $('.word .word-img').prop('src', img_url);
+    $('.word .word-mean').html(meaning);
+    $('.word .word-example').html(example);
+    $('.word .step3-listening').attr('href', audio_url);
+
+    /*Show more scripts*/
+    $("#btn_showMore").click(function () {
+        var pages = $(this).attr("data-page");   //get current page
+        pages = parseInt(pages);
+        pages += 1; //next page
+        $(this).attr("data-page", pages); // rewrite page to html option
+
+        var word_id = @Html.Raw(Json.Encode(Model.Word.Id));
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("GetMoreCommentItems", "LearnWord", new { area = "galaxygate" })',
+            dataType: 'html',
+            data: {
+                wordId :word_id,
+                page: pages,
+            },
+            success: function (datanew) {
+                if (datanew != '"end"') {
+                    $("#list-word-section").append(datanew);
+                }
+                else {
+                    $("#btn_showMore").remove();
+                }
+            },
+            error: function (xhr, ajaxOptions, error) {
+                // $("#list-word-section").html(xhr.status + " " + xhr.responseText);
+                console.log(xhr.status + " " + xhr.responseText);
+            }
+        });
+
+    });
+
+    /*Select filter*/
+    // $("#sl_filter").on('change', function() {
+    function commentFilter(sel) {
+        var word_id = @Html.Raw(Json.Encode(Model.Word.Id));
+        if (sel.value == 1) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("DateTimeFilter", "LearnWord", new { area = "galaxygate" })',
+                dataType: 'html',
+                data: {
+                    wordId :word_id,
+                },
+                success: function (datanew) {
+                    $("#list-word-section").html(datanew);
+                },
+                error: function (xhr, ajaxOptions, error) {
+                    // $("#list-word-section").html(xhr.status + " " + xhr.responseText);
+                    console.log(xhr.status + " " + xhr.responseText);
+                }
+            });
+        }
+        else {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("InterestedFilter", "LearnWord", new { area = "galaxygate" })',
+                dataType: 'html',
+                data: {
+                    wordId :word_id,
+                },
+                success: function (datanew) {
+                    $("#list-word-section").html(datanew);
+                },
+                error: function (xhr, ajaxOptions, error) {
+                    // $("#list-word-section").html(xhr.status + " " + xhr.responseText);
+                    console.log(xhr.status + " " + xhr.responseText);
+                }
+            });
+        }
+    }
+
+    /* Enter buttton event*/
+    $(document).keypress(function(e) {
+        if(e.which == 13) {
+            if ($("#post-text-box").is(':focus')) {
+                $("#comment-form").submit();
+            }
+        }
+    });
+
+    /*Catch submit event*/
+    $('#form1').on('submit', function(e) { //use on if jQuery 1.7+
+        if ($("#post-text-box").val().length < 6) {
+            e.preventDefault();  //prevent form from submitting
+            return false;
+        }
+    });
+
+    //Load FB comment
+    //FB.XFBML.parse();
+</script>
+
+
+<script>
+    @*
+    var currentPage = 2;
+
+    function nextPage() {
+        currentPage = currentPage + 1;
+        console.log("Next page: " + currentPage);
+        return currentPage;
+    }
+
+    $(document).ready(function () {
+        var actionUrl = '@Ajax.ActionLink("Xem thêm", "GetMoreCommentItems", new { area = "galaxygate", page = 2 },
+                new AjaxOptions
+                {
+                    UpdateTargetId = "list-word-section",
+                    InsertionMode = InsertionMode.InsertAfter,
+                    OnSuccess = "updatePage()"
+                })';
+        actionUrl = actionUrl.replace("ShowPage", currentPage);
+        $("#view-more-comment-section").html(actionUrl);
+    });
+
+    function updatePage() {
+        var actionUrl = '@Ajax.ActionLink("Xem thêm", "GetMoreCommentItems", new { area = "galaxygate" ,page = "ShowPage" },
+        new AjaxOptions {
+            UpdateTargetId = "list-word-section",
+            InsertionMode = InsertionMode.InsertAfter,
+            OnSuccess = "updatePage()"
+        })';
+        actionUrl = actionUrl.replace("ShowPage", currentPage + 1);
+        console.log("Current Page: " + currentPage);
+        nextPage();
+        $("#view-more-comment-section").html(actionUrl);
+    }
+
+    function resetPage() {
+        currentPage = 2;
+        var actionUrl = '@Ajax.ActionLink("Xem thêm", "GetMoreCommentItems", new { area = "galaxygate", page = 2 },
+            new AjaxOptions
+            {
+                UpdateTargetId = "list-word-section",
+                InsertionMode = InsertionMode.InsertAfter,
+                OnSuccess = "updatePage()"
+            })';
+        actionUrl = actionUrl.replace("ShowPage", currentPage);
+        $("#view-more-comment-section").html(actionUrl);
+    }
+        *@
+</script>
+

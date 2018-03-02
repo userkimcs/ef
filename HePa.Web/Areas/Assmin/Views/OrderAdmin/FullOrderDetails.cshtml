@@ -1,0 +1,99 @@
+﻿@model IEnumerable<HePa.Core.Entities.OrderDetail>
+
+@{
+    ViewBag.Title = "FullOrderPayment";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+
+<h2>Full Order Details</h2>
+
+<button class="btn btn-lg btn-primary" id="excel-export">
+    Xuất file excel
+</button>
+
+<div class="boxed">
+    <table class="table table-striped table-bordered" id="table2excel">
+        <thead>
+            <tr>
+                <th>
+                    @Html.ActionLink("Tên khách hàng", "Index")
+                </th>
+                <th>
+                    @Html.ActionLink("Điện thoại", "Index")
+                </th>
+                <th>
+                    @Html.ActionLink("Địa chỉ", "Index")
+                </th>
+                <th>
+                    @Html.ActionLink("Email", "Index")
+                </th>
+                <th>
+                    @Html.ActionLink("Tên sản phẩm", "Index")
+                </th>
+                <th>
+                    @Html.ActionLink("Giá", "Index")
+                </th>
+                <th>
+                    @Html.ActionLink("Số lượng", "Index")
+                </th>
+                <th>
+                    @Html.ActionLink("Giảm giá %", "Index")
+                </th>
+                <th>
+                    @Html.ActionLink("Hình thức thanh toán", "Index")
+                </th>
+                <th>
+                    @Html.ActionLink("Ngày đăng ký", "Index")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HepaProduct.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HepaProduct.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberOfItems)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CouponCode.SaleOffAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KindOfPurchase)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.CreatedDate)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@Scripts.Render("~/dist/export-excel-js")
+<script>
+    $("#excel-export").click(function () {
+        $("#table2excel").table2excel({
+            // exclude CSS class
+            exclude: ".noExl",
+            name: "Excel Document Name"
+        });
+    });
+</script>

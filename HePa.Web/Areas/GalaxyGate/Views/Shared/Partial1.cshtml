@@ -1,0 +1,375 @@
+﻿@Styles.Render("~/dist/css-all")
+@Styles.Render("~/dist/bootstrap-css")
+@Scripts.Render("~/dist/jquery-js")
+@Scripts.Render("~/dist/bootstrap-js")
+    <!-- container -->
+    <div class="container">
+        <div class="row">
+            <!-- Left column - Main section -->
+            <div class="col-sm-8">
+                <!-- main box -->
+                <div class="boxed lesson" role="main">
+                    <!-- header of box -->
+                    <section class="content-header">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <!-- Breadcrumb -->
+                                <ol class="breadcrumb">
+                                    <li><a href="#">Hepa</a></li>
+                                    <li><a href="#">Class</a></li>
+                                    <li><a href="#">Starter-English</a></li>
+                                    <li><a href="#">Word</a></li>
+                                    <li>Faces</li>
+                                </ol>
+                            </div>
+                            <div class="col-xs-2">
+                                <div class="control pull-right">
+                                    <a class="btn btn-yellow btn-supper-small" href="">
+                                        <span><i class="fa fa-close"></i> Thoát</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Main content of word (process, result, image, meaning, example) -->
+                    <section class="content-word">
+                        <div class="inner">
+                            <!-- Word - Process, result -->
+                            <div class="row result">
+                                <div class="col-xs-10">
+                                    <h4>Hoàn hảo</h4>
+                                </div>
+                                <div class="col-xs-2">
+                                    <h4 class="pull-right">40 điểm</h4>
+                                </div>
+                            </div>
+                            <!-- Word - Image, Word meaning -->
+                            <div class="row word">
+                                <div class="col-xs-6">
+                                    <img class="present-img img-responsive" src="img/data-img/face.png">
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="row">
+                                        <h2 class="text-center">
+                                            <span>face</span>
+                                            <small class="tow"><em>danh từ</em></small>
+                                        </h2>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <p>
+                                                <span class="label label-default" data-toggle="tooltip" title="Phiên âm quốc tế (NAmE)">IPA</span>
+                                                <span class="IPA">/feis/</span>
+                                                <a href="audio/face.mp3" class="sm2_button" data-toggle="tooltip" title="Nghe phát âm giọng Anh Mỹ (NAmE)">
+                                                    <i class="fa fa-volume-up fa-lg jp-play"></i>
+                                                </a>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <p>
+                                                <span class="label label-default" data-toggle="tooltip" title="Nghĩa của từ">M</span>
+                                                <span class="meaning">mặt, vẻ mặt</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 example">
+                                            <p>
+                                                <span class="label label-default" data-toggle="tooltip" data-placement="right" title="Ví dụ">Example</span>
+                                            </p>
+                                            <dl>
+                                                <dt>
+                                                    She has a round face.
+                                                    <a href="audio/facade.mp3" class="sm2_button">
+                                                        <i class="fa fa-volume-up fa-lg jp-play"></i>
+                                                    </a>
+                                                </dt>
+                                                <dd>Cô ấy có khuôn mặt tròn.</dd>
+                                                <dt>
+                                                    He had a happy expression on his face.
+                                                    <a href="audio/fabulous.mp3" class="sm2_button">
+                                                        <i class="fa fa-volume-up fa-lg jp-play"></i>
+                                                    </a>
+                                                </dt>
+                                                <dd>Anh ấy có một vẻ mặt rất hạnh phúc.</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Discussion / Reply -->
+                    <section class="content-discussion">
+                        <div class="inner">
+                            <div class="discussion-main">
+                                <!-- User image -->
+                                <span class="pull-left">
+                                    <a href="#" class="user-image-circle">
+                                        <img src="img/data-img/phat.jpg" class="user-image" alt="User Image">
+                                        <span class="ring"></span>
+                                    </a>
+                                </span>
+                                <textarea id="post-text-box" class="comment-box input-autoheight" placeholder="Bình luận bài này với những người học khác"></textarea>
+                                <div id="comment-field">
+                                    <div class="player-discuss-guide">
+                                        <ul class="fa-ul">
+                                            <li>
+                                                <i class="fa fa-info-circle fa-lg fa-li"></i>
+                                                <span>Sau quá trình học bạn có thể đặt một câu với từ vừa học để luyện tập và mọi người có thể bình luận thêm câu của bạn.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <span class="btn btn-small btn-red link-submit discussion-submit"><input type="submit" id="send" value="Gửi" hidefocus="true" class="gradient"></span>
+                                    <button class="btn btn-small btn-brown">
+                                        <span>Huỷ</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="discussion-comments">
+                                <h2>30 bình luận</h2>
+                                <!-- List of all comments -->
+                                <ul class="discussion-comments-list">
+                                    <!-- A comment content "self-comment" and "discussion-comment" -->
+                                    <li class="discussion-comments-list-item">
+                                        <div class="nested-comment">
+                                            <!-- Self comment -->
+                                            <div class="self-comment">
+                                                <!-- User image -->
+                                                <span class="pull-left">
+                                                    <a href="#" class="user-image-circle">
+                                                        <img src="img/data-img/phat.jpg" class="user-image" alt="User Image">
+                                                        <span class="ring"></span>
+                                                    </a>
+                                                </span>
+                                                <!-- User name -->
+                                                <header>
+                                                    <a href="#">Phat Nguyen</a>
+                                                    <ul class="user-flair">
+                                                        <li>
+                                                            <i class="fa fa-star fa-lg level-flag"></i>
+                                                            <span class="level-number">2</span>
+                                                        </li>
+                                                    </ul>
+                                                </header>
+                                                <div class="body">Bài này hay quá...</div>
+                                                <footer>
+                                                    <div class="like-module-small">
+                                                        <span class="like-count">10</span>
+                                                        <span class="like">
+                                                            <i class="fa fa-thumbs-up fa-lg"></i>
+                                                        </span>
+                                                        <span>·</span>
+                                                        <a href="#" class="add-reply">Trả lời</a>
+                                                        <span>·</span>
+                                                        <span class="showing-date">2 tháng trước</span>
+                                                    </div>
+                                                </footer>
+                                                <!-- Reply box is hidden, Active when click on "Reply" -->
+                                                <div id="reply-box-1511" class="new-comment">
+                                                    <textarea class="comment-box input-autoheight" placeholder="Trả lời"></textarea>
+                                                    <script type="text/javascript">
+
+                                                    </script>
+                                                    <span class="btn btn-red btn-small link-submit discussion-submit"><input type="submit" id="send" value="Đăng" hidefocus="true" class="gradient"></span>
+                                                    <button class="btn btn-brown btn-small">
+                                                        <span>Huỷ</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- Discussion comments (child comments) -->
+                                            <ul class="discussion-comments-list shifted">
+                                                <li class="discussion-comments-list-item">
+                                                    <div class="nested-comment">
+                                                        <!-- Self comment -->
+                                                        <div class="self-comment">
+                                                            <!-- User image -->
+                                                            <span class="pull-left">
+                                                                <a href="#" class="user-image-circle">
+                                                                    <img src="img/data-img/phat.jpg" class="user-image" alt="User Image">
+                                                                    <span class="ring"></span>
+                                                                </a>
+                                                            </span>
+                                                            <!-- User name -->
+                                                            <header>
+                                                                <a href="#">Patrick Nguyen</a>
+                                                                <ul class="user-flair">
+                                                                    <li>
+                                                                        <i class="fa fa-star fa-lg level-flag"></i>
+                                                                        <span class="level-number">2</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </header>
+                                                            <div class="body">Bài này hay quá...</div>
+                                                            <footer>
+                                                                <div class="like-module-small active-liked">
+                                                                    <span class="like-count">10</span>
+                                                                    <span class="like">
+                                                                        <i class="fa fa-thumbs-up fa-lg"></i>
+                                                                    </span>
+                                                                    <span>·</span>
+                                                                    <a href="#" class="add-reply">Trả lời</a>
+                                                                    <span>·</span>
+                                                                    <span class="showing-date">2 tháng trước</span>
+                                                                </div>
+                                                            </footer>
+                                                            <!-- Reply box is hidden, Active when click on "Reply" -->
+                                                            <div id="reply-box-1511" class="new-comment">
+                                                                <textarea class="comment-box input-autoheight" placeholder="Trả lời"></textarea>
+                                                                <span class="btn btn-red btn-small link-submit discussion-submit"><input type="submit" id="send" value="Đăng" hidefocus="true" class="gradient"></span>
+                                                                <button class="btn btn-brown btn-small">
+                                                                    <span>Huỷ</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- Right column -->
+            <div class="col-sm-4">
+                <div class="wordlist-tab tabs_framed">
+                    <div class="inner">
+                        <!-- Tab control -->
+                        <ul class="tabs clearfix">
+                            <li class="active"><a href="#today" data-toggle="tab">Hôm nay</a></li>
+                            <li><a href="#review" data-toggle="tab">Ôn lại</a></li>
+                        </ul>
+                        <!-- Tab content -->
+                        <div class="tab-content boxed clearfix">
+                            <div class="tab-pane fade in active" id="today">
+                                <!-- Daily goal -->
+                                <div class="daily-goal row">
+                                    <div class="col-xs-10">
+                                        <h4>Mục tiêu hàng ngày</h4>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <a href="#" class="set" data-toggle="tooltip" data-placement="bottom" title="Thay đổi mục tiêu hàng ngày">
+                                            <i class="fa fa-cog fa-2x"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <h6>Đã hoàn thành</h6>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" data-transitiongoal="00" word-done="5" word-totals="8"></div>
+                                </div>
+                                <!-- Wordlist -->
+                                <h6>Danh sách từ hôm nay</h6>
+                                <div class="word-list no-gutter">
+                                    <div class="col-xs-5">
+                                        <ul class="english-word">
+                                            <li>
+                                                <i class="learned-word fa fa-check-square-o"></i>
+                                                <a href="#">learn</a>
+                                            </li>
+                                            <li>
+                                                <i class="learned-word fa fa-times"></i>
+                                                <a href="#">difficult</a>
+                                            </li>
+                                            <li>
+                                                <i class="learned-word fa fa-check-square-o"></i>
+                                                <a href="#">easy</a>
+                                            </li>
+                                            <li>
+                                                <i class="learned-word fa fa-check-square-o"></i>
+                                                <a href="#">face</a>
+                                            </li>
+                                            <li>
+                                                <i class="learned-word fa fa-check-square-o"></i>
+                                                <a href="#">small</a>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-square"></i>
+                                                <a href="#">yesterday</a>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-square"></i>
+                                                <a href="#">calendar</a>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-square"></i>
+                                                <a href="#">today</a>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-square"></i>
+                                                <a href="#">tomorrow</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <!-- Meaning -->
+                                        <ul class="meaning">
+                                            <li>
+                                                <a href="audio/learn.mp3" class="sm2_button">
+                                                    <i class="fa fa-volume-up fa-lg jp-play"></i>
+                                                </a>
+                                                học
+                                            </li>
+                                            <li>
+                                                <a href="audio/difficult.mp3" class="sm2_button">
+                                                    <i class="fa fa-volume-up fa-lg jp-play"></i>
+                                                </a>
+                                                khó khăn
+                                            </li>
+                                            <li>
+                                                <a href="audio/easy.mp3" class="sm2_button">
+                                                    <i class="fa fa-volume-up fa-lg jp-play"></i>
+                                                </a>
+                                                dễ dàng
+                                            </li>
+                                            <li>
+                                                <a href="audio/face.mp3" class="sm2_button">
+                                                    <i class="fa fa-volume-up fa-lg jp-play"></i>
+                                                </a>
+                                                mặt, vẻ mặt
+                                            </li>
+                                            <li>
+                                                <a href="audio/small.mp3" class="sm2_button">
+                                                    <i class="fa fa-volume-up fa-lg jp-play"></i>
+                                                </a>
+                                                nhỏ
+                                            </li>
+                                            <li>
+                                                <a href="audio/yesterday.mp3" class="sm2_button">
+                                                    <i class="fa fa-volume-up fa-lg jp-play"></i>
+                                                </a>
+                                                hôm qua
+                                            </li>
+                                            <li>
+                                                <a href="audio/calendar.mp3" class="sm2_button">
+                                                    <i class="fa fa-volume-up fa-lg jp-play"></i>
+                                                </a>
+                                                lịch
+                                            </li>
+                                            <li>
+                                                <a href="audio/today.mp3" class="sm2_button">
+                                                    <i class="fa fa-volume-up fa-lg jp-play"></i>
+                                                </a>
+                                                hôm nay
+                                            </li>
+                                            <li>
+                                                <a href="audio/tomorrow.mp3" class="sm2_button">
+                                                    <i class="fa fa-volume-up fa-lg jp-play"></i>
+                                                </a>
+                                                ngày mai
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="review">
+                                <!--place your content here-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

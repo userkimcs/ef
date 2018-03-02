@@ -1,0 +1,155 @@
+﻿@model HePa.Core.Entities.ApplicationUser
+
+@{
+    ViewBag.Title = "UserDetail";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+
+<h2>UserDetail</h2>
+<div class="boxed">
+    <div class="inner">
+        <div>
+            <h4>ApplicationUser</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DisplayName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DisplayName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Role)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Role)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsVerified)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsVerified)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsPaid)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsPaid)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsBanned)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsBanned)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.BirthDay)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BirthDay)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Job)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Job)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Place)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Place)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Avatar)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Avatar)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CreatedDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastActive)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LastActive)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LoginProvider)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LoginProvider)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DisplayName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DisplayName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AccessKey)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AccessKey)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastAccess)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LastAccess)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<HePa.Core.Entities.Course>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Courses</h2>
+
+@*Display all course and classes for each course*@
+
+@for (int i = 0; i < Model.Count(); i++)
+{
+    <h3>
+        @Model.ElementAt(i).CourseName <span> - </span>
+        @Model.ElementAt(i).Id <span> - </span>
+        @Html.ActionLink("Chi tiết", "CourseDetails", new { courseId = Model.ElementAt(i).Id })
+    </h3>
+    @*Load list of classes*@
+    for (int j = 0; j <  Model.ElementAt(i).ContentedClasses.Count(); j++) 
+    {
+        var classItem = Model.ElementAt(i).ContentedClasses.ElementAt(j);
+        <h4>
+            @classItem.ClassName <span> - </span>
+            @classItem.Id <span> - </span>
+            @Html.ActionLink("Chi tiết", "ClassDetails", new { classId = classItem.Id })
+        </h4>
+    }
+    <hr />
+}

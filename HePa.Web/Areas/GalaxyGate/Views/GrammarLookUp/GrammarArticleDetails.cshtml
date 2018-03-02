@@ -1,0 +1,18 @@
+﻿@model HePa.Web.Areas.GalaxyGate.ViewModels.Grammar.GrammarArticleViewModel
+
+@{
+    ViewBag.Title = "GrammarArticleDetails";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+@{
+    Html.RenderPartial("_GrammarTreePartial", Model.GrammarDictionaryTree); 
+    <hr /> <hr /> 
+    Html.RenderPartial("_GrammarContentPartial", Model.ArticleContent);
+}
+
+@section AddScript
+{
+    <!--Script for ajax loading-->
+    @Scripts.Render("~/dist/jquery-ui-js")
+    @Scripts.Render("~/dist/jquery.unobtrusive-ajax")
+}

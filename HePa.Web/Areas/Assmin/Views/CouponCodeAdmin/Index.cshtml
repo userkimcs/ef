@@ -1,0 +1,85 @@
+﻿@model IList<HePa.Core.Entities.CouponCode>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SimplePageLayout.cshtml";
+}
+@Styles.Render("~/dist/css-edit-user")
+<h2>Index</h2>
+
+
+
+<div class="boxed">
+    <div class="inner inner-content">
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <h4>
+            Loại hình khuyến mãi: 1: Nhân thời gian, 2: Thêm thời gian (tháng),3: Giảm tiền theo phần trăm, 4: Giảm trức tiếp tiền
+        </h4>
+        <table class="table">
+            <tr>
+                <td>
+                    Mã voucher
+                </td>
+                <td>
+                    Giá trị khuyến mại
+                </td>
+                <td>
+                    Loại hình khuyến mãi
+                </td>
+                <td>
+                    Thông tin chương trình
+                </td>
+                <td>
+                    Điều kiện giảm giá
+                </td>
+                <td>
+                    Số lần sử dụng tối đa
+                </td>
+                <td>
+                    Ngày bắt đầu
+                </td>
+                <td>
+                    Ngày kết thúc
+                </td>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleOffAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Desciption)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LimitedCondition)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UsageAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
